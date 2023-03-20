@@ -15,10 +15,17 @@ public class Identifier_Shaker : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter (collider collision)
+    public void OnTriggerEnter(Collider other)
     {
 
-        
+        most_recent_item = "happened";
+
+        Debug.Log("Something entered!!");
+        if (other.gameObject.GetComponent<ItemIdentity>())
+        {
+            Debug.Log("Worked 2");
+            most_recent_item = other.gameObject.GetComponent<ItemIdentity>().my_identity;
+        } 
 
     }
 
