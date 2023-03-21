@@ -6,8 +6,10 @@ public class Identifier_Shaker : MonoBehaviour
 {
 
     public string most_recent_item;
+    public int destructable_layer;
 
-    public LayerMask object_collided;
+    public string[] items_in_shaker;
+    public int item_number;
 
     // Start is called before the first frame update
     void Start()
@@ -15,16 +17,17 @@ public class Identifier_Shaker : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-
-        most_recent_item = "happened";
-
-        Debug.Log("Something entered!!");
         if (other.gameObject.GetComponent<ItemIdentity>())
         {
-            Debug.Log("Worked 2");
             most_recent_item = other.gameObject.GetComponent<ItemIdentity>().my_identity;
+            if (other.gameObject.layer == destructable_layer)
+            {
+                items_in_shaker[item_number] = most_recent_item;
+                item_number += 1;
+                Destroy(other.gameObject);
+            }
         } 
 
     }
