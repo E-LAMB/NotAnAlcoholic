@@ -6,39 +6,41 @@ public class DragAndDropItems : MonoBehaviour
 {
 
     public bool is_picked_up;
-    public bool can_be_picked_up;
+
+    public bool grabbed;
 
     public Vector3 moving_to;
 
     public Rigidbody2D my_body;
 
+    public Vector3 drag_offset;
+
+    public Transform dragger;
+
+    public float max_distance;
+    // public DistanceJoint2D drag_joint;
+
     // Start is called before the first frame update
     void Start()
     {
-        
         my_body = gameObject.GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        can_be_picked_up = !Mind.item_is_in_hand;
-
-        /*
-        if (is_picked_up)
-        {
-            my_body.enabled = false;
-        } else
-        {
-            my_body.enabled = true;
-        }
-        */
-
-
+        Mind.item_is_in_hand = false;
         is_picked_up = false;
+        // grabbed = false;
+        // if (drag_joint.distance > max_distance) { drag_joint.distance = max_distance; }
 
+    }
+
+    void LateUpdate()
+    {
+        is_picked_up = grabbed;
+        if (is_picked_up) { Mind.item_is_in_hand = true; }
+        grabbed = false;
     }
 
     void OnMouseDrag()
@@ -47,14 +49,20 @@ public class DragAndDropItems : MonoBehaviour
         WhileGrabbed();
     }
 
+    void OnMouseDown()
+    {
+        drag_offset = dragger.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        drag_offset.z = dragger.position.z;
+    }
+
     void WhileGrabbed()
     {
-        
+        grabbed = true;
         my_body.velocity = Vector2.zero;
-        moving_to = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        moving_to.z = transform.position.z;
-        transform.position = moving_to;
-
+        moving_to = Camera.main.ScreenToWorldPoint(Input.mousePosition) + drag_offset;
+        moving_to.z = dragger.position.z;
+        dragger.position = moving_to;
+        
     }
 
 }
