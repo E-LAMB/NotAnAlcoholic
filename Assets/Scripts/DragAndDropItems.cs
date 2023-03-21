@@ -29,7 +29,6 @@ public class DragAndDropItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Mind.item_is_in_hand = false;
         is_picked_up = false;
         // grabbed = false;
         // if (drag_joint.distance > max_distance) { drag_joint.distance = max_distance; }
@@ -39,7 +38,6 @@ public class DragAndDropItems : MonoBehaviour
     void LateUpdate()
     {
         is_picked_up = grabbed;
-        if (is_picked_up) { Mind.item_is_in_hand = true; }
         grabbed = false;
     }
 

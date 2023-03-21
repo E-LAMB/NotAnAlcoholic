@@ -5,6 +5,6 @@ using UnityEngine;
 public static class Mind 
 {
 
-    public static bool item_is_in_hand;
+    public static bool filling_shaker = false;
 
 }
