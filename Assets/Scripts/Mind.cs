@@ -14,4 +14,11 @@ public static class Mind
     // 2: Shaking drink
     // 3: Serve drink
 
+    public static string drink_fluid = "n/a";
+    public static string[] drink_ingredients;
+    public static int drink_shake_level = 1;
+
+    public static float ingredient_gap_time = 1f;
+    public static float
+
 }

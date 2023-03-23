@@ -14,7 +14,7 @@ public class Identifier_Shaker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Mind.drink_ingredients = items_in_shaker;
     }
 
     public void OnTriggerEnter2D(Collider2D other)
