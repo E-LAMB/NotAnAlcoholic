@@ -19,6 +19,6 @@ public static class Mind
     public static int drink_shake_level = 1;
 
     public static float ingredient_gap_time = 1f;
-    public static float
+    public static float ice_melting_time = 12f;
 
 }
