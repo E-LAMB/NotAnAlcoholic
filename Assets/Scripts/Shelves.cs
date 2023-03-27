@@ -7,6 +7,7 @@ public class Shelves : MonoBehaviour
 
     public GameObject my_spawn;
     public float spawn_cooldown;
+    public Vector3 offset;
 
     void Update()
     {
@@ -20,7 +21,7 @@ public class Shelves : MonoBehaviour
         if (spawn_cooldown <= 0f)
         {
             spawn_cooldown = Mind.ingredient_gap_time;
-            Instantiate(my_spawn, gameObject.transform);
+            Instantiate(my_spawn, gameObject.transform.position + offset, gameObject.transform.localRotation);
         }
     }
 }

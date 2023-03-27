@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1703636569939763343}
   - component: {fileID: 1703636569939763340}
   - component: {fileID: 1703636569939763341}
+  - component: {fileID: 821954054620312327}
   m_Layer: 6
   m_Name: ITEM_ice
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1703636569939763330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.8625, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1703636570785174286}
   m_Father: {fileID: 0}
@@ -181,6 +182,26 @@ PolygonCollider2D:
       - {x: -0.17126483, y: 0.3704077}
       - {x: -0.26814848, y: 0.33753645}
       - {x: -0.31313008, y: 0.3219658}
+--- !u!114 &821954054620312327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703636569939763330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5704ddb2d46094496fc8548da475d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  my_life: 0
+  size_change: 1
+  fraction: 0
+  buffer: 10
+  self: {fileID: 1703636569939763336}
+  start: {x: 0, y: 0, z: 0}
+  final: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
 --- !u!1 &1703636570785174287
 GameObject:
   m_ObjectHideFlags: 0
