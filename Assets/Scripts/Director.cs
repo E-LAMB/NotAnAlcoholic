@@ -10,6 +10,11 @@ public class Director : MonoBehaviour
     public int pairing_one;
     public int pairing_two;
 
+    public int pairing_attempts;
+    public int max_attempts;
+
+    public int patron_free_count;
+
     public bool patron_1_free;
     public bool patron_2_free;
     public bool patron_3_free;
@@ -31,25 +36,40 @@ public class Director : MonoBehaviour
     public Patron patronscript_5;
     public Patron patronscript_6;
 
-    public GameObject seat_1;
-    public GameObject seat_2;
-    public GameObject seat_3;
-    public GameObject seat_4;
-    public GameObject seat_5;
-    public GameObject seat_6;
+    public int conversator_free_count;
+    public bool conversation_1_free;
+    public bool conversation_2_free;
+    public bool conversation_3_free;
+
+    public ConversationController conversator_1;
+    public ConversationController conversator_2;
+    public ConversationController conversator_3;
+
+    public int selected_conversator;
+
+    public GameObject selected_1_patronobject;
+    public GameObject selected_2_patronobject;
+    public Patron selected_1_patronscript;
+    public Patron selected_2_patronscript;
+
+    public ConversationController selected_controller;
 
     // Start is called before the first frame update
     void Start()
     {
 
     }
-
-    /* */
      
     public void roll_patrons(bool first, bool cp_1, bool cp_2, bool cp_3, bool cp_4, bool cp_5, bool cp_6)
     {
         int selected_pairing = 0;
         bool should_retry = false;
+        pairing_attempts += 1;
+        bool is_first_ran = false;
+        if (pairing_attempts == 1)
+        {
+            is_first_ran = true;
+        }
 
         if (first)
         {
@@ -70,7 +90,40 @@ public class Director : MonoBehaviour
         if (selected_pairing == 5 && !cp_5) { should_retry = true; }
         if (selected_pairing == 6 && !cp_6) { should_retry = true; }
 
-        if (should_retry) { roll_patrons(first, cp_1, cp_2, cp_3, cp_4, cp_5, cp_6); }
+        if (selected_pairing == pairing_one && first) { should_retry = true; }
+
+        if (should_retry && pairing_attempts != max_attempts) 
+        {
+            roll_patrons(first, cp_1, cp_2, cp_3, cp_4, cp_5, cp_6); 
+        } 
+        //if (pairing_attempts == max_attempts && is_first_ran) {Debug.Log("Denied");}
+        selected_pairing += 0;
+    }
+
+    public void roll_conversators(bool cp_1, bool cp_2, bool cp_3)
+    {
+
+        bool should_retry = false;
+        pairing_attempts += 1;
+        bool is_first_ran = false;
+        if (pairing_attempts == 1)
+        {
+            is_first_ran = true;
+        }
+
+        selected_conversator = Random.Range(1,4);
+
+        Debug.Log(selected_conversator);
+        
+        if (selected_conversator == 1 && !cp_1) { should_retry = true; }
+        if (selected_conversator == 2 && !cp_2) { should_retry = true; }
+        if (selected_conversator == 3 && !cp_3) { should_retry = true; }
+
+        if (should_retry && pairing_attempts != max_attempts) 
+        {
+            roll_conversators(cp_1, cp_2, cp_3); 
+        } 
+        //if (pairing_attempts == max_attempts && is_first_ran) {Debug.Log("Denied");}
 
     }
 
@@ -85,15 +138,82 @@ public class Director : MonoBehaviour
         patron_5_free = patronscript_5.currently_free;
         patron_6_free = patronscript_6.currently_free;
 
-        if (should_assign)
+        conversation_1_free = conversator_1.currently_free;
+        conversation_2_free = conversator_2.currently_free;
+        conversation_3_free = conversator_3.currently_free;
+
+        patron_free_count = 0;
+        conversator_free_count = 0;
+
+        if (patron_1_free) {patron_free_count += 1;}
+        if (patron_2_free) {patron_free_count += 1;}
+        if (patron_3_free) {patron_free_count += 1;}
+        if (patron_4_free) {patron_free_count += 1;}
+        if (patron_5_free) {patron_free_count += 1;}
+        if (patron_6_free) {patron_free_count += 1;}
+
+        if (conversation_1_free) {conversator_free_count += 1;}
+        if (conversation_2_free) {conversator_free_count += 1;}
+        if (conversation_3_free) {conversator_free_count += 1;}
+
+        if (should_assign && patron_free_count >= 2 && conversator_free_count >= 1)
         {
+
             should_assign = false;
-            Debug.Log("Runs");
+
+            pairing_one = 0;
+            if (patron_1_free && pairing_one == 0) {pairing_one = 1;}
+            if (patron_2_free && pairing_one == 0) {pairing_one = 2;}
+            if (patron_3_free && pairing_one == 0) {pairing_one = 3;}
+            if (patron_4_free && pairing_one == 0) {pairing_one = 4;}
+            if (patron_5_free && pairing_one == 0) {pairing_one = 5;}
+            if (patron_6_free && pairing_one == 0) {pairing_one = 6;}
+
+            pairing_two = 0;
+            if (patron_1_free && pairing_two == 0 && pairing_one != 1) {pairing_two = 1;}
+            if (patron_2_free && pairing_two == 0 && pairing_one != 2) {pairing_two = 2;}
+            if (patron_3_free && pairing_two == 0 && pairing_one != 3) {pairing_two = 3;}
+            if (patron_4_free && pairing_two == 0 && pairing_one != 4) {pairing_two = 4;}
+            if (patron_5_free && pairing_two == 0 && pairing_one != 5) {pairing_two = 5;}
+            if (patron_6_free && pairing_two == 0 && pairing_one != 6) {pairing_two = 6;}
+
+            /*
+            pairing_attempts = 0;
             roll_patrons(true, patron_1_free, patron_2_free, patron_3_free, patron_4_free, patron_5_free, patron_6_free);
+            pairing_attempts = 0;
             roll_patrons(false, patron_1_free, patron_2_free, patron_3_free, patron_4_free, patron_5_free, patron_6_free);
+            */
+
+            pairing_attempts = 0;
+            roll_conversators(conversation_1_free, conversation_2_free, conversation_3_free);
+
+            if (pairing_one == 1) {selected_1_patronobject = patron_1;}
+            if (pairing_one == 2) {selected_1_patronobject = patron_2;}
+            if (pairing_one == 3) {selected_1_patronobject = patron_3;}
+            if (pairing_one == 4) {selected_1_patronobject = patron_4;}
+            if (pairing_one == 5) {selected_1_patronobject = patron_5;}
+            if (pairing_one == 6) {selected_1_patronobject = patron_6;}
+
+            if (pairing_two == 1) {selected_2_patronobject = patron_1;}
+            if (pairing_two == 2) {selected_2_patronobject = patron_2;}
+            if (pairing_two == 3) {selected_2_patronobject = patron_3;}
+            if (pairing_two == 4) {selected_2_patronobject = patron_4;}
+            if (pairing_two == 5) {selected_2_patronobject = patron_5;}
+            if (pairing_two == 6) {selected_2_patronobject = patron_6;}
+
+            if (selected_conversator == 1) {selected_controller = conversator_1;}
+            if (selected_conversator == 2) {selected_controller = conversator_2;}
+            if (selected_conversator == 3) {selected_controller = conversator_3;}
+
+            selected_1_patronscript = selected_1_patronobject.GetComponent<Patron>();
+            selected_2_patronscript = selected_2_patronobject.GetComponent<Patron>();
+
+            selected_controller.commanding_1 = selected_1_patronscript;
+            selected_controller.commanding_2 = selected_2_patronscript;
+
+            selected_controller.Activate();
+
         }
     }
     
-     /* */
-
 }

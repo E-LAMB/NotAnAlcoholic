@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     public Transform bar_right;
     public Transform back_holster;
 
+    public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,7 @@ public class CameraController : MonoBehaviour
                     bar_holster.position = bar_right.position;
                 }
                 camera_mover.position = bar_holster.position;
-                Vector3 new_position = new Vector3(camera_mover.position.x + Input.GetAxis("Horizontal"), camera_mover.position.y, camera_mover.position.z);
+                Vector3 new_position = new Vector3(camera_mover.position.x + (speed * Time.deltaTime * Input.GetAxis("Horizontal")), camera_mover.position.y, camera_mover.position.z);
                 bar_holster.position = new_position;
             }
         }
