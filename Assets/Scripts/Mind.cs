@@ -21,7 +21,7 @@ public static class Mind
     public static float ingredient_gap_time = 1f;
     public static float ice_melting_time = 11f;
 
-    public static bool camera_in_bar;
+    public static bool currently_in_back;
     public static bool in_control;
 
 }

@@ -5,25 +5,23 @@ using UnityEngine;
 public class CameraSwitcher : MonoBehaviour
 {
 
-    public CameraController my_camera_controller;
     public int type_of_button;
     // 1 = To Bar
-    // 2 = To Button
+    // 2 = To Back
 
     void OnMouseDown()
     {
 
+        if (type_of_button == 1)
+        {
+            Mind.currently_in_back = false;
+        }
+
+        if (type_of_button == 2)
+        {
+            Mind.currently_in_back = true;
+        }
+
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
