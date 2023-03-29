@@ -4071,7 +4071,7 @@ MonoBehaviour:
   - speaker_a: 1
     to_say: That's fine by me
   - speaker_a: 0
-    to_say: '&EndOfConvo'
+    to_say: $EndOfConvo
   - speaker_a: 0
     to_say: 
   - speaker_a: 0
