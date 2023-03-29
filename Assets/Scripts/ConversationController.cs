@@ -20,10 +20,12 @@ public class ConversationController : MonoBehaviour
     public float dia_countdown;
 
     [Header("Dialouge")]
-    public float[] time_to_wait;
+    public float time_to_wait;
     public bool[] from_speaker_a;
     public string[] what_to_say;
     public bool conversation_concluded;
+
+    public float speaking_speed;
 
     public int my_own_state;
     // 0 = Offscreen idle
@@ -38,6 +40,8 @@ public class ConversationController : MonoBehaviour
     {
 
         conversation_progress = 0;
+
+        speaking_speed = Mind.speaking_speed;
 
         currently_free = false;
         commanding_1.currently_free = false;
@@ -83,6 +87,7 @@ public class ConversationController : MonoBehaviour
                 commanding_1.completed_state = false;
                 commanding_2.completed_state = false;
                 dia_countdown = 2000f;
+                time_to_wait = 0f;
                 conversation_progress = 0;
                 conversation_concluded = false;
             }
@@ -91,9 +96,16 @@ public class ConversationController : MonoBehaviour
         if (my_own_state == 3)
         {
             dia_countdown += Time.deltaTime;    
-            if (dia_countdown > time_to_wait[conversation_progress])
+            if (dia_countdown > time_to_wait)
             {
                 conversation_progress += 1;
+
+                time_to_wait = what_to_say[conversation_progress].Length / speaking_speed;
+                if (0.4f > time_to_wait)
+                {
+                    time_to_wait = 0.4f;
+                }
+
                 dia_countdown = 0;
 
                 if (what_to_say[conversation_progress] == "$EndOfConvo")
@@ -108,10 +120,10 @@ public class ConversationController : MonoBehaviour
                 {
                     if (from_speaker_a[conversation_progress])
                     {
-                        commanding_1.Speaking(what_to_say[conversation_progress], time_to_wait[conversation_progress]);
+                        commanding_1.Speaking(what_to_say[conversation_progress], time_to_wait);
                     } else
                     {
-                        commanding_2.Speaking(what_to_say[conversation_progress], time_to_wait[conversation_progress]);
+                        commanding_2.Speaking(what_to_say[conversation_progress], time_to_wait);
                     }
                 }
             }

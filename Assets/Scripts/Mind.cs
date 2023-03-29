@@ -7,6 +7,8 @@ public static class Mind
 
     public static bool filling_shaker = false;
 
+    public static float speaking_speed = 5f;
+
     public static int making_stage = 0;
 
     // 0: Shift started

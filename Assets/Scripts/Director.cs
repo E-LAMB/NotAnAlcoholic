@@ -92,6 +92,11 @@ public class Director : MonoBehaviour
 
         if (selected_pairing == pairing_one && first) { should_retry = true; }
 
+        if (is_first_ran)
+        {
+            is_first_ran = true;
+        }
+
         if (should_retry && pairing_attempts != max_attempts) 
         {
             roll_patrons(first, cp_1, cp_2, cp_3, cp_4, cp_5, cp_6); 
@@ -118,6 +123,11 @@ public class Director : MonoBehaviour
         if (selected_conversator == 1 && !cp_1) { should_retry = true; }
         if (selected_conversator == 2 && !cp_2) { should_retry = true; }
         if (selected_conversator == 3 && !cp_3) { should_retry = true; }
+
+        if (is_first_ran)
+        {
+            is_first_ran = true;
+        }
 
         if (should_retry && pairing_attempts != max_attempts) 
         {
