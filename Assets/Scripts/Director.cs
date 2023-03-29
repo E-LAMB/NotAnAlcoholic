@@ -56,6 +56,7 @@ public class Director : MonoBehaviour
 
     public float predator_chance;
     public bool is_predator;
+    public bool predator_is_a;
 
     // Start is called before the first frame update
     void Start()
@@ -82,14 +83,6 @@ public class Director : MonoBehaviour
         {
             pairing_two = Random.Range(1, 7);
             selected_pairing = pairing_two;
-        }
-
-        if (Random.Range(1f, 100f) > predator_chance)
-        {
-            is_predator = true;
-        } else
-        {
-            is_predator = false;
         }
 
         Debug.Log(selected_pairing);
@@ -180,6 +173,24 @@ public class Director : MonoBehaviour
         if (should_assign && patron_free_count >= 2 && conversator_free_count >= 1)
         {
 
+            if (Random.Range(1f, 100f) > predator_chance)
+            {
+                is_predator = true;
+            }
+            else
+            {
+                is_predator = false;
+            }
+
+            if (Random.Range(1, 3) == 1)
+            {
+                predator_is_a = true;
+            }
+            else
+            {
+                predator_is_a = false;
+            }
+
             should_assign = false;
 
             pairing_one = 0;
@@ -232,6 +243,8 @@ public class Director : MonoBehaviour
             selected_controller.commanding_1 = selected_1_patronscript;
             selected_controller.commanding_2 = selected_2_patronscript;
 
+            selected_controller.predator_is_a = predator_is_a;
+            selected_controller.predator_present = is_predator;
             selected_controller.Activate();
 
         }

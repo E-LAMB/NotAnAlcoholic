@@ -10,6 +10,10 @@ public class Patron : MonoBehaviour
 
     public bool assigned_to_conversation;
 
+    public bool am_predator;
+
+    public GameObject pred_indicator;
+
     public SeatScript my_seat_script;
     public int seat_number;
 
@@ -39,6 +43,7 @@ public class Patron : MonoBehaviour
     {
 
         my_state = 1;
+        am_predator = false;
 
         seat_number = my_seat_script.seat_number;
         seat_location = my_seat_script.Expose_location();
@@ -75,6 +80,14 @@ public class Patron : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (am_predator)
+        {
+            pred_indicator.SetActive(true);
+        } else
+        {
+            pred_indicator.SetActive(false);
+        }
 
         if (text_fade_time <= 0.125f)
         {

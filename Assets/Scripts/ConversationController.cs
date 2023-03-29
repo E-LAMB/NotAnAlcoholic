@@ -36,6 +36,11 @@ public class ConversationController : MonoBehaviour
     // 5 = Leaving
     // 6 = OOBs 
 
+    public bool predator_present;
+    public bool predator_is_a;
+
+    public BankChooser conversation_chooser;
+
     public void Activate()
     {
 
@@ -52,19 +57,42 @@ public class ConversationController : MonoBehaviour
         commanding_1.my_seat_script = seat_1;
         commanding_2.my_seat_script = seat_2;
         
-        commanding_1.my_spawner = spawner_1;
-        commanding_2.my_spawner = spawner_2;
+        if (Random.Range(1,3) == 1)
+        {
+            commanding_1.my_spawner = spawner_2;
+            commanding_2.my_spawner = spawner_1;
+        } else
+        {
+            commanding_1.my_spawner = spawner_1;
+            commanding_2.my_spawner = spawner_2;
+        }
+
+        if (predator_present)
+        {
+            if (predator_is_a)
+            {
+                commanding_1.am_predator = true;
+            } else
+            {
+                commanding_2.am_predator = true;
+            }
+        }
 
         commanding_1.Activate();
         commanding_2.Activate();
 
         my_own_state = 1;
 
+        conversation_chooser.RollConversations(predator_is_a, predator_present);
+        what_to_say = conversation_chooser.extraction_string();
+        from_speaker_a = conversation_chooser.extraction_bool();
+        what_to_say = conversation_chooser.assembled_string;
+        from_speaker_a = conversation_chooser.assembled_bool;
+
     }
 
     void Update()
     {
-
         if (my_own_state == 1)
         {
             if (commanding_1.completed_state && commanding_2.completed_state)
@@ -101,9 +129,13 @@ public class ConversationController : MonoBehaviour
                 conversation_progress += 1;
 
                 time_to_wait = what_to_say[conversation_progress].Length / speaking_speed;
-                if (0.4f > time_to_wait)
+                if (1f > time_to_wait)
                 {
-                    time_to_wait = 0.4f;
+                    time_to_wait = 1f;
+                }
+                if (5f < time_to_wait)
+                {
+                    time_to_wait = 5f;
                 }
 
                 dia_countdown = 0;
