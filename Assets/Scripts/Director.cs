@@ -54,6 +54,9 @@ public class Director : MonoBehaviour
 
     public ConversationController selected_controller;
 
+    public float predator_chance;
+    public bool is_predator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +82,14 @@ public class Director : MonoBehaviour
         {
             pairing_two = Random.Range(1, 7);
             selected_pairing = pairing_two;
+        }
+
+        if (Random.Range(1f, 100f) > predator_chance)
+        {
+            is_predator = true;
+        } else
+        {
+            is_predator = false;
         }
 
         Debug.Log(selected_pairing);
