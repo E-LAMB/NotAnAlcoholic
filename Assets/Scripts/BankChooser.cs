@@ -15,4 +15,9 @@ public class BankChooser : MonoBehaviour
         return text_to_extract;
     }
 
+    public bool[] extraction_bool()
+    {
+        return bool_to_extract;
+    }
+
 }
