@@ -1101,8 +1101,9 @@ GameObject:
   - component: {fileID: 223183061}
   - component: {fileID: 223183060}
   - component: {fileID: 223183062}
+  - component: {fileID: 223183063}
   m_Layer: 0
-  m_Name: Button
+  m_Name: ToBack_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1115,12 +1116,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223183058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13, y: 0, z: -1.5}
   m_LocalScale: {x: -1, y: 1.2, z: 1}
   m_Children: []
-  m_Father: {fileID: 260832453}
-  m_RootOrder: 0
+  m_Father: {fileID: 878770602}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &223183060
 BoxCollider2D:
@@ -1212,6 +1213,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type_of_button: 2
+--- !u!114 &223183063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223183058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a371307ffecbfd41803e9e84568ad5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 223183059}
+  bound: {fileID: 260832453}
+  ideal_location: {fileID: 826604291}
 --- !u!1 &238766556 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7416888267004608769, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
@@ -1325,7 +1341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 260832453}
   m_Layer: 0
-  m_Name: ToBack
+  m_Name: ToBack_Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1341,10 +1357,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 223183059}
+  m_Children: []
   m_Father: {fileID: 878770602}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &264558467
 GameObject:
@@ -1376,6 +1391,7 @@ Transform:
   m_Children:
   - {fileID: 1345531251}
   - {fileID: 673784534}
+  - {fileID: 1976526467}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4678,6 +4694,36 @@ MonoBehaviour:
   predator_chance: 80
   is_predator: 0
   predator_is_a: 0
+--- !u!1 &826604290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826604291}
+  m_Layer: 0
+  m_Name: IdealButtonLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &826604291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826604290}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1701310689}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &863145669
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,6 +4848,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 626364645}
+  - {fileID: 223183059}
   - {fileID: 260832453}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -10879,7 +10926,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170728771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50, y: 0, z: 0}
+  m_LocalPosition: {x: -25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1581960461}
@@ -16263,6 +16310,198 @@ MonoBehaviour:
     to_say: 
   - speaker_a: 0
     to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
 --- !u!1 &1360832363
 GameObject:
   m_ObjectHideFlags: 0
@@ -17500,10 +17739,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701310688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
+  - {fileID: 826604291}
   m_Father: {fileID: 1581960461}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23716,6 +23956,252 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1976526466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1976526467}
+  - component: {fileID: 1976526468}
+  m_Layer: 0
+  m_Name: Innocent Conversation 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1976526467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976526466}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 264558468}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1976526468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976526466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8e230afa758945b21371b7facf34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  to_draw_from:
+  - speaker_a: 0
+    to_say: '&StartOfConvo'
+  - speaker_a: 0
+    to_say: Hey
+  - speaker_a: 0
+    to_say: Hi
+  - speaker_a: 0
+    to_say: My name is Roxy
+  - speaker_a: 0
+    to_say: My name is Dan
+  - speaker_a: 0
+    to_say: So, What brought you to Ferzu?
+  - speaker_a: 0
+    to_say: I spend way too much time inside
+  - speaker_a: 0
+    to_say: I mean way too much time
+  - speaker_a: 0
+    to_say: For the past 3 days, I haveb;t gone out.
+  - speaker_a: 0
+    to_say: Interesting
+  - speaker_a: 0
+    to_say: I'm a very outdoors person
+  - speaker_a: 0
+    to_say: I can't stay inside for long
+  - speaker_a: 0
+    to_say: It drives me up the wall
+  - speaker_a: 0
+    to_say: Clash of the Titans then
+  - speaker_a: 0
+    to_say: What?
+  - speaker_a: 0
+    to_say: It's the name of a game...
+  - speaker_a: 0
+    to_say: Oh
+  - speaker_a: 0
+    to_say: Yeah...
+  - speaker_a: 0
+    to_say: ...
+  - speaker_a: 0
+    to_say: I doni't get out much
+  - speaker_a: 0
+    to_say: ...
+  - speaker_a: 0
+    to_say: Do you watch movies?
+  - speaker_a: 0
+    to_say: Not usually, But yesterday I did
+  - speaker_a: 0
+    to_say: I went out to a nearby cinema
+  - speaker_a: 0
+    to_say: Oh cool
+  - speaker_a: 0
+    to_say: I watched Spook 2
+  - speaker_a: 0
+    to_say: You're a Spook fan? Cool!
+  - speaker_a: 0
+    to_say: Yeah, I really like the series
+  - speaker_a: 0
+    to_say: Have you seen the trailer for the fourth one?
+  - speaker_a: 0
+    to_say: Wait there's a fourth one?!
+  - speaker_a: 0
+    to_say: Yeah, It's coming out next month!
+  - speaker_a: 0
+    to_say: Oh cool
+  - speaker_a: 0
+    to_say: They were probably doing a re-run in the cinema
+  - speaker_a: 0
+    to_say: In preparation for the third one
+  - speaker_a: 0
+    to_say: Yeah
+  - speaker_a: 0
+    to_say: I'm a big fan of the movies
+  - speaker_a: 0
+    to_say: Maybe we should go and watch the fourth one together
+  - speaker_a: 0
+    to_say: I haven't seen the third one
+  - speaker_a: 0
+    to_say: We can watch it together some time
+  - speaker_a: 0
+    to_say: Next week?
+  - speaker_a: 0
+    to_say: Sure
+  - speaker_a: 0
+    to_say: Well then, I'll see you then
+  - speaker_a: 0
+    to_say: I'll leave too
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: '&EndOfConvo'
 --- !u!1 &1977408129
 GameObject:
   m_ObjectHideFlags: 0
