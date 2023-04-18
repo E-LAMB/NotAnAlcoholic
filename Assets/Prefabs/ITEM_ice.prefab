@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24da0fe427b56c94e957cb8f66e93d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  my_identity: Orange
+  my_identity: ICE
 --- !u!114 &1703636569939763343
 MonoBehaviour:
   m_ObjectHideFlags: 0
