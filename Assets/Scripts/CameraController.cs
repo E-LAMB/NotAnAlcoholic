@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class CameraController : MonoBehaviour
     public Transform bar_left;
     public Transform bar_right;
     public Transform back_holster;
+
+    public Image timer_a;
+    public Image timer_b;
+    public Image timer_c;
 
     public float speed;
 
@@ -25,6 +30,11 @@ public class CameraController : MonoBehaviour
     {
         if (Mind.in_control)
         {
+
+            timer_a.enabled = Mind.currently_in_back;
+            timer_b.enabled = Mind.currently_in_back;
+            timer_c.enabled = Mind.currently_in_back;
+
             if (Mind.currently_in_back)
             {
                 camera_mover.position = back_holster.position;

@@ -41,6 +41,8 @@ public class ConversationController : MonoBehaviour
 
     public int max_chosen;
 
+    public bool perform_action;
+
     public BankChooser conversation_chooser;
 
     public void Activate()
@@ -140,11 +142,13 @@ public class ConversationController : MonoBehaviour
         if (my_own_state == 3)
         {
             dia_countdown += Time.deltaTime;    
+            perform_action = false;
             if (dia_countdown > time_to_wait)
             {
                 conversation_progress += 1;
 
                 time_to_wait = what_to_say[conversation_progress].Length / speaking_speed;
+
                 if (1f > time_to_wait)
                 {
                     time_to_wait = 1f;
@@ -164,7 +168,24 @@ public class ConversationController : MonoBehaviour
                     commanding_2.my_state = 4;
                 }
 
-                if (!conversation_concluded)
+                if (what_to_say[conversation_progress] == "$Emote/Default")
+                {
+                    perform_action = true;
+                }
+                if (what_to_say[conversation_progress] == "$Emote/Sick")
+                {
+                    perform_action = true;
+                }
+                if (what_to_say[conversation_progress] == "$Emote/Uncomfortable")
+                {
+                    perform_action = true;
+                }
+                if (what_to_say[conversation_progress] == "$Emote/Suspicious")
+                {
+                    perform_action = true;
+                }
+
+                if (!conversation_concluded && !perform_action)
                 {
                     if (from_speaker_a[conversation_progress])
                     {
@@ -172,6 +193,26 @@ public class ConversationController : MonoBehaviour
                     } else
                     {
                         commanding_2.Speaking(what_to_say[conversation_progress], time_to_wait);
+                    }
+                }
+
+                if (perform_action)
+                {
+                    time_to_wait = 0f;
+                }
+
+                if (!conversation_concluded && perform_action)
+                {
+                    if (from_speaker_a[conversation_progress])
+                    {
+
+                        commanding_1.ExecuteCommand(what_to_say[conversation_progress]);
+
+                    } else
+                    {
+
+                        commanding_2.ExecuteCommand(what_to_say[conversation_progress]);
+
                     }
                 }
             }

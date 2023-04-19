@@ -46,6 +46,17 @@ public class OrderGenerator : MonoBehaviour
         if (current_day > 3) { can_do_addon = true; } else { can_do_addon = false; }
     }
 
+    public void clear_note()
+    {
+        ordering_icon[0].new_icon("n/a");
+        ordering_icon[1].new_icon("n/a");
+        ordering_icon[2].new_icon("n/a");
+        ordering_icon[3].new_icon("n/a");
+        drink_title.text = " ";
+        drink_fluid.text = " ";
+        drink_tier.text = " ";
+    }
+
     void new_angelshot()
     {
 

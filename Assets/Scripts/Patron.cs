@@ -44,6 +44,8 @@ public class Patron : MonoBehaviour
     public GameObject[] sprite_collection;
     public int sprite_chosen;
 
+    public PatronSprites my_sprite_manager;
+
     public void Activate()
     {
 
@@ -53,6 +55,9 @@ public class Patron : MonoBehaviour
         sprite_collection[3].SetActive(false);
 
         sprite_collection[sprite_chosen].SetActive(true);
+
+        my_sprite_manager = sprite_collection[sprite_chosen].GetComponent<PatronSprites>();
+        my_sprite_manager.SetSprite("Default");
 
         my_state = 1;
         am_predator = false;
@@ -76,6 +81,14 @@ public class Patron : MonoBehaviour
         my_text.text = to_say;
         text_colour.w = 1f;
 
+    }
+
+    public void ExecuteCommand(string command)
+    {
+        if (command == "$Emote/Default") {my_sprite_manager.SetSprite("Default");}
+        if (command == "$Emote/Sick") {my_sprite_manager.SetSprite("Sick");}
+        if (command == "$Emote/Suspicious") {my_sprite_manager.SetSprite("Suspicious");}
+        if (command == "$Emote/Uncomfortable") {my_sprite_manager.SetSprite("Uncomfortable");}
     }
 
     public float distance_to_seat;
@@ -113,7 +126,7 @@ public class Patron : MonoBehaviour
             new_position = Vector3.MoveTowards(self.position, seat_location, Time.deltaTime * movement_speed);
             self.position = new_position;
             distance_to_seat = Vector3.Distance(self.position, seat_location);
-            if (distance_to_seat < 0.1f)
+            if (distance_to_seat < 1.1f)
             {
                 if (!completed_state) { gameplay_director.drinks_logged += Random.Range(1f, 1.5f); }
                 completed_state = true;
@@ -184,6 +197,20 @@ public class Patron : MonoBehaviour
                 completed_state = true;
             }
 
+        }
+
+        if (distance_to_seat < 1.1f)
+        {
+            Vector3 snapback;
+            snapback = self.position;
+            snapback.z = 0f;
+            self.position = snapback;
+        } else
+        {
+            Vector3 snapback;
+            snapback = self.position;
+            snapback.z = 1f;
+            self.position = snapback;
         }
 
     }

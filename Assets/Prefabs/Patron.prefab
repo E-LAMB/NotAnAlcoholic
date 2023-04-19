@@ -315,11 +315,12 @@ MonoBehaviour:
   text_colour: {x: 1, y: 1, z: 1, w: 1}
   completed_state: 0
   sprite_collection:
-  - {fileID: 1066230290055864933}
-  - {fileID: 6207759934154153082}
-  - {fileID: 5090148381696287898}
-  - {fileID: 3829749722742027016}
+  - {fileID: 6467961711547620064}
+  - {fileID: 7583785623186717273}
+  - {fileID: 8210986102456857679}
+  - {fileID: 1256429268035971443}
   sprite_chosen: 0
+  my_sprite_manager: {fileID: 0}
   distance_to_seat: 0
   distance_to_OOB: 0
   OOB_location: {x: 0, y: 0, z: 0}
@@ -389,23 +390,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1346604404919807250, guid: a3a355555f148e243a691e71000eb62b, type: 3}
   m_PrefabInstance: {fileID: 659812059545408754}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1066230290055864933 stripped
+--- !u!1 &6467961711547620064 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 568611743395460759, guid: a3a355555f148e243a691e71000eb62b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5830700794472992274, guid: a3a355555f148e243a691e71000eb62b, type: 3}
   m_PrefabInstance: {fileID: 659812059545408754}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6207759934154153082 stripped
+--- !u!1 &7583785623186717273 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6849547699512936584, guid: a3a355555f148e243a691e71000eb62b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6924032937310236331, guid: a3a355555f148e243a691e71000eb62b, type: 3}
   m_PrefabInstance: {fileID: 659812059545408754}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5090148381696287898 stripped
+--- !u!1 &8210986102456857679 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5731896427235274856, guid: a3a355555f148e243a691e71000eb62b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8708650828592128189, guid: a3a355555f148e243a691e71000eb62b, type: 3}
   m_PrefabInstance: {fileID: 659812059545408754}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3829749722742027016 stripped
+--- !u!1 &1256429268035971443 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4327429854854735866, guid: a3a355555f148e243a691e71000eb62b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1749547650959097217, guid: a3a355555f148e243a691e71000eb62b, type: 3}
   m_PrefabInstance: {fileID: 659812059545408754}
   m_PrefabAsset: {fileID: 0}
