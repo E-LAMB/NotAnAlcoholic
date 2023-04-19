@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameplayDirector : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class GameplayDirector : MonoBehaviour
 
     public bool just_served;
 
+    public float time_since_last_serve;
+
     [Header("Read Only Values")]
 
     public int customers_at_disposal;
@@ -35,6 +39,11 @@ public class GameplayDirector : MonoBehaviour
 
     public float time_since_summoned;
 
+    public float order_time;
+    public float max_time;
+
+    public Image timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,9 +54,26 @@ public class GameplayDirector : MonoBehaviour
     void Update()
     {
 
+        if (has_an_order)
+        {
+            if (order_time <= max_time)
+            {
+                order_time += Time.deltaTime;
+            }
+        } else
+        {
+            if (order_time > 0f)
+            {
+                order_time -= Time.deltaTime * 15f;
+            }
+        }
+
+        timer.fillAmount = order_time / max_time;
+
         customers_at_disposal = the_director.patron_free_count;
 
         time_since_summoned += Time.deltaTime;
+        time_since_last_serve += Time.deltaTime;
 
         if (time_since_summoned > 30f || customers_at_disposal == 6 && time_since_summoned > 5f)
         {
@@ -60,7 +86,7 @@ public class GameplayDirector : MonoBehaviour
 
         if (gameplay_loop_drinks == 0)
         {
-            if (drinks_logged > 1f && !has_an_order && quota_fufilled < quota_for_today)
+            if (drinks_logged > 1f && !has_an_order && quota_fufilled < quota_for_today && time_since_last_serve > 5f)
             {
                 gameplay_loop_drinks = 1;
                 drinks_logged -= 1f;
@@ -92,6 +118,8 @@ public class GameplayDirector : MonoBehaviour
                 the_shaker.placing_ingredients = true;
                 has_an_order = false;
                 just_served = false;
+                time_since_last_serve = 0f;
+                the_order_generator.clear_note;
             }
         }
     }

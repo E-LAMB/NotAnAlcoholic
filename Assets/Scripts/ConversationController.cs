@@ -53,7 +53,7 @@ public class ConversationController : MonoBehaviour
         if (commanding_1.sprite_chosen == commanding_2.sprite_chosen)
         {
             commanding_2.sprite_chosen += 1;
-            if (commanding_2.sprite_chosen > max_chosen)
+            if (commanding_2.sprite_chosen >= max_chosen)
             {
                 commanding_2.sprite_chosen -= 2;
             }

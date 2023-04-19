@@ -16,7 +16,7 @@ public class BarButton : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
 
         button.position = ideal_location.position;
