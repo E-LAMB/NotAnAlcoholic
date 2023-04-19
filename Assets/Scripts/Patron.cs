@@ -41,8 +41,18 @@ public class Patron : MonoBehaviour
 
     public bool completed_state;
 
+    public GameObject[] sprite_collection;
+    public int sprite_chosen;
+
     public void Activate()
     {
+
+        sprite_collection[0].SetActive(false);
+        sprite_collection[1].SetActive(false);
+        sprite_collection[2].SetActive(false);
+        sprite_collection[3].SetActive(false);
+
+        sprite_collection[sprite_chosen].SetActive(true);
 
         my_state = 1;
         am_predator = false;
@@ -83,13 +93,7 @@ public class Patron : MonoBehaviour
     void Update()
     {
 
-        if (am_predator)
-        {
-            pred_indicator.SetActive(true);
-        } else
-        {
-            pred_indicator.SetActive(false);
-        }
+        pred_indicator.SetActive(am_predator);
 
         if (text_fade_time <= 0.125f)
         {

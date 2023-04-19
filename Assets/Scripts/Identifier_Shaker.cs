@@ -26,6 +26,7 @@ public class Identifier_Shaker : MonoBehaviour
             {
                 items_in_shaker[item_number] = most_recent_item;
                 item_number += 1;
+                Mind.drink_ingredients = items_in_shaker;
                 Destroy(other.gameObject);
             }
         } 

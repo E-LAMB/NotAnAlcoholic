@@ -80,6 +80,11 @@ public class ShakeItUp : MonoBehaviour
         shake_speed = shake_base_speed;
     }
 
+    public void ResetShaker()
+    {
+
+    }
+
     void SetShakeKeys(int chance, bool should_invert)
     {
         image_W.SetActive(false);
@@ -129,7 +134,7 @@ public class ShakeItUp : MonoBehaviour
     void Update()
     {
 
-        if (Mind.drink_shake_level == 0) { intensity_text.text = "O"; }
+        if (Mind.drink_shake_level == 0) { intensity_text.text = "X"; }
         if (Mind.drink_shake_level == 1) { intensity_text.text = "I"; }
         if (Mind.drink_shake_level == 2) { intensity_text.text = "II"; }
         if (Mind.drink_shake_level == 3) { intensity_text.text = "III"; }

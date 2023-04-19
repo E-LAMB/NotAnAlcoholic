@@ -21,6 +21,8 @@ public class GameplayDirector : MonoBehaviour
 
     public bool dispensed_fluid;
 
+    public bool just_served;
+
     [Header("Read Only Values")]
 
     public int customers_at_disposal;
@@ -29,6 +31,7 @@ public class GameplayDirector : MonoBehaviour
     public FluidController the_fluid_controller;
     public ShakeItUp the_shaker;
     public OrderGenerator the_order_generator;
+    public ServeOrder the_server;
 
     public float time_since_summoned;
 
@@ -62,6 +65,7 @@ public class GameplayDirector : MonoBehaviour
                 gameplay_loop_drinks = 1;
                 drinks_logged -= 1f;
                 quota_drinks_given += 1;
+                has_an_order = true;
                 the_fluid_controller.can_dispense = true;
                 the_shaker.placing_ingredients = true;
                 dispensed_fluid = false;
@@ -75,6 +79,19 @@ public class GameplayDirector : MonoBehaviour
             {
                 gameplay_loop_drinks = 2;
                 the_shaker.placing_ingredients = false;
+                the_server.can_serve = true;
+                dispensed_fluid = false;
+            }
+        }
+
+        if (gameplay_loop_drinks == 2)
+        {
+            if (just_served)
+            {
+                gameplay_loop_drinks = 0;
+                the_shaker.placing_ingredients = true;
+                has_an_order = false;
+                just_served = false;
             }
         }
     }

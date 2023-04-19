@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -41.25, y: 0, z: 0}
+  m_LocalPosition: {x: -41, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 811029746}
@@ -758,6 +758,7 @@ MonoBehaviour:
   my_own_state: 0
   predator_present: 0
   predator_is_a: 0
+  max_chosen: 0
   conversation_chooser: {fileID: 264558469}
 --- !u!1 &67735031
 GameObject:
@@ -1275,6 +1276,7 @@ MonoBehaviour:
   my_own_state: 0
   predator_present: 0
   predator_is_a: 0
+  max_chosen: 0
   conversation_chooser: {fileID: 264558469}
 --- !u!1 &169666057
 GameObject:
@@ -2574,7 +2576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311038528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.75, y: 0, z: 0}
+  m_LocalPosition: {x: -34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 811029746}
@@ -3427,7 +3429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402348116}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.75, y: 0, z: 0}
+  m_LocalPosition: {x: -19, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 811029746}
@@ -3876,11 +3878,13 @@ MonoBehaviour:
   drinks_logged: 0
   has_an_order: 0
   dispensed_fluid: 0
+  just_served: 0
   customers_at_disposal: 0
   the_director: {fileID: 811029747}
   the_fluid_controller: {fileID: 1803177066}
   the_shaker: {fileID: 1877717047}
   the_order_generator: {fileID: 968890901}
+  the_server: {fileID: 462345350}
   time_since_summoned: 0
 --- !u!1 &431472048
 GameObject:
@@ -4339,6 +4343,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 462345348}
+  - component: {fileID: 462345349}
+  - component: {fileID: 462345350}
   m_Layer: 0
   m_Name: Serving Cup
   m_TagString: Untagged
@@ -4361,6 +4367,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &462345349
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462345347}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.008684158, y: -0.06376886}
+      - {x: 0.10571003, y: 0.45927423}
+      - {x: -0.7129469, y: 0.6435267}
+      - {x: -1.674119, y: 0.5963212}
+      - {x: -2.304966, y: 0.39739996}
+      - {x: -2.3028936, y: -0.11560911}
+      - {x: -2.0984554, y: -0.33709106}
+      - {x: -2.113937, y: -1.9452759}
+      - {x: -0.737978, y: -2.0232544}
+      - {x: -0.29225862, y: -1.9452758}
+      - {x: -0.26318073, y: -0.2591123}
+--- !u!114 &462345350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462345347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6e7be253897dc4c9f464f685fbac9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  can_serve: 0
+  the_gameplay_director: {fileID: 428526188}
+  shaker_dropper: {fileID: 404175518}
+  the_generator: {fileID: 968890901}
+  shaker_shake: {fileID: 1877717047}
+  order_was_valid: 0
 --- !u!1 &466133441
 GameObject:
   m_ObjectHideFlags: 0
@@ -4988,7 +5048,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559533594}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.25, y: 0, z: 0}
+  m_LocalPosition: {x: -26, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 811029746}
@@ -5209,8 +5269,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0395d13976dc9404da3d33724732dcb0, type: 3}
-  m_Color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b78ef17985886594592926ecf1084749, type: 3}
+  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6415,6 +6475,7 @@ MonoBehaviour:
   my_own_state: 0
   predator_present: 0
   predator_is_a: 0
+  max_chosen: 0
   conversation_chooser: {fileID: 264558469}
 --- !u!1 &911679321 stripped
 GameObject:
@@ -6558,7 +6619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937154461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -56.25, y: 0, z: 0}
+  m_LocalPosition: {x: -56, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 811029746}
@@ -24984,7 +25045,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801223673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -48.75, y: 0, z: 0}
+  m_LocalPosition: {x: -49, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 811029746}
@@ -25112,10 +25173,12 @@ MonoBehaviour:
   water_active: 1
   juice_active: 1
   can_dispense: 1
+  time_to_fluid: 0
+  has_just_dispensed: 0
   particle_alcohol: {fileID: 1143806379}
   particle_water: {fileID: 1799207204}
   particle_juice: {fileID: 1190379041}
-  the_director: {fileID: 0}
+  the_director: {fileID: 428526188}
 --- !u!1 &1830658939
 GameObject:
   m_ObjectHideFlags: 0

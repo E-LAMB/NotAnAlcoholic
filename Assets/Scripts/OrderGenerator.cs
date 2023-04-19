@@ -203,7 +203,7 @@ public class OrderGenerator : MonoBehaviour
 
         if (selected_drink == "d3_oyg")
         {
-            drink_name = "Minty";
+            drink_name = "Orange You Glad";
             needed_fluid = "JUICE";
             needed_shake_level = 1;
             needed_ingredients[0] = "ORANGE";
@@ -291,6 +291,19 @@ public class OrderGenerator : MonoBehaviour
             needed_ingredients[1] = "LIME";
             needed_ingredients[2] = "LIME";
             needed_ingredients[3] = "LIME";
+        }
+
+        if (needed_fluid == "ALCOHOL")
+        {
+            drink_fluid.text = "ALC.";
+        }
+        if (needed_fluid == "WATER")
+        {
+            drink_fluid.text = "WTR.";
+        }
+        if (needed_fluid == "JUICE")
+        {
+            drink_fluid.text = "JUC.";
         }
 
         ordering_icon[0].new_icon(needed_ingredients[0]);
@@ -393,19 +406,6 @@ public class OrderGenerator : MonoBehaviour
         if (needed_shake_level == 3)
         {
             drink_tier.text = "III";
-        }
-
-        if (needed_fluid == "ALCOHOL")
-        {
-            drink_fluid.text = "ALC.";
-        }
-        if (needed_fluid == "WATER")
-        {
-            drink_fluid.text = "WTR.";
-        }
-        if (needed_fluid == "JUICE")
-        {
-            drink_fluid.text = "JUC.";
         }
 
     }

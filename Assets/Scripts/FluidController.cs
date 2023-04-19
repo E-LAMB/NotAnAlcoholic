@@ -15,6 +15,9 @@ public class FluidController : MonoBehaviour
 
     public bool can_dispense;
 
+    public float time_to_fluid;
+    public bool has_just_dispensed;
+
     public ParticleSystem particle_alcohol;
     public ParticleSystem particle_water;
     public ParticleSystem particle_juice;
@@ -69,13 +72,21 @@ public class FluidController : MonoBehaviour
             if (water_selected) { Mind.drink_fluid = "WATER"; }
             if (juice_selected) { Mind.drink_fluid = "JUICE"; }
 
-            the_director.dispensed_fluid = true;
+            time_to_fluid = 4f;
+            has_just_dispensed = true;
+            // the_director.dispensed_fluid = true;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        time_to_fluid -= Time.deltaTime;
+
+        if (0f > time_to_fluid && has_just_dispensed)
+        {
+            has_just_dispensed = false;
+            the_director.dispensed_fluid = true;
+        }
     }
 }

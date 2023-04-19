@@ -39,11 +39,26 @@ public class ConversationController : MonoBehaviour
     public bool predator_present;
     public bool predator_is_a;
 
+    public int max_chosen;
+
     public BankChooser conversation_chooser;
 
     public void Activate()
     {
+        max_chosen = commanding_1.sprite_collection.Length;
 
+        commanding_1.sprite_chosen = Random.Range(0, max_chosen);
+        commanding_2.sprite_chosen = Random.Range(0, max_chosen);
+
+        if (commanding_1.sprite_chosen == commanding_2.sprite_chosen)
+        {
+            commanding_2.sprite_chosen += 1;
+            if (commanding_2.sprite_chosen > max_chosen)
+            {
+                commanding_2.sprite_chosen -= 2;
+            }
+        }
+           
         conversation_progress = 0;
 
         speaking_speed = Mind.speaking_speed;
@@ -67,19 +82,20 @@ public class ConversationController : MonoBehaviour
             commanding_2.my_spawner = spawner_2;
         }
 
+        commanding_1.Activate();
+        commanding_2.Activate();
+
         if (predator_present)
         {
             if (predator_is_a)
             {
                 commanding_1.am_predator = true;
-            } else
+            }
+            else
             {
                 commanding_2.am_predator = true;
             }
         }
-
-        commanding_1.Activate();
-        commanding_2.Activate();
 
         my_own_state = 1;
 
