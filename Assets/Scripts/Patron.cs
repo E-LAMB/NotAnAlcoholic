@@ -12,6 +12,8 @@ public class Patron : MonoBehaviour
 
     public bool am_predator;
 
+    public GameplayDirector gameplay_director;
+
     public GameObject pred_indicator;
 
     public SeatScript my_seat_script;
@@ -109,6 +111,7 @@ public class Patron : MonoBehaviour
             distance_to_seat = Vector3.Distance(self.position, seat_location);
             if (distance_to_seat < 0.1f)
             {
+                if (!completed_state) { gameplay_director.drinks_logged += Random.Range(1f, 1.5f); }
                 completed_state = true;
             }
 

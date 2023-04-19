@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ShakeItUp : MonoBehaviour
 {
@@ -52,6 +53,8 @@ public class ShakeItUp : MonoBehaviour
     float r;
 
     public Transform shaker_mover_origin;
+
+    public TextMeshPro intensity_text;
 
     public Vector3 shaker_mover_upwards;
     public Vector3 shaker_mover_downwards;
@@ -125,6 +128,11 @@ public class ShakeItUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Mind.drink_shake_level == 0) { intensity_text.text = "O"; }
+        if (Mind.drink_shake_level == 1) { intensity_text.text = "I"; }
+        if (Mind.drink_shake_level == 2) { intensity_text.text = "II"; }
+        if (Mind.drink_shake_level == 3) { intensity_text.text = "III"; }
 
         Mind.filling_shaker = placing_ingredients;
 
@@ -209,9 +217,10 @@ public class ShakeItUp : MonoBehaviour
             {
                 SetShakeKeys(3, true);
                 times_shaken = 0;
-                times_until_flip = Random.Range(7,10);
+                times_until_flip = Random.Range(13,20);
                 times_until_flip = times_until_flip * 2;
                 times_until_flip -= 1;
+                Mind.drink_shake_level += 1;
             }
 
             shake_speed = shake_base_speed + shake_amount;

@@ -952,6 +952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patron (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7416888267004608831, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
+      propertyPath: gameplay_director
+      value: 
+      objectReference: {fileID: 428526188}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
 --- !u!1 &82050610
@@ -1556,13 +1560,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223183058}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: 0, z: -1.5}
-  m_LocalScale: {x: -1, y: 1.2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -25, y: -6.5, z: -6.25}
+  m_LocalScale: {x: -1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 878770602}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &223183060
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1783,7 +1787,7 @@ GameObject:
   m_Layer: 0
   m_Name: ToBack_Bound
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1795,7 +1799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260832452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13, y: 0, z: 0}
+  m_LocalPosition: {x: -25, y: -6.5, z: -6.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 878770602}
@@ -3821,6 +3825,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &428526186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 428526187}
+  - component: {fileID: 428526188}
+  m_Layer: 0
+  m_Name: GAMEPLAY DIRECTOR
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &428526187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428526186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &428526188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428526186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fd199d85535ed4abf1a9a23b345b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current_day: 1
+  gameplay_loop_drinks: 0
+  quota_for_today: 20
+  quota_fufilled: 0
+  quota_drinks_given: 0
+  drinks_logged: 0
+  has_an_order: 0
+  dispensed_fluid: 0
+  customers_at_disposal: 0
+  the_director: {fileID: 811029747}
+  the_fluid_controller: {fileID: 1803177066}
+  the_shaker: {fileID: 1877717047}
+  the_order_generator: {fileID: 968890901}
+  time_since_summoned: 0
 --- !u!1 &431472048
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,6 +5146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patron (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7416888267004608831, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
+      propertyPath: gameplay_director
+      value: 
+      objectReference: {fileID: 428526188}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
 --- !u!1 &616799245
@@ -5144,7 +5209,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0395d13976dc9404da3d33724732dcb0, type: 3}
   m_Color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5164,7 +5229,7 @@ Transform:
   m_GameObject: {fileID: 616799245}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -37.5, y: 0, z: 16.75}
-  m_LocalScale: {x: 50, y: 14, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children: []
   m_Father: {fileID: 480909591}
   m_RootOrder: 4
@@ -5192,14 +5257,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626364644}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1591529204}
   m_Father: {fileID: 878770602}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &637235160
 GameObject:
   m_ObjectHideFlags: 0
@@ -5933,6 +5998,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patron (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7416888267004608831, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
+      propertyPath: gameplay_director
+      value: 
+      objectReference: {fileID: 428526188}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
 --- !u!1 &811029745
@@ -6060,7 +6129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826604290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -6.5, z: -6.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701310689}
@@ -7073,6 +7142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patron (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7416888267004608831, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
+      propertyPath: gameplay_director
+      value: 
+      objectReference: {fileID: 428526188}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
 --- !u!1 &1068530375
@@ -19063,7 +19136,7 @@ MonoBehaviour:
   bar_left: {fileID: 1934150780}
   bar_right: {fileID: 1775977135}
   back_holster: {fileID: 972700107}
-  speed: 10
+  speed: 25
 --- !u!1 &1583584369
 GameObject:
   m_ObjectHideFlags: 0
@@ -19221,7 +19294,7 @@ Transform:
   m_GameObject: {fileID: 1591529203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.5}
-  m_LocalScale: {x: 1, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 626364645}
   m_RootOrder: 0
@@ -19371,6 +19444,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patron (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7416888267004608831, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
+      propertyPath: gameplay_director
+      value: 
+      objectReference: {fileID: 428526188}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
 --- !u!1 &1622761404
@@ -19567,6 +19644,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patron (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7416888267004608831, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
+      propertyPath: gameplay_director
+      value: 
+      objectReference: {fileID: 428526188}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d558815b6d2a74199b01c37dde7973, type: 3}
 --- !u!1 &1691072972
@@ -25034,6 +25115,7 @@ MonoBehaviour:
   particle_alcohol: {fileID: 1143806379}
   particle_water: {fileID: 1799207204}
   particle_juice: {fileID: 1190379041}
+  the_director: {fileID: 0}
 --- !u!1 &1830658939
 GameObject:
   m_ObjectHideFlags: 0
@@ -25422,6 +25504,7 @@ MonoBehaviour:
   shaker_mover_positioner: {fileID: 288561354}
   turning_angle: 90
   shaker_mover_origin: {fileID: 169666058}
+  intensity_text: {fileID: 1318414374}
   shaker_mover_upwards: {x: 0, y: 0, z: 0}
   shaker_mover_downwards: {x: 0, y: 0, z: 0}
   shaker_mover_leftwards: {x: 0, y: 0, z: 0}

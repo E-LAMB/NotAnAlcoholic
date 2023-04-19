@@ -51,7 +51,7 @@ public class OrderGenerator : MonoBehaviour
 
     }
 
-    void new_order()
+    public void new_order()
     {
         if (can_serve_angel)
         {

@@ -19,6 +19,8 @@ public class FluidController : MonoBehaviour
     public ParticleSystem particle_water;
     public ParticleSystem particle_juice;
 
+    public GameplayDirector the_director;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,12 @@ public class FluidController : MonoBehaviour
             if (alcohol_selected) { particle_alcohol.Play(); }
             if (water_selected) { particle_water.Play(); }
             if (juice_selected) { particle_juice.Play(); }
+
+            if (alcohol_selected) { Mind.drink_fluid = "ALCOHOL"; }
+            if (water_selected) { Mind.drink_fluid = "WATER"; }
+            if (juice_selected) { Mind.drink_fluid = "JUICE"; }
+
+            the_director.dispensed_fluid = true;
         }
     }
 
