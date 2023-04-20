@@ -43,6 +43,8 @@ public class OrderGenerator : MonoBehaviour
         if (current_day == 4) { boundary = 17; }
         if (current_day == 5) { boundary = 19; }
 
+        clear_note();
+
         if (current_day > 3) { can_do_addon = true; } else { can_do_addon = false; }
     }
 
