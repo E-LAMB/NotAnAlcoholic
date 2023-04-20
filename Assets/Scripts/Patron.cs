@@ -126,7 +126,7 @@ public class Patron : MonoBehaviour
             new_position = Vector3.MoveTowards(self.position, seat_location, Time.deltaTime * movement_speed);
             self.position = new_position;
             distance_to_seat = Vector3.Distance(self.position, seat_location);
-            if (distance_to_seat < 1.1f)
+            if (distance_to_seat < 1f)
             {
                 if (!completed_state) { gameplay_director.drinks_logged += Random.Range(1f, 1.5f); }
                 completed_state = true;

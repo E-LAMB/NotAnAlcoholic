@@ -54,7 +54,7 @@ public class GameplayDirector : MonoBehaviour
 
         if (has_an_order)
         {
-            if (order_time <= max_time)
+            if (order_time <= max_time + 0.5f)
             {
                 order_time += Time.deltaTime;
             }
@@ -102,6 +102,8 @@ public class GameplayDirector : MonoBehaviour
             {
                 gameplay_loop_drinks = 2;
                 the_shaker.placing_ingredients = false;
+                the_shaker.times_shaken = 0;
+                the_shaker.shaker_position = "md";
                 the_server.can_serve = true;
                 dispensed_fluid = false;
             }

@@ -141,7 +141,11 @@ public class ShakeItUp : MonoBehaviour
 
         Mind.filling_shaker = placing_ingredients;
 
-        if (shaker_position == "md")
+        if (placing_ingredients)
+        {
+            shaker_mover_positioner.position = Vector3.MoveTowards(shaker_mover_positioner.position, OOB_storage.position, shake_speed * Time.deltaTime);
+
+        } else if (shaker_position == "md")
         {
             shaker_mover_positioner.position = Vector3.MoveTowards(shaker_mover_positioner.position, shaker_mover_origin.position, shake_speed * Time.deltaTime);
 
@@ -157,11 +161,11 @@ public class ShakeItUp : MonoBehaviour
         {
             shaker_mover_positioner.position = Vector3.MoveTowards(shaker_mover_positioner.position, shaker_mover_leftwards, shake_speed * Time.deltaTime);
 
-        }else if (shaker_position == "rt")
+        } else if (shaker_position == "rt")
         {
             shaker_mover_positioner.position = Vector3.MoveTowards(shaker_mover_positioner.position, shaker_mover_rightwards, shake_speed * Time.deltaTime);
 
-        }else
+        } else
         {
             shaker_position = "md";
         }

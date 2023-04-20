@@ -116,7 +116,7 @@ public class OrderGenerator : MonoBehaviour
             drink_name = "Shake It Up";
             needed_fluid = "ALCOHOL";
             needed_shake_level = 3;
-            needed_ingredients[0] = "Lime";
+            needed_ingredients[0] = "LIME";
             needed_ingredients[1] = "n/a";
             needed_ingredients[2] = "n/a";
             needed_ingredients[3] = "n/a";
