@@ -66,6 +66,12 @@ public class OrderGenerator : MonoBehaviour
 
     public void new_order()
     {
+        needed_ingredients[0] = "n/a";
+        needed_ingredients[1] = "n/a";
+        needed_ingredients[2] = "n/a";
+        needed_ingredients[3] = "n/a";
+        needed_ingredients[4] = "n/a";
+
         if (can_serve_angel)
         {
             new_angelshot();

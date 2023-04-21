@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ServeOrder : MonoBehaviour
 {
 
     public bool can_serve;
 
+    public float overall_score;
+
     public GameplayDirector the_gameplay_director;
     public Identifier_Shaker shaker_dropper;
     public OrderGenerator the_generator;
     public ShakeItUp shaker_shake;
+
+    public TextMeshPro overall_text;
+    public TextMeshPro recent_text;
+    public float recent_text_trans;
 
     public float points_value;
     // Max of 80
@@ -30,6 +37,21 @@ public class ServeOrder : MonoBehaviour
     int gotten_ing_oli;
     int gotten_ing_ice;
     int gotten_ing_che;
+
+    void Start()
+    {
+        recent_text.text = points_value.ToString() + " POINTS!";
+        overall_text.text = "SCORE: " + overall_score.ToString();
+    }
+    void Update()
+    {
+        if (recent_text_trans >= 0f)
+        {
+            recent_text_trans -= Time.deltaTime / 5f;
+        }
+
+        recent_text.color = new Vector4(1f, 1f, 1f, recent_text_trans);
+    }
 
     bool CompareIngredients()
     {
@@ -71,6 +93,9 @@ public class ServeOrder : MonoBehaviour
         if (gotten_ing_che != needed_ing_che) {order_valid = false;}
         if (gotten_ing_lim != needed_ing_lim) {order_valid = false;}
 
+        Debug.Log("is it valid");
+        Debug.Log(order_valid);
+
         return order_valid;
 
     }
@@ -104,29 +129,45 @@ public class ServeOrder : MonoBehaviour
 
     void OnMouseDown()
     {
+        Debug.Log("______________");
+        Debug.Log(shaker_dropper.items_in_shaker[0]);
+        Debug.Log(the_generator.needed_ingredients[0]);
+        Debug.Log(shaker_dropper.items_in_shaker[1]);
+        Debug.Log(the_generator.needed_ingredients[1]);
+        Debug.Log(shaker_dropper.items_in_shaker[2]);
+        Debug.Log(the_generator.needed_ingredients[2]);
+        Debug.Log(shaker_dropper.items_in_shaker[3]);
+        Debug.Log(the_generator.needed_ingredients[3]);
+        Debug.Log(shaker_dropper.items_in_shaker[4]);
+        Debug.Log(the_generator.needed_ingredients[4]);
+        Debug.Log("______________");
+
         if (can_serve)
         {
-            can_serve = !can_serve;
             points_value = 0f;
 
             if (CompareIngredients())
             {
                 points_value += 15f;
+                Debug.Log("Right ingredients");
             }
 
-            if (shaker_dropper.items_in_shaker != the_generator.needed_ingredients)
+            if (shaker_dropper.items_in_shaker == the_generator.needed_ingredients)
             {
                 points_value += 10f;
+                Debug.Log("Right order");
             }
 
-            if (Mind.drink_fluid != the_generator.needed_fluid)
+            if (Mind.drink_fluid == the_generator.needed_fluid)
             {
                 points_value += 10f;
+                Debug.Log("Right fluid");
             }
 
-            if (Mind.drink_shake_level != the_generator.needed_shake_level)
+            if (Mind.drink_shake_level == the_generator.needed_shake_level)
             {
                 points_value += 15f;
+                Debug.Log("Right shake");
             }
 
             if ((the_gameplay_director.order_time / the_gameplay_director.max_time) <= 0.5f)
@@ -155,6 +196,14 @@ public class ServeOrder : MonoBehaviour
                 Debug.Log("Timer = +0");
             }
 
+            recent_text_trans = 1f;
+            overall_score += points_value;
+
+            recent_text.text = points_value.ToString() + " POINTS!";
+            overall_text.text = "SCORE: " + overall_score.ToString();
+
+            recent_text.color = new Vector4(1f, 1f, 1f, recent_text_trans);
+
             shaker_dropper.item_number = 0;
             shaker_dropper.items_in_shaker[0] = "n/a";
             shaker_dropper.items_in_shaker[1] = "n/a";
@@ -164,6 +213,7 @@ public class ServeOrder : MonoBehaviour
             Mind.drink_shake_level = 0;
 
             the_gameplay_director.just_served = true;
+            can_serve = !can_serve;
         }
     }
 }
