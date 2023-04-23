@@ -24,6 +24,22 @@ public class OrderGenerator : MonoBehaviour
     public TextMeshPro drink_title;
     public TextMeshPro drink_tier;
     public TextMeshPro drink_fluid;
+    public TextMeshPro seat_text;
+
+    public Patron pat_1;
+    public Patron pat_2;
+    public Patron pat_3;
+    public Patron pat_4;
+    public Patron pat_5;
+    public Patron pat_6;
+
+    public int selected_seat;
+    public bool has_chosen_seat;
+
+    public bool has_a_customer;
+
+    public int seat_searches;
+    public Patron selected_patron_seat;
 
     // Drink Data
 
@@ -33,7 +49,6 @@ public class OrderGenerator : MonoBehaviour
     public string needed_fluid;
     public int needed_shake_level;
     public string drink_name;
-    public int seat;
 
     void Start()
     {
@@ -57,6 +72,111 @@ public class OrderGenerator : MonoBehaviour
         drink_title.text = " ";
         drink_fluid.text = " ";
         drink_tier.text = " ";
+    }
+
+    void find_seat_head()
+    {
+
+        seat_searches = 0;
+
+        selected_seat = 0;
+        has_chosen_seat = false;
+
+        find_seat_runner();
+
+    }
+
+    void find_seat_runner()
+    {
+        seat_searches += 1;
+
+        if (seat_searches > 30)
+        {
+            if (pat_1.can_order && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_1;
+                selected_seat = pat_1.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            if (pat_2.can_order && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_2;
+                selected_seat = pat_2.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            if (pat_3.can_order && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_3;
+                selected_seat = pat_3.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            if (pat_4.can_order && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_4;
+                selected_seat = pat_4.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            if (pat_5.can_order && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_5;
+                selected_seat = pat_5.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            if (pat_6.can_order && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_6;
+                selected_seat = pat_6.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            return;
+        }
+
+        int rand_selected = Random.Range(1,7);
+
+        if (pat_1.can_order && !has_chosen_seat && rand_selected == 1)
+        {
+            selected_seat = pat_1.my_seat_script.seat_number;
+            selected_patron_seat = pat_1;
+            has_chosen_seat = true;
+        }
+        if (pat_2.can_order && !has_chosen_seat && rand_selected == 2)
+        {
+            selected_seat = pat_2.my_seat_script.seat_number;
+            selected_patron_seat = pat_2;
+            has_chosen_seat = true;
+        }
+        if (pat_3.can_order && !has_chosen_seat && rand_selected == 3)
+        {
+            selected_seat = pat_3.my_seat_script.seat_number;
+            selected_patron_seat = pat_3;
+            has_chosen_seat = true;
+        }
+        if (pat_4.can_order && !has_chosen_seat && rand_selected == 4)
+        {
+            selected_seat = pat_4.my_seat_script.seat_number;
+            selected_patron_seat = pat_4;
+            has_chosen_seat = true;
+        }
+        if (pat_5.can_order && !has_chosen_seat && rand_selected == 5)
+        {
+            selected_seat = pat_5.my_seat_script.seat_number;
+            selected_patron_seat = pat_5;
+            has_chosen_seat = true;
+        }
+        if (pat_6.can_order && !has_chosen_seat && rand_selected == 6)
+        {
+            selected_seat = pat_6.my_seat_script.seat_number;
+            selected_patron_seat = pat_6;
+            has_chosen_seat = true;
+        }
+
+        if (has_chosen_seat)
+        {
+            return;
+        }
+
+        find_seat_runner();
+
     }
 
     void new_angelshot()
@@ -427,11 +547,25 @@ public class OrderGenerator : MonoBehaviour
             drink_tier.text = "III";
         }
 
+        find_seat_head();
+
+        seat_text.text = selected_seat.ToString();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        has_a_customer = false;
+
+        if (pat_1.can_order) {has_a_customer = true;}
+        if (pat_2.can_order) {has_a_customer = true;}
+        if (pat_3.can_order) {has_a_customer = true;}
+        if (pat_4.can_order) {has_a_customer = true;}
+        if (pat_5.can_order) {has_a_customer = true;}
+        if (pat_6.can_order) {has_a_customer = true;}
+
         if (generate)
         {
             new_order();

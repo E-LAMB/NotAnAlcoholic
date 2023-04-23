@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1703636569939763330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children:
   - {fileID: 1703636570785174286}
   m_Father: {fileID: 0}
@@ -197,7 +197,7 @@ MonoBehaviour:
   my_life: 0
   size_change: 1
   fraction: 0
-  buffer: 10
+  buffer: 2
   self: {fileID: 1703636569939763336}
   start: {x: 0, y: 0, z: 0}
   final: {x: 0, y: 0, z: 0}

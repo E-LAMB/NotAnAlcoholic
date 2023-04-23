@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuButtons : MonoBehaviour
 {
@@ -15,14 +16,14 @@ public class MainMenuButtons : MonoBehaviour
     public bool going_to_scene;
     public bool scene_change;
 
-    public Renderer no_ui_menu;
+    public Image no_ui_menu;
 
     public void TakeToSceneWithFade(int chosen)
     {
         going_to_scene = true;
         scene_change = true;
         new_scene = chosen;
-        darkness_setting = 1f;
+        darkness_setting = 1.3f;
         DisableTheMenu();
     }
 
@@ -30,7 +31,7 @@ public class MainMenuButtons : MonoBehaviour
     {
         going_to_scene = false;
         scene_change = true;
-        darkness_setting = 1f;
+        darkness_setting = 1.3f;
         DisableTheMenu();
     }
 
@@ -53,7 +54,10 @@ public class MainMenuButtons : MonoBehaviour
         if (scene_change)
         {
             darkness_setting -= Time.deltaTime / 2f;
-            if (darkness_setting < -2f)
+
+            no_ui_menu.color = new Vector4 (1f,1f,1f,darkness_setting);
+
+            if (darkness_setting < -1f)
             {
                 if (going_to_scene)
                 {

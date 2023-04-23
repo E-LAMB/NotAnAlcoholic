@@ -45,12 +45,17 @@ public class ConversationController : MonoBehaviour
 
     public BankChooser conversation_chooser;
 
+    public Patron bell_selected_patron;
+
     public void Activate()
     {
         max_chosen = commanding_1.sprite_collection.Length;
 
         commanding_1.sprite_chosen = Random.Range(0, max_chosen);
         commanding_2.sprite_chosen = Random.Range(0, max_chosen);
+
+        commanding_1.my_conversation_controller = GetComponent<ConversationController>();
+        commanding_2.my_conversation_controller = GetComponent<ConversationController>();
 
         if (commanding_1.sprite_chosen == commanding_2.sprite_chosen)
         {
@@ -60,6 +65,9 @@ public class ConversationController : MonoBehaviour
                 commanding_2.sprite_chosen -= 2;
             }
         }
+
+        commanding_1.other_person = commanding_2;
+        commanding_2.other_person = commanding_1;
            
         conversation_progress = 0;
 
@@ -87,8 +95,15 @@ public class ConversationController : MonoBehaviour
         commanding_1.Activate();
         commanding_2.Activate();
 
+        commanding_1.pred_present = false;
+        commanding_2.pred_present = false;
+        commanding_1.am_predator = false;
+        commanding_2.am_predator = false;
+
         if (predator_present)
         {
+            commanding_1.pred_present = true;
+            commanding_2.pred_present = true;
             if (predator_is_a)
             {
                 commanding_1.am_predator = true;
@@ -231,6 +246,44 @@ public class ConversationController : MonoBehaviour
         }
 
         if (my_own_state == 5)
+        {
+            if (commanding_1.completed_state && commanding_2.completed_state)
+            {
+                commanding_1.my_state = 0;
+                commanding_2.my_state = 0;
+                my_own_state = 0;
+                commanding_1.completed_state = false;
+                commanding_2.completed_state = false;
+                currently_free = true;
+                commanding_1.currently_free = true;
+                commanding_2.currently_free = true;
+                seat_1.currently_free = true;
+                seat_2.currently_free = true;
+            }
+        }
+
+        // Bouncer Scripts
+
+        // When someone is selected
+        if (my_own_state == 6)
+        {
+            if (bell_selected_patron == commanding_1)
+            {
+                commanding_1.my_state = 10;
+                commanding_2.my_state = 6;
+            }
+            if (bell_selected_patron == commanding_2)
+            {
+                commanding_1.my_state = 6;
+                commanding_2.my_state = 10;
+            }
+            commanding_1.completed_state = false;
+            commanding_2.completed_state = false;
+            my_own_state = 7;
+        }
+
+        // Waiting until everyone has left the bar
+        if (my_own_state == 7)
         {
             if (commanding_1.completed_state && commanding_2.completed_state)
             {

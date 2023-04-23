@@ -93,8 +93,8 @@ public class ServeOrder : MonoBehaviour
         if (gotten_ing_che != needed_ing_che) {order_valid = false;}
         if (gotten_ing_lim != needed_ing_lim) {order_valid = false;}
 
-        Debug.Log("is it valid");
-        Debug.Log(order_valid);
+        //Debug.Log("is it valid");
+        //Debug.Log(order_valid);
 
         return order_valid;
 
@@ -129,74 +129,64 @@ public class ServeOrder : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("______________");
-        Debug.Log(shaker_dropper.items_in_shaker[0]);
-        Debug.Log(the_generator.needed_ingredients[0]);
-        Debug.Log(shaker_dropper.items_in_shaker[1]);
-        Debug.Log(the_generator.needed_ingredients[1]);
-        Debug.Log(shaker_dropper.items_in_shaker[2]);
-        Debug.Log(the_generator.needed_ingredients[2]);
-        Debug.Log(shaker_dropper.items_in_shaker[3]);
-        Debug.Log(the_generator.needed_ingredients[3]);
-        Debug.Log(shaker_dropper.items_in_shaker[4]);
-        Debug.Log(the_generator.needed_ingredients[4]);
-        Debug.Log("______________");
 
         if (can_serve)
         {
             points_value = 0f;
 
-            if (CompareIngredients())
-            {
-                points_value += 15f;
-                Debug.Log("Right ingredients");
-            }
-
+            /*
             if (shaker_dropper.items_in_shaker == the_generator.needed_ingredients)
             {
                 points_value += 10f;
                 Debug.Log("Right order");
             }
+            */
+
+            if (CompareIngredients())
+            {
+                points_value += 20f;
+                //Debug.Log("Right ingredients");
+            }
 
             if (Mind.drink_fluid == the_generator.needed_fluid)
             {
-                points_value += 10f;
-                Debug.Log("Right fluid");
+                points_value += 20f;
+                //Debug.Log("Right fluid");
             }
 
             if (Mind.drink_shake_level == the_generator.needed_shake_level)
             {
-                points_value += 15f;
-                Debug.Log("Right shake");
+                points_value += 20f;
+                //Debug.Log("Right shake");
             }
 
             if ((the_gameplay_director.order_time / the_gameplay_director.max_time) <= 0.5f)
             {
-                points_value += 30f;
-                Debug.Log("Timer = +30");
+                points_value += 40f;
+                //Debug.Log("Timer = +30");
 
             } else if ((the_gameplay_director.order_time / the_gameplay_director.max_time) <= 0.75f)
             {
-                points_value += 20f;
-                Debug.Log("Timer = +20");
+                points_value += 30f;
+                //Debug.Log("Timer = +20");
 
             } else if ((the_gameplay_director.order_time / the_gameplay_director.max_time) <= 1f)
             {
-                points_value += 10f;
-                Debug.Log("Timer = +10");
+                points_value += 20f;
+                //Debug.Log("Timer = +10");
 
             } else if (the_gameplay_director.order_time > the_gameplay_director.max_time)
             {
                 points_value = 0f;
-                Debug.Log("Timer SET TO NONE");
+                //Debug.Log("Timer SET TO NONE");
 
             } else
             {
                 points_value += 0;
-                Debug.Log("Timer = +0");
+                //Debug.Log("Timer = +0");
             }
 
-            recent_text_trans = 1f;
+            recent_text_trans = 1.5f;
             overall_score += points_value;
 
             recent_text.text = points_value.ToString() + " POINTS!";
@@ -211,6 +201,8 @@ public class ServeOrder : MonoBehaviour
             shaker_dropper.items_in_shaker[3] = "n/a";
             shaker_dropper.items_in_shaker[4] = "n/a";
             Mind.drink_shake_level = 0;
+
+            if (the_generator.selected_patron_seat.can_order) {the_generator.selected_patron_seat.has_drink = true;}
 
             the_gameplay_director.just_served = true;
             can_serve = !can_serve;

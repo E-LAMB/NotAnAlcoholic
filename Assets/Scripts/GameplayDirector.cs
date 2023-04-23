@@ -40,6 +40,13 @@ public class GameplayDirector : MonoBehaviour
     public float order_time;
     public float max_time;
 
+    public int predators_total;
+    public int predators_missed;
+    public int predators_caught;
+    public int predators_victim_count;
+
+    public GameObject unable_to_order;
+
     public Image timer;
 
     // Start is called before the first frame update
@@ -83,7 +90,8 @@ public class GameplayDirector : MonoBehaviour
 
         if (gameplay_loop_drinks == 0)
         {
-            if (drinks_logged > 1f && !has_an_order && quota_fufilled < quota_for_today && order_time < 0.5f)
+
+            if (drinks_logged > 1f && !has_an_order && quota_fufilled < quota_for_today && order_time < 0.5f && the_order_generator.has_a_customer)
             {
                 gameplay_loop_drinks = 1;
                 drinks_logged -= 1f;
