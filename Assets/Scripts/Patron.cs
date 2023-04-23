@@ -40,6 +40,8 @@ public class Patron : MonoBehaviour
     public bool is_being_watched;
     public LayerMask watch_layer;
 
+    public string my_name;
+
     public int my_state;
     // 0 = Offscreen Idle
     // 1 = Walking To Seat

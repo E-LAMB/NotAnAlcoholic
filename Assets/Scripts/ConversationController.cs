@@ -200,8 +200,23 @@ public class ConversationController : MonoBehaviour
                     perform_action = true;
                 }
 
+                if (what_to_say[conversation_progress] == "$Spike/Prepare")
+                {
+                    perform_action = true;
+                }
+                if (what_to_say[conversation_progress] == "$Spike/Perform")
+                {
+                    perform_action = true;
+                }
+
                 if (!conversation_concluded && !perform_action)
                 {
+                    string i_should_say = what_to_say[conversation_progress];
+
+                    i_should_say = i_should_say.Replace("Roxy",commanding_1.my_name);
+                    i_should_say = i_should_say.Replace("Dan",commanding_2.my_name);
+                    // Roxy refers to Speaker 1, Dan refers to Speaker 2
+
                     if (from_speaker_a[conversation_progress])
                     {
                         commanding_1.Speaking(what_to_say[conversation_progress], time_to_wait);
