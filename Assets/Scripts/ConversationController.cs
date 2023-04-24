@@ -175,6 +175,8 @@ public class ConversationController : MonoBehaviour
 
                 dia_countdown = 0;
 
+                what_to_say[conversation_progress] = what_to_say[conversation_progress].Replace("£", "$");
+
                 if (what_to_say[conversation_progress] == "$EndOfConvo")
                 {
                     conversation_concluded = true;

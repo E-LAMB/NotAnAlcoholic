@@ -182,14 +182,7 @@ public class Director : MonoBehaviour
                 is_predator = false;
             }
 
-            if (Random.Range(1, 3) == 1)
-            {
-                predator_is_a = true;
-            }
-            else
-            {
-                predator_is_a = false;
-            }
+            predator_is_a = true;
 
             should_assign = false;
 
