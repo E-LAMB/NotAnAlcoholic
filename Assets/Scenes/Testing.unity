@@ -1435,8 +1435,8 @@ MonoBehaviour:
 
     This is a conversation
     that only occurs between predators'
-  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n&Emote/Default   \n&Emote/Sick  
-    \n&Emote/Suspicious   \n&Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
+  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n$Emote/Default   \n$Emote/Sick  
+    \n$Emote/Suspicious   \n$Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
   to_draw_from:
   - speaker_a: 0
     to_say: '&StartOfConvo'
@@ -1465,6 +1465,8 @@ MonoBehaviour:
   - speaker_a: 1
     to_say: Don't worry Pumpkin, Everything will be alright
   - speaker_a: 0
+    to_say: $Emote/Uncomfortable
+  - speaker_a: 0
     to_say: Please don't call me that
   - speaker_a: 1
     to_say: Why not little Pumpkin?
@@ -1478,6 +1480,8 @@ MonoBehaviour:
     to_say: Yes
   - speaker_a: 0
     to_say: Very.
+  - speaker_a: 0
+    to_say: $Emote/Default
   - speaker_a: 1
     to_say: Aww
   - speaker_a: 1
@@ -1487,6 +1491,8 @@ MonoBehaviour:
   - speaker_a: 1
     to_say: I'm sowwy Pumpkin - I didn't mean to
   - speaker_a: 0
+    to_say: $Emote/Uncomfortable
+  - speaker_a: 0
     to_say: I don't like that at all
   - speaker_a: 0
     to_say: Stop it I'm being serious
@@ -1494,6 +1500,8 @@ MonoBehaviour:
     to_say: But I luv you Pumpkin
   - speaker_a: 1
     to_say: I just wanna luv you
+  - speaker_a: 0
+    to_say: $Emote/Default
   - speaker_a: 0
     to_say: I don't like this
   - speaker_a: 0
@@ -1538,6 +1546,8 @@ MonoBehaviour:
     to_say: I'll follow you
   - speaker_a: 0
     to_say: Please don't
+  - speaker_a: 0
+    to_say: $Emote/Uncomfortable
   - speaker_a: 1
     to_say: I'll stalk you Pumpkin
   - speaker_a: 0
@@ -1568,6 +1578,8 @@ MonoBehaviour:
     to_say: Bartender!
   - speaker_a: 1
     to_say: Barty can't help you Pumpky
+  - speaker_a: 0
+    to_say: $Emote/Default
   - speaker_a: 0
     to_say: I'm leaving
   - speaker_a: 1
@@ -2406,7 +2418,7 @@ Transform:
   - {fileID: 1371513312}
   - {fileID: 580630216}
   - {fileID: 169074584}
-  - {fileID: 1528735554}
+  - {fileID: 729077834}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2639,7 +2651,7 @@ MonoBehaviour:
   pred_a_conversations:
   - {fileID: 169074585}
   pred_b_conversations:
-  - {fileID: 1528735555}
+  - {fileID: 729077835}
 --- !u!1 &270024577
 GameObject:
   m_ObjectHideFlags: 0
@@ -4750,8 +4762,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5834,8 +5846,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notes: Roxy refers to Speaker 1, Dan refers to Speaker 2.
-  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n&Emote/Default   \n&Emote/Sick  
-    \n&Emote/Suspicious   \n&Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
+  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n$Emote/Default   \n$Emote/Sick  
+    \n$Emote/Suspicious   \n$Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
   to_draw_from:
   - speaker_a: 0
     to_say: '&StartOfConvo'
@@ -5884,9 +5896,13 @@ MonoBehaviour:
   - speaker_a: 0
     to_say: Fine
   - speaker_a: 0
+    to_say: '&Emote/Uncomfortable '
+  - speaker_a: 0
     to_say: I do get a BIT embarrassed
   - speaker_a: 0
     to_say: And I do blush A LITTLE
+  - speaker_a: 0
+    to_say: '&Emote/Default '
   - speaker_a: 1
     to_say: A lot -
   - speaker_a: 0
@@ -6377,8 +6393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notes: Roxy refers to Speaker 1, Dan refers to Speaker 2.
-  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n&Emote/Default   \n&Emote/Sick  
-    \n&Emote/Suspicious   \n&Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
+  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n$Emote/Default   \n$Emote/Sick  
+    \n$Emote/Suspicious   \n$Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
   to_draw_from:
   - speaker_a: 0
     to_say: '&StartOfConvo'
@@ -6793,6 +6809,270 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &729077833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 729077834}
+  - component: {fileID: 729077835}
+  m_Layer: 0
+  m_Name: Pred B Conversation 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &729077834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729077833}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 264558468}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &729077835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729077833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8e230afa758945b21371b7facf34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notes: 'Roxy refers to Speaker 1, Dan refers to Speaker 2.
+
+    This is a conversation
+    that only occurs between predators'
+  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n$Emote/Default   \n$Emote/Sick  
+    \n$Emote/Suspicious   \n$Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
+  to_draw_from:
+  - speaker_a: 0
+    to_say: '&StartOfConvo'
+  - speaker_a: 1
+    to_say: ...
+  - speaker_a: 1
+    to_say: Hello
+  - speaker_a: 0
+    to_say: Hey
+  - speaker_a: 1
+    to_say: Hi
+  - speaker_a: 1
+    to_say: Uhh...
+  - speaker_a: 0
+    to_say: Nervous?
+  - speaker_a: 1
+    to_say: Very.
+  - speaker_a: 1
+    to_say: I'm a bit socially awkward
+  - speaker_a: 1
+    to_say: Especially with people I don't know
+  - speaker_a: 0
+    to_say: I see, Someone like me must freak you out
+  - speaker_a: 1
+    to_say: A little bit
+  - speaker_a: 0
+    to_say: Don't worry Pumpkin, Everything will be alright
+  - speaker_a: 1
+    to_say: $Emote/Uncomfortable
+  - speaker_a: 1
+    to_say: Please don't call me that
+  - speaker_a: 0
+    to_say: Why not little Pumpkin?
+  - speaker_a: 1
+    to_say: I don't like it
+  - speaker_a: 0
+    to_say: Aww
+  - speaker_a: 0
+    to_say: Is ittle bittle Pumpin uncomfortable?
+  - speaker_a: 1
+    to_say: Yes
+  - speaker_a: 1
+    to_say: Very.
+  - speaker_a: 1
+    to_say: $Emote/Default
+  - speaker_a: 0
+    to_say: Aww
+  - speaker_a: 0
+    to_say: I'm so sowwy
+  - speaker_a: 1
+    to_say: Stop that
+  - speaker_a: 0
+    to_say: I'm sowwy Pumpkin - I didn't mean to
+  - speaker_a: 1
+    to_say: $Emote/Uncomfortable
+  - speaker_a: 1
+    to_say: I don't like that at all
+  - speaker_a: 1
+    to_say: Stop it I'm being serious
+  - speaker_a: 0
+    to_say: But I luv you Pumpkin
+  - speaker_a: 0
+    to_say: I just wanna luv you
+  - speaker_a: 1
+    to_say: $Emote/Default
+  - speaker_a: 1
+    to_say: I don't like this
+  - speaker_a: 1
+    to_say: I don't like it
+  - speaker_a: 0
+    to_say: I luv you
+  - speaker_a: 1
+    to_say: ...
+  - speaker_a: 0
+    to_say: I wanna kiss u
+  - speaker_a: 1
+    to_say: ...
+  - speaker_a: 1
+    to_say: please don't
+  - speaker_a: 0
+    to_say: Aww
+  - speaker_a: 0
+    to_say: But I luv you Pumpkin
+  - speaker_a: 1
+    to_say: ...
+  - speaker_a: 1
+    to_say: I'm going to leave
+  - speaker_a: 0
+    to_say: Let me come with you
+  - speaker_a: 1
+    to_say: ...
+  - speaker_a: 1
+    to_say: I'd rather not
+  - speaker_a: 1
+    to_say: I'd rather go alone
+  - speaker_a: 0
+    to_say: Let me come with you!
+  - speaker_a: 1
+    to_say: Please!
+  - speaker_a: 1
+    to_say: I'm leaving
+  - speaker_a: 0
+    to_say: I'm coming with you too
+  - speaker_a: 1
+    to_say: No you're not
+  - speaker_a: 0
+    to_say: I'll follow you
+  - speaker_a: 1
+    to_say: Please don't
+  - speaker_a: 1
+    to_say: '&Emote/Uncomfortable'
+  - speaker_a: 0
+    to_say: I'll stalk you Pumpkin
+  - speaker_a: 1
+    to_say: I'm going
+  - speaker_a: 1
+    to_say: Don't follow me
+  - speaker_a: 0
+    to_say: Don't go!
+  - speaker_a: 0
+    to_say: Stay
+  - speaker_a: 1
+    to_say: I don't wanna be here with you
+  - speaker_a: 1
+    to_say: I want to go
+  - speaker_a: 0
+    to_say: Why?
+  - speaker_a: 1
+    to_say: You keep
+  - speaker_a: 1
+    to_say: You keep calling me Pumpkin
+  - speaker_a: 1
+    to_say: I don't like that!
+  - speaker_a: 1
+    to_say: And you're treating me like a child!
+  - speaker_a: 1
+    to_say: Bartender!
+  - speaker_a: 1
+    to_say: Bartender!
+  - speaker_a: 0
+    to_say: Barty can't help you Pumpky
+  - speaker_a: 1
+    to_say: $Emote/Default
+  - speaker_a: 1
+    to_say: I'm leaving
+  - speaker_a: 0
+    to_say: I'm following
+  - speaker_a: 1
+    to_say: Don't follow me
+  - speaker_a: 0
+    to_say: $EndOfConvo
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: '&EndOfConvo'
 --- !u!1 &776647964
 GameObject:
   m_ObjectHideFlags: 0
@@ -7256,7 +7536,7 @@ MonoBehaviour:
   selected_1_patronscript: {fileID: 0}
   selected_2_patronscript: {fileID: 0}
   selected_controller: {fileID: 0}
-  predator_chance: 80
+  predator_chance: 50
   is_predator: 0
   predator_is_a: 0
 --- !u!1 &826604290
@@ -20265,8 +20545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notes: Roxy refers to Speaker 1, Dan refers to Speaker 2.
-  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n&Emote/Default   \n&Emote/Sick  
-    \n&Emote/Suspicious   \n&Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
+  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n$Emote/Default   \n$Emote/Sick  
+    \n$Emote/Suspicious   \n$Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
   to_draw_from:
   - speaker_a: 0
     to_say: '&StartOfConvo'
@@ -21258,258 +21538,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1528735553
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1528735554}
-  - component: {fileID: 1528735555}
-  m_Layer: 0
-  m_Name: Pred B Conversation 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1528735554
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528735553}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 264558468}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1528735555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528735553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec8e230afa758945b21371b7facf34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notes: 'Roxy refers to Speaker 1, Dan refers to Speaker 2.
-
-    This is a conversation
-    that only occurs between predators'
-  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n&Emote/Default   \n&Emote/Sick  
-    \n&Emote/Suspicious   \n&Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
-  to_draw_from:
-  - speaker_a: 0
-    to_say: '&StartOfConvo'
-  - speaker_a: 1
-    to_say: ...
-  - speaker_a: 1
-    to_say: Hello
-  - speaker_a: 0
-    to_say: Hey
-  - speaker_a: 1
-    to_say: Hi
-  - speaker_a: 1
-    to_say: Uhh...
-  - speaker_a: 0
-    to_say: Nervous?
-  - speaker_a: 1
-    to_say: Very.
-  - speaker_a: 1
-    to_say: I'm a bit socially awkward
-  - speaker_a: 1
-    to_say: Especially with people I don't know
-  - speaker_a: 0
-    to_say: I see, Someone like me must freak you out
-  - speaker_a: 1
-    to_say: A little bit
-  - speaker_a: 0
-    to_say: Don't worry Pumpkin, Everything will be alright
-  - speaker_a: 1
-    to_say: Please don't call me that
-  - speaker_a: 0
-    to_say: Why not little Pumpkin?
-  - speaker_a: 1
-    to_say: I don't like it
-  - speaker_a: 0
-    to_say: Aww
-  - speaker_a: 0
-    to_say: Is ittle bittle Pumpin uncomfortable?
-  - speaker_a: 1
-    to_say: Yes
-  - speaker_a: 1
-    to_say: Very.
-  - speaker_a: 0
-    to_say: Aww
-  - speaker_a: 0
-    to_say: I'm so sowwy
-  - speaker_a: 1
-    to_say: Stop that
-  - speaker_a: 0
-    to_say: I'm sowwy Pumpkin - I didn't mean to
-  - speaker_a: 1
-    to_say: I don't like that at all
-  - speaker_a: 1
-    to_say: Stop it I'm being serious
-  - speaker_a: 0
-    to_say: But I luv you Pumpkin
-  - speaker_a: 0
-    to_say: I just wanna luv you
-  - speaker_a: 1
-    to_say: I don't like this
-  - speaker_a: 1
-    to_say: I don't like it
-  - speaker_a: 0
-    to_say: I luv you
-  - speaker_a: 1
-    to_say: ...
-  - speaker_a: 0
-    to_say: I wanna kiss u
-  - speaker_a: 1
-    to_say: ...
-  - speaker_a: 1
-    to_say: please don't
-  - speaker_a: 0
-    to_say: Aww
-  - speaker_a: 0
-    to_say: But I luv you Pumpkin
-  - speaker_a: 1
-    to_say: ...
-  - speaker_a: 1
-    to_say: I'm going to leave
-  - speaker_a: 0
-    to_say: Let me come with you
-  - speaker_a: 1
-    to_say: ...
-  - speaker_a: 1
-    to_say: I'd rather not
-  - speaker_a: 1
-    to_say: I'd rather go alone
-  - speaker_a: 0
-    to_say: Let me come with you!
-  - speaker_a: 1
-    to_say: Please!
-  - speaker_a: 1
-    to_say: I'm leaving
-  - speaker_a: 0
-    to_say: I'm coming with you too
-  - speaker_a: 1
-    to_say: No you're not
-  - speaker_a: 0
-    to_say: I'll follow you
-  - speaker_a: 1
-    to_say: Please don't
-  - speaker_a: 0
-    to_say: I'll stalk you Pumpkin
-  - speaker_a: 1
-    to_say: I'm going
-  - speaker_a: 1
-    to_say: Don't follow me
-  - speaker_a: 0
-    to_say: Don't go!
-  - speaker_a: 0
-    to_say: Stay
-  - speaker_a: 1
-    to_say: I don't wanna be here with you
-  - speaker_a: 1
-    to_say: I want to go
-  - speaker_a: 0
-    to_say: Why?
-  - speaker_a: 1
-    to_say: You keep
-  - speaker_a: 1
-    to_say: You keep calling me Pumpkin
-  - speaker_a: 1
-    to_say: I don't like that!
-  - speaker_a: 1
-    to_say: And you're treating me like a child!
-  - speaker_a: 1
-    to_say: Bartender!
-  - speaker_a: 1
-    to_say: Bartender!
-  - speaker_a: 0
-    to_say: Barty can't help you Pumpky
-  - speaker_a: 1
-    to_say: I'm leaving
-  - speaker_a: 0
-    to_say: I'm following
-  - speaker_a: 1
-    to_say: Don't follow me
-  - speaker_a: 0
-    to_say: $EndOfConvo
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: 
-  - speaker_a: 0
-    to_say: '&EndOfConvo'
 --- !u!1 &1563899293
 GameObject:
   m_ObjectHideFlags: 0
@@ -22342,7 +22370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -8.3}
+  m_AnchoredPosition: {x: 0, y: -8.05}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728992923
@@ -28883,8 +28911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notes: Roxy refers to Speaker 1, Dan refers to Speaker 2.
-  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n&Emote/Default   \n&Emote/Sick  
-    \n&Emote/Suspicious   \n&Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
+  command_list: "&StartOfConvo\r\n&EndOfConvo\n\n$Emote/Default   \n$Emote/Sick  
+    \n$Emote/Suspicious   \n$Emote/Uncomfortable \n\n$Spike/Prepare\r\n$Spike/Perform\n\n$Abuse/RedText"
   to_draw_from:
   - speaker_a: 0
     to_say: '&StartOfConvo'
@@ -28918,6 +28946,8 @@ MonoBehaviour:
     to_say: What?
   - speaker_a: 1
     to_say: It's the name of a game...
+  - speaker_a: 1
+    to_say: $Emote/Uncomfortable
   - speaker_a: 0
     to_say: Oh
   - speaker_a: 1
@@ -28928,6 +28958,8 @@ MonoBehaviour:
     to_say: I don't get out much
   - speaker_a: 0
     to_say: ...
+  - speaker_a: 1
+    to_say: '$Emote/Default '
   - speaker_a: 1
     to_say: Do you watch movies?
   - speaker_a: 0
