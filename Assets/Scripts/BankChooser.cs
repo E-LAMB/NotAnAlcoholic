@@ -18,7 +18,7 @@ public class BankChooser : MonoBehaviour
 
     public BankStorage[] innocent_conversations;
     public BankStorage[] pred_a_conversations;
-    public BankStorage[] pred_b_conversations;
+    //public BankStorage[] pred_b_conversations;
 
     public void RollConversations(bool sp_a_pred, bool pred_present)
     {
@@ -32,7 +32,7 @@ public class BankChooser : MonoBehaviour
                 the_target = pred_a_conversations[Random.Range(0, pred_a_conversations.Length)];
             } else
             {
-                the_target = pred_b_conversations[Random.Range(0, pred_b_conversations.Length)];
+                //the_target = pred_b_conversations[Random.Range(0, pred_b_conversations.Length)];
             }
         }
     }

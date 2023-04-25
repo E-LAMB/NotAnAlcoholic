@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8010066568762152743}
   - component: {fileID: 7541447020113913759}
+  - component: {fileID: 4702251695169071640}
   m_Layer: 0
   m_Name: Hyena
   m_TagString: Untagged
@@ -133,6 +134,22 @@ MonoBehaviour:
   sprite_sick: {fileID: 4689424041749565019}
   sprite_uncomfortable: {fileID: 9203082801991994959}
   sprite_suspicious: {fileID: 6010849647138151068}
+--- !u!114 &4702251695169071640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545127709582952358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac1a7a8c1bdcab4abc4bd1afeca0954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editing_the_bank: 0
+  should_access_males: 1
+  male_setup: []
+  female_setup: []
 --- !u!1 &765164817609112791
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1000062452155893189}
   - component: {fileID: 5203066070519564468}
+  - component: {fileID: 9088841727361131611}
   m_Layer: 0
   m_Name: Lilith
   m_TagString: Untagged
@@ -430,6 +448,22 @@ MonoBehaviour:
   sprite_sick: {fileID: 3471955906643845209}
   sprite_uncomfortable: {fileID: 5717459212678642918}
   sprite_suspicious: {fileID: 6639846619085589514}
+--- !u!114 &9088841727361131611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749547650959097217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac1a7a8c1bdcab4abc4bd1afeca0954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editing_the_bank: 0
+  should_access_males: 0
+  male_setup: []
+  female_setup: []
 --- !u!1 &2460945374154448045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +1212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8364084069162534755}
   - component: {fileID: 7167555479541121496}
+  - component: {fileID: 5065914687325729645}
   m_Layer: 0
   m_Name: Gazelle
   m_TagString: Untagged
@@ -1219,6 +1254,22 @@ MonoBehaviour:
   sprite_sick: {fileID: 8708725371189805225}
   sprite_uncomfortable: {fileID: 765164817609112791}
   sprite_suspicious: {fileID: 7692358559746200342}
+--- !u!114 &5065914687325729645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830700794472992274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac1a7a8c1bdcab4abc4bd1afeca0954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editing_the_bank: 0
+  should_access_males: 0
+  male_setup: []
+  female_setup: []
 --- !u!1 &6010849647138151068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8082693539498606478}
   - component: {fileID: 1926777294803907127}
+  - component: {fileID: 8571172973126865512}
   m_Layer: 0
   m_Name: Maude
   m_TagString: Untagged
@@ -1516,6 +1568,22 @@ MonoBehaviour:
   sprite_sick: {fileID: 492107858510900010}
   sprite_uncomfortable: {fileID: 1094088655542875989}
   sprite_suspicious: {fileID: 3609748829741335840}
+--- !u!114 &8571172973126865512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6924032937310236331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac1a7a8c1bdcab4abc4bd1afeca0954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editing_the_bank: 0
+  should_access_males: 0
+  male_setup: []
+  female_setup: []
 --- !u!1 &7067335180233285996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,6 +1793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4547709809879252732}
   - component: {fileID: 985727324318136327}
+  - component: {fileID: 1744401292065907531}
   m_Layer: 0
   m_Name: Ian
   m_TagString: Untagged
@@ -1766,6 +1835,22 @@ MonoBehaviour:
   sprite_sick: {fileID: 2727636146811805434}
   sprite_uncomfortable: {fileID: 2460945374154448045}
   sprite_suspicious: {fileID: 4343232398950280399}
+--- !u!114 &1744401292065907531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708650828592128189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac1a7a8c1bdcab4abc4bd1afeca0954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editing_the_bank: 0
+  should_access_males: 1
+  male_setup: []
+  female_setup: []
 --- !u!1 &8708725371189805225
 GameObject:
   m_ObjectHideFlags: 0

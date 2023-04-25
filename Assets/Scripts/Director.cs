@@ -54,14 +54,17 @@ public class Director : MonoBehaviour
 
     public ConversationController selected_controller;
 
+    public bool can_predators_appear;
     public float predator_chance;
+    public float initial_predator_chance;
     public bool is_predator;
     public bool predator_is_a;
+    public float predator_chance_reduction;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        predator_chance = initial_predator_chance;
     }
      
     public void roll_patrons(bool first, bool cp_1, bool cp_2, bool cp_3, bool cp_4, bool cp_5, bool cp_6)
@@ -144,6 +147,10 @@ public class Director : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!can_predators_appear)
+        {
+            predator_chance = 200;
+        }
 
         patron_1_free = patronscript_1.currently_free;
         patron_2_free = patronscript_2.currently_free;
@@ -176,10 +183,12 @@ public class Director : MonoBehaviour
             if (Random.Range(1f, 100f) > predator_chance)
             {
                 is_predator = true;
+                predator_chance = initial_predator_chance;
             }
             else
             {
                 is_predator = false;
+                predator_chance -= predator_chance_reduction;
             }
 
             predator_is_a = true;

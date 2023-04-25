@@ -176,6 +176,15 @@ public class ConversationController : MonoBehaviour
                 dia_countdown = 0;
 
                 what_to_say[conversation_progress] = what_to_say[conversation_progress].Replace("£", "$");
+                what_to_say[conversation_progress] = what_to_say[conversation_progress].Replace("&", "$");
+
+                if (conversation_progress > 100) // Backup ending to the conversation
+                {
+                    conversation_concluded = true;
+                    my_own_state = 4;
+                    commanding_1.my_state = 4;
+                    commanding_2.my_state = 4;
+                }
 
                 if (what_to_say[conversation_progress] == "$EndOfConvo")
                 {
@@ -217,14 +226,15 @@ public class ConversationController : MonoBehaviour
 
                     i_should_say = i_should_say.Replace("Roxy",commanding_1.my_name);
                     i_should_say = i_should_say.Replace("Dan",commanding_2.my_name);
+
                     // Roxy refers to Speaker 1, Dan refers to Speaker 2
 
                     if (from_speaker_a[conversation_progress])
                     {
-                        commanding_1.Speaking(what_to_say[conversation_progress], time_to_wait);
+                        commanding_1.Speaking(i_should_say, time_to_wait);
                     } else
                     {
-                        commanding_2.Speaking(what_to_say[conversation_progress], time_to_wait);
+                        commanding_2.Speaking(i_should_say, time_to_wait);
                     }
                 }
 

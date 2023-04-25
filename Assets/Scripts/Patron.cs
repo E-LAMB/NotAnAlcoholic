@@ -75,6 +75,8 @@ public class Patron : MonoBehaviour
         my_sprite_manager = sprite_collection[sprite_chosen].GetComponent<PatronSprites>();
         my_sprite_manager.SetSprite("Default");
 
+        my_name = sprite_collection[sprite_chosen].GetComponent<NameBank>().GiveMeMyName();
+
         my_state = 1;
         am_predator = false;
 

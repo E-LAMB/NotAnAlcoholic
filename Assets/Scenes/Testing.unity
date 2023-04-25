@@ -2540,8 +2540,6 @@ MonoBehaviour:
   - {fileID: 580630217}
   pred_a_conversations:
   - {fileID: 169074585}
-  pred_b_conversations:
-  - {fileID: 0}
 --- !u!1 &270024577
 GameObject:
   m_ObjectHideFlags: 0
@@ -7074,6 +7072,7 @@ GameObject:
   m_Component:
   - component: {fileID: 811029746}
   - component: {fileID: 811029747}
+  - component: {fileID: 811029748}
   m_Layer: 0
   m_Name: CollectivePatrons (Director)
   m_TagString: Untagged
@@ -7162,9 +7161,79 @@ MonoBehaviour:
   selected_1_patronscript: {fileID: 0}
   selected_2_patronscript: {fileID: 0}
   selected_controller: {fileID: 0}
-  predator_chance: 80
+  can_predators_appear: 1
+  predator_chance: 0
+  initial_predator_chance: 100
   is_predator: 0
   predator_is_a: 0
+  predator_chance_reduction: 10
+--- !u!114 &811029748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811029745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac1a7a8c1bdcab4abc4bd1afeca0954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editing_the_bank: 1
+  should_access_males: 0
+  male_setup:
+  - Ian
+  - Greg
+  - Gregory
+  - Mike
+  - Todd
+  - Ted
+  - Jack
+  - John
+  - Guztav
+  - Vin
+  - Vinny
+  - Fran
+  - Francis
+  - Dan
+  - Daniel
+  - Monty
+  - Freddy
+  - Will
+  - Smith
+  - Charlie
+  - Chris
+  female_setup:
+  - Lilith
+  - Maude
+  - Maya
+  - Jacquline
+  - Emma
+  - Rory
+  - Tardi
+  - Fran
+  - Rose
+  - Mia
+  - Miranda
+  - Ash
+  - Kat
+  - Roxy
+  - Jasmine
+  - Amy
+  - Emily
+  - Charlie
+  - Olivia
+  - Via
+  - Ava
+  - Sophie
+  - Sophia
+  - Isabella
+  - Mia
+  - Evelyn
+  - Harper
+  - Raya
+  - Flo
+  - Agatha
 --- !u!1 &826604290
 GameObject:
   m_ObjectHideFlags: 0
@@ -28633,7 +28702,7 @@ MonoBehaviour:
   - speaker_a: 0
     to_say: My name is Dan
   - speaker_a: 0
-    to_say: So, What brought you to Ferzu?
+    to_say: So, What brought you to Tinder?
   - speaker_a: 1
     to_say: I spend way too much time inside
   - speaker_a: 1
