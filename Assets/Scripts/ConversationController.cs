@@ -36,6 +36,8 @@ public class ConversationController : MonoBehaviour
     // 5 = Leaving
     // 6 = OOBs 
 
+    public string debug_controller;
+
     public bool predator_present;
     public bool predator_is_a;
 
@@ -49,78 +51,84 @@ public class ConversationController : MonoBehaviour
 
     public void Activate()
     {
-        max_chosen = commanding_1.sprite_collection.Length;
-
-        commanding_1.sprite_chosen = Random.Range(0, max_chosen);
-        commanding_2.sprite_chosen = Random.Range(0, max_chosen);
-
-        commanding_1.my_conversation_controller = GetComponent<ConversationController>();
-        commanding_2.my_conversation_controller = GetComponent<ConversationController>();
-
-        if (commanding_1.sprite_chosen == commanding_2.sprite_chosen)
+        if (currently_free)
         {
-            commanding_2.sprite_chosen += 1;
-            if (commanding_2.sprite_chosen >= max_chosen)
+            Debug.Log("Activation Occured");
+
+            max_chosen = commanding_1.sprite_collection.Length;
+
+            commanding_1.sprite_chosen = Random.Range(0, max_chosen);
+            commanding_2.sprite_chosen = Random.Range(0, max_chosen);
+
+            commanding_1.my_conversation_controller = GetComponent<ConversationController>();
+            commanding_2.my_conversation_controller = GetComponent<ConversationController>();
+
+            if (commanding_1.sprite_chosen == commanding_2.sprite_chosen)
             {
-                commanding_2.sprite_chosen -= 2;
+                commanding_2.sprite_chosen += 1;
+                if (commanding_2.sprite_chosen >= max_chosen)
+                {
+                    commanding_2.sprite_chosen -= 2;
+                }
             }
-        }
 
-        commanding_1.other_person = commanding_2;
-        commanding_2.other_person = commanding_1;
-           
-        conversation_progress = 0;
+            commanding_1.other_person = commanding_2;
+            commanding_2.other_person = commanding_1;
 
-        speaking_speed = Mind.speaking_speed;
+            conversation_progress = 0;
 
-        currently_free = false;
-        commanding_1.currently_free = false;
-        commanding_2.currently_free = false;
-        seat_1.currently_free = false;
-        seat_2.currently_free = false;
+            speaking_speed = Mind.speaking_speed;
 
-        commanding_1.my_seat_script = seat_1;
-        commanding_2.my_seat_script = seat_2;
-        
-        if (Random.Range(1,3) == 1)
-        {
-            commanding_1.my_spawner = spawner_2;
-            commanding_2.my_spawner = spawner_1;
-        } else
-        {
-            commanding_1.my_spawner = spawner_1;
-            commanding_2.my_spawner = spawner_2;
-        }
+            currently_free = false;
+            commanding_1.currently_free = false;
+            commanding_2.currently_free = false;
+            seat_1.currently_free = false;
+            seat_2.currently_free = false;
 
-        commanding_1.Activate();
-        commanding_2.Activate();
+            commanding_1.my_seat_script = seat_1;
+            commanding_2.my_seat_script = seat_2;
 
-        commanding_1.pred_present = false;
-        commanding_2.pred_present = false;
-        commanding_1.am_predator = false;
-        commanding_2.am_predator = false;
-
-        if (predator_present)
-        {
-            commanding_1.pred_present = true;
-            commanding_2.pred_present = true;
-            if (predator_is_a)
+            if (Random.Range(1, 3) == 1)
             {
-                commanding_1.am_predator = true;
+                commanding_1.my_spawner = spawner_2;
+                commanding_2.my_spawner = spawner_1;
             }
             else
             {
-                commanding_2.am_predator = true;
+                commanding_1.my_spawner = spawner_1;
+                commanding_2.my_spawner = spawner_2;
             }
+
+            commanding_1.Activate();
+            commanding_2.Activate();
+
+            commanding_1.pred_present = false;
+            commanding_2.pred_present = false;
+            commanding_1.am_predator = false;
+            commanding_2.am_predator = false;
+
+            if (predator_present)
+            {
+                commanding_1.pred_present = true;
+                commanding_2.pred_present = true;
+                if (predator_is_a)
+                {
+                    commanding_1.am_predator = true;
+                }
+                else
+                {
+                    commanding_2.am_predator = true;
+                }
+            }
+
+            my_own_state = 1;
+
+            conversation_chooser.RollConversations(predator_is_a, predator_present, debug_controller);
+            what_to_say = conversation_chooser.extraction_string();
+            from_speaker_a = conversation_chooser.extraction_bool();
+            what_to_say = conversation_chooser.assembled_string;
+            from_speaker_a = conversation_chooser.assembled_bool;
         }
-
-        my_own_state = 1;
-
-        conversation_chooser.RollConversations(predator_is_a, predator_present);
-        what_to_say = conversation_chooser.extraction_string();
-        from_speaker_a = conversation_chooser.extraction_bool();
-        what_to_say = conversation_chooser.assembled_string;
-        from_speaker_a = conversation_chooser.assembled_bool;
 
     }
 

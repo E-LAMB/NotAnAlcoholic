@@ -20,8 +20,11 @@ public class BankChooser : MonoBehaviour
     public BankStorage[] pred_a_conversations;
     //public BankStorage[] pred_b_conversations;
 
-    public void RollConversations(bool sp_a_pred, bool pred_present)
+    public void RollConversations(bool sp_a_pred, bool pred_present, string debug_runner)
     {
+
+        Debug.Log(debug_runner);
+
         if (!pred_present)
         {
             the_target = innocent_conversations[Random.Range(0, innocent_conversations.Length)];
@@ -42,6 +45,7 @@ public class BankChooser : MonoBehaviour
        if (was_first)
         {
             current_value = 0;
+            Debug.Log("CB_Assemble_A Occured");
         }
 
         assembled_string[current_value] = the_target.to_draw_from[current_value].to_say;
@@ -62,6 +66,7 @@ public class BankChooser : MonoBehaviour
         if (was_first)
         {
             current_value = 0;
+            Debug.Log("CB_Assemble_B Occured");
         }
 
         assembled_bool[current_value] = the_target.to_draw_from[current_value].speaker_a;
@@ -81,12 +86,14 @@ public class BankChooser : MonoBehaviour
     public string[] extraction_string()
     {
         Assemb_string(true);
+        Debug.Log("CB_Extraction_A Occured");
         return text_to_extract;
     }
 
     public bool[] extraction_bool()
     {
         Assemb_bool(true);
+        Debug.Log("CB_Extraction_B Occured");
         return bool_to_extract;
     }
 

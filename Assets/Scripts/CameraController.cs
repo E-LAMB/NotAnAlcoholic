@@ -50,6 +50,12 @@ public class CameraController : MonoBehaviour
                 {
                     bar_holster.position = bar_right.position;
                 }
+
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    Debug.Break();
+                }
+
                 camera_mover.position = bar_holster.position;
                 Vector3 new_position = new Vector3(camera_mover.position.x + (speed * Time.deltaTime * Input.GetAxis("Horizontal")), camera_mover.position.y, camera_mover.position.z);
                 bar_holster.position = new_position;
