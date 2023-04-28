@@ -32,10 +32,10 @@ public class BankChooser : MonoBehaviour
         {
             if (sp_a_pred)
             {
-                the_target = pred_a_conversations[Random.Range(0, pred_a_conversations.Length)];
+                the_target = innocent_conversations[Random.Range(0, pred_a_conversations.Length)];
             } else
             {
-                the_target = innocent_conversations[Random.Range(0, innocent_conversations.Length)];
+                the_target = pred_a_conversations[Random.Range(0, pred_a_conversations.Length)];
             }
         }
     }

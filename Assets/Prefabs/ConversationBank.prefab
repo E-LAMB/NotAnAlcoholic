@@ -513,7 +513,6 @@ MonoBehaviour:
   pred_a_conversations:
   - {fileID: 6956880710482210281}
   - {fileID: 6956880710113350943}
-  - {fileID: 6956880710389148168}
 --- !u!1 &6956880710087427255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1274,6 @@ MonoBehaviour:
   pred_a_conversations:
   - {fileID: 6956880710482210281}
   - {fileID: 6956880710113350943}
-  - {fileID: 6956880710389148168}
 --- !u!1 &6956880710389148166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6956880710389148167
 Transform:
   m_ObjectHideFlags: 0
@@ -2094,7 +2092,6 @@ MonoBehaviour:
   pred_a_conversations:
   - {fileID: 6956880710482210281}
   - {fileID: 6956880710113350943}
-  - {fileID: 6956880710389148168}
 --- !u!1 &6956880711384274162
 GameObject:
   m_ObjectHideFlags: 0

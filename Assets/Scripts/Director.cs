@@ -65,6 +65,8 @@ public class Director : MonoBehaviour
     public float predator_chance_reduction;
     public int predator_is_spiker;
 
+    public int spiker_aggression;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -270,6 +272,7 @@ public class Director : MonoBehaviour
             selected_controller.predator_is_spiker_type = !predator_is_a;
             selected_controller.predator_is_a = true;
             selected_controller.predator_present = is_predator;
+            selected_controller.spiker_chance = spiker_aggression;
             selected_controller.Activate();
 
             // Debug.Log("Activation Occured From Director");

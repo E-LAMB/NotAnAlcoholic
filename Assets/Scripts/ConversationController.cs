@@ -57,6 +57,8 @@ public class ConversationController : MonoBehaviour
 
     public Patron bell_selected_patron;
 
+    public int spiker_chance;
+
     void Start()
     {
         //notamper_active = false;
@@ -97,18 +99,20 @@ public class ConversationController : MonoBehaviour
             seat_1.currently_free = false;
             seat_2.currently_free = false;
 
-            commanding_1.my_seat_script = seat_1;
-            commanding_2.my_seat_script = seat_2;
-
             if (Random.Range(1, 3) == 1)
             {
                 commanding_1.my_spawner = spawner_2;
                 commanding_2.my_spawner = spawner_1;
+                commanding_1.my_seat_script = seat_1;
+                commanding_2.my_seat_script = seat_2;
+
             }
             else
             {
                 commanding_1.my_spawner = spawner_1;
                 commanding_2.my_spawner = spawner_2;
+                commanding_1.my_seat_script = seat_2;
+                commanding_2.my_seat_script = seat_1;
             }
 
             commanding_1.Activate();
@@ -118,19 +122,22 @@ public class ConversationController : MonoBehaviour
             commanding_2.pred_present = false;
             commanding_1.am_predator = false;
             commanding_2.am_predator = false;
+            commanding_2.is_a_spiker = false;
 
             if (predator_present)
             {
                 commanding_1.pred_present = true;
                 commanding_2.pred_present = true;
+                commanding_1.am_predator = true;
 
-                if (predator_is_a)
+                if (predator_is_spiker_type)
                 {
-                    commanding_1.am_predator = true;
+                    commanding_1.is_a_spiker = true;
+                    commanding_1.spiker_chance = spiker_chance;
                 }
                 else
                 {
-                    commanding_2.am_predator = true;
+                    commanding_1.is_a_spiker = false;
                 }
             }
 

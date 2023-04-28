@@ -486,6 +486,7 @@ MonoBehaviour:
   can_order: 0
   drink_is_spiked: 0
   spiking_stage: 0
+  is_a_spiker: 0
   is_being_watched: 0
   watch_layer:
     serializedVersion: 2
@@ -517,6 +518,9 @@ MonoBehaviour:
   announcer: {fileID: 0}
   time_until_drink: 0
   spiker_time: 0
+  spiker_stare_time: 0
+  spiker_chance: 0
+  sick_time: 0
 --- !u!61 &4499564344760786073
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -550,6 +554,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7416888267004608768}
     m_Modifications:
+    - target: {fileID: 985727324318136327, guid: a3a355555f148e243a691e71000eb62b, type: 3}
+      propertyPath: my_owner
+      value: 
+      objectReference: {fileID: 7416888267004608831}
     - target: {fileID: 1000062452155893189, guid: a3a355555f148e243a691e71000eb62b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.80172
@@ -630,6 +638,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1926777294803907127, guid: a3a355555f148e243a691e71000eb62b, type: 3}
+      propertyPath: my_owner
+      value: 
+      objectReference: {fileID: 7416888267004608831}
     - target: {fileID: 4898024399490231489, guid: a3a355555f148e243a691e71000eb62b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -642,10 +654,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 5203066070519564468, guid: a3a355555f148e243a691e71000eb62b, type: 3}
+      propertyPath: my_owner
+      value: 
+      objectReference: {fileID: 7416888267004608831}
     - target: {fileID: 5830700794472992274, guid: a3a355555f148e243a691e71000eb62b, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7167555479541121496, guid: a3a355555f148e243a691e71000eb62b, type: 3}
+      propertyPath: my_owner
+      value: 
+      objectReference: {fileID: 7416888267004608831}
     - target: {fileID: 7401478829100122540, guid: a3a355555f148e243a691e71000eb62b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -658,6 +678,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7541447020113913759, guid: a3a355555f148e243a691e71000eb62b, type: 3}
+      propertyPath: my_owner
+      value: 
+      objectReference: {fileID: 7416888267004608831}
     - target: {fileID: 8194580835138028596, guid: a3a355555f148e243a691e71000eb62b, type: 3}
       propertyPath: m_Name
       value: Sprite Manager
