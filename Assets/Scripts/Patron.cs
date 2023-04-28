@@ -18,6 +18,7 @@ public class Patron : MonoBehaviour
     public GameplayDirector gameplay_director;
 
     public GameObject pred_indicator;
+    public GameObject spike_indicator;
 
     public SeatScript my_seat_script;
     public int seat_number;
@@ -36,6 +37,7 @@ public class Patron : MonoBehaviour
     public bool has_drink;
     public bool can_order;
     public bool drink_is_spiked;
+    public bool spiking_stage;
 
     public bool is_being_watched;
     public LayerMask watch_layer;
@@ -96,6 +98,7 @@ public class Patron : MonoBehaviour
         has_drink = false;
         drink_is_spiked = false;
         can_order = false;
+        spiking_stage = false;
 
         time_until_drink = Random.Range(-10f, 0f);
 
@@ -112,16 +115,38 @@ public class Patron : MonoBehaviour
 
     public void ExecuteCommand(string command)
     {
+
+        if (command.Contains("$Spike") && !spiking_stage && !other_person.drink_is_spiked && other_person.has_drink) 
+        {
+            my_sprite_manager.SetSprite("Suspicious");
+            Debug.Log("Spike Prepare");
+            spiking_stage = true;
+            
+        } else if (command.Contains("$Spike") && spiking_stage  && !other_person.is_being_watched && other_person.has_drink && !is_being_watched && !other_person.drink_is_spiked)
+        {
+            other_person.drink_is_spiked = true;
+            spiking_stage = false;
+            Debug.Log("Spike Set");
+            my_sprite_manager.SetSprite("Default");
+
+        } else if (is_being_watched && spiking_stage && other_person.has_drink && !other_person.drink_is_spiked)
+        {
+            my_sprite_manager.SetSprite("Uncomfortable");
+            Debug.Log("Spike Interrupt");
+            spiking_stage = false;
+
+        } else if (other_person.is_being_watched && spiking_stage && other_person.has_drink && !other_person.drink_is_spiked)
+        {
+            my_sprite_manager.SetSprite("Uncomfortable");
+            Debug.Log("Spike Interrupt");
+            spiking_stage = false;
+        }
+
         if (command.Contains("$Emote/Default")) {my_sprite_manager.SetSprite("Default");}
         if (command.Contains("$Emote/Sick")) {my_sprite_manager.SetSprite("Sick");}
         if (command.Contains("$Emote/Suspicious")) {my_sprite_manager.SetSprite("Suspicious");}
         if (command.Contains("$Emote/Uncomfortable")) {my_sprite_manager.SetSprite("Uncomfortable");}
 
-        if (command.Contains("$Spike/Prepare") && !other_person.drink_is_spiked) {my_sprite_manager.SetSprite("Suspicious");}
-        if (command.Contains("$Spike/Perform") && !is_being_watched && !other_person.drink_is_spiked)
-        {
-            other_person.drink_is_spiked = true;
-        }
     }
 
     public float distance_to_seat;
@@ -145,6 +170,8 @@ public class Patron : MonoBehaviour
 
     public float time_until_drink;
 
+    public float spiker_time;
+
     void OnMouseDown()
     {
         //Debug.Log("Clicked on");
@@ -159,9 +186,27 @@ public class Patron : MonoBehaviour
     void Update()
     {
 
+        if (spiking_stage)
+        {
+            if (is_being_watched)
+            {
+                spiker_time += Time.deltaTime;
+                if (spiker_time > 3f)
+                {
+                    my_sprite_manager.SetSprite("Uncomfortable");
+                    Debug.Log("Spike Interrupt Ext.");
+                    spiking_stage = false;
+                }
+            } else
+            {
+                spiker_time = 0f;
+            }
+        }
+
         is_being_watched = Physics.CheckSphere(self.position, 1f, watch_layer);
 
         pred_indicator.SetActive(am_predator);
+        spike_indicator.SetActive(drink_is_spiked);
 
         if (text_fade_time <= 0.125f)
         {

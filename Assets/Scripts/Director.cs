@@ -10,6 +10,9 @@ public class Director : MonoBehaviour
     public int pairing_one;
     public int pairing_two;
 
+    public float normal_speaker_speed;
+    public float pred_speaking_speed;
+
     public int pairing_attempts;
     public int max_attempts;
 
@@ -60,6 +63,7 @@ public class Director : MonoBehaviour
     public bool is_predator;
     public bool predator_is_a;
     public float predator_chance_reduction;
+    public int predator_is_spiker;
 
     // Start is called before the first frame update
     void Start()
@@ -125,7 +129,7 @@ public class Director : MonoBehaviour
 
         selected_conversator = Random.Range(1,4);
 
-        Debug.Log(selected_conversator);
+        //Debug.Log(selected_conversator);
         
         if (selected_conversator == 1 && !cp_1) { should_retry = true; }
         if (selected_conversator == 2 && !cp_2) { should_retry = true; }
@@ -180,18 +184,28 @@ public class Director : MonoBehaviour
         if (should_assign && patron_free_count >= 2 && conversator_free_count >= 1)
         {
 
+            predator_is_a = false;
+
             if (Random.Range(1f, 100f) > predator_chance)
             {
                 is_predator = true;
                 predator_chance = initial_predator_chance;
+
+                if (Random.Range(1,predator_is_spiker) != 1)
+                {
+                    predator_is_a = false;
+
+                } else
+                {
+                    predator_is_a = true;
+                }
+
             }
             else
             {
                 is_predator = false;
                 predator_chance -= predator_chance_reduction;
             }
-
-            predator_is_a = true;
 
             should_assign = false;
 
@@ -245,11 +259,20 @@ public class Director : MonoBehaviour
             selected_controller.commanding_1 = selected_1_patronscript;
             selected_controller.commanding_2 = selected_2_patronscript;
 
-            selected_controller.predator_is_a = predator_is_a;
+            selected_controller.speaking_speed_a = normal_speaker_speed;
+            selected_controller.speaking_speed_b = normal_speaker_speed;
+
+            if (is_predator) 
+            {
+                selected_controller.speaking_speed_a = pred_speaking_speed;
+            }
+
+            selected_controller.predator_is_spiker_type = !predator_is_a;
+            selected_controller.predator_is_a = true;
             selected_controller.predator_present = is_predator;
             selected_controller.Activate();
 
-            Debug.Log("Activation Occured From Director");
+            // Debug.Log("Activation Occured From Director");
 
         }
     }

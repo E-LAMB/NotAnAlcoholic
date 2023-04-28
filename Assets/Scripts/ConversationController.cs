@@ -31,7 +31,8 @@ public class ConversationController : MonoBehaviour
     public string[] notamper_wts;
     */
 
-    public float speaking_speed;
+    public float speaking_speed_a;
+    public float speaking_speed_b;
 
     public int my_own_state;
     // 0 = Offscreen idle
@@ -46,6 +47,7 @@ public class ConversationController : MonoBehaviour
 
     public bool predator_present;
     public bool predator_is_a;
+    public bool predator_is_spiker_type;
 
     public int max_chosen;
 
@@ -63,7 +65,7 @@ public class ConversationController : MonoBehaviour
     {
         if (currently_free)
         {
-            Debug.Log("Activation Occured");
+            //Debug.Log("Activation Occured");
 
             max_chosen = commanding_1.sprite_collection.Length;
 
@@ -87,7 +89,7 @@ public class ConversationController : MonoBehaviour
 
             conversation_progress = 0;
 
-            speaking_speed = Mind.speaking_speed;
+            // speaking_speed = Mind.speaking_speed;
 
             currently_free = false;
             commanding_1.currently_free = false;
@@ -121,6 +123,7 @@ public class ConversationController : MonoBehaviour
             {
                 commanding_1.pred_present = true;
                 commanding_2.pred_present = true;
+
                 if (predator_is_a)
                 {
                     commanding_1.am_predator = true;
@@ -133,7 +136,7 @@ public class ConversationController : MonoBehaviour
 
             my_own_state = 1;
 
-            conversation_chooser.RollConversations(predator_is_a, predator_present, debug_controller);
+            conversation_chooser.RollConversations(predator_is_spiker_type, predator_present, debug_controller);
             what_to_say = conversation_chooser.extraction_string();
             from_speaker_a = conversation_chooser.extraction_bool();
             what_to_say = conversation_chooser.assembled_string;
@@ -191,24 +194,31 @@ public class ConversationController : MonoBehaviour
         {
             dia_countdown += Time.deltaTime;    
             perform_action = false;
+
             if (dia_countdown > time_to_wait)
             {
                 conversation_progress += 1;
 
-                time_to_wait = what_to_say[conversation_progress].Length / speaking_speed;
+                if (from_speaker_a[conversation_progress]) 
+                {
+                    time_to_wait = what_to_say[conversation_progress].Length / speaking_speed_a;
+                } else
+                {
+                    time_to_wait = what_to_say[conversation_progress].Length / speaking_speed_b;
+                }
 
                 if (1f > time_to_wait)
                 {
                     time_to_wait = 1f;
                 }
-                if (5f < time_to_wait)
+                if (6f < time_to_wait)
                 {
-                    time_to_wait = 5f;
+                    time_to_wait = 6f;
                 }
 
                 dia_countdown = 0;
 
-                what_to_say[conversation_progress] = what_to_say[conversation_progress].Replace("£", "$");
+                what_to_say[conversation_progress] = what_to_say[conversation_progress].Replace("Â£", "$");
                 what_to_say[conversation_progress] = what_to_say[conversation_progress].Replace("&", "$");
 
                 if (conversation_progress > 100) // Backup ending to the conversation
@@ -244,14 +254,17 @@ public class ConversationController : MonoBehaviour
                     perform_action = true;
                 }
 
-                if (what_to_say[conversation_progress].Contains("$Spike/Prepare"))
+                if (what_to_say[conversation_progress].Contains("$Spike"))
                 {
                     perform_action = true;
                 }
+
+                /*
                 if (what_to_say[conversation_progress].Contains("$Spike/Perform"))
                 {
                     perform_action = true;
                 }
+                */
 
                 if (!conversation_concluded && !perform_action)
                 {

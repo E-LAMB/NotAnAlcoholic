@@ -7,8 +7,14 @@ public class NewSceneFade : MonoBehaviour
 {
 
     public Image my_image;
+    public TMPro.TextMeshProUGUI text;
+
     public float my_fade;
     public GameObject my_object;
+
+    public float others;
+
+    public bool is_image;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +25,15 @@ public class NewSceneFade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        my_image.color = new Vector4 (0f, 0f, 0f, my_fade);
+        if (is_image)
+        {
+            my_image.color = new Vector4 (others, others, others, my_fade);
+        } else
+        {
+            text.color = new Vector4 (others, others, others, my_fade);
+        }
+
+
         my_fade -= Time.deltaTime / 2f;
         if (my_fade < -0.1f)
         {

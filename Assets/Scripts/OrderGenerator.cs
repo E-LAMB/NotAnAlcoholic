@@ -72,6 +72,7 @@ public class OrderGenerator : MonoBehaviour
         drink_title.text = " ";
         drink_fluid.text = " ";
         drink_tier.text = " ";
+        seat_text.text = " ";
     }
 
     void find_seat_head()
@@ -82,15 +83,114 @@ public class OrderGenerator : MonoBehaviour
         selected_seat = 0;
         has_chosen_seat = false;
 
-        find_seat_runner();
+        find_seat_runner_patrons();
+
+        if (!has_chosen_seat)
+        {
+            seat_searches = 0;
+            find_seat_runner_all();
+        }
 
     }
 
-    void find_seat_runner()
+    void find_seat_runner_patrons()
     {
         seat_searches += 1;
 
-        if (seat_searches > 30)
+        if (seat_searches > 2)
+        {
+            if (pat_1.can_order && !pat_1.am_predator && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_1;
+                selected_seat = pat_1.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            if (pat_2.can_order && !pat_2.am_predator && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_2;
+                selected_seat = pat_2.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            if (pat_3.can_order && !pat_3.am_predator && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_3;
+                selected_seat = pat_3.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            if (pat_4.can_order && !pat_4.am_predator && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_4;
+                selected_seat = pat_4.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            if (pat_5.can_order && !pat_5.am_predator && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_5;
+                selected_seat = pat_5.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            if (pat_6.can_order && !pat_6.am_predator && !has_chosen_seat)
+            {
+                selected_patron_seat = pat_6;
+                selected_seat = pat_6.my_seat_script.seat_number;
+                has_chosen_seat = true;
+            }
+            return;
+        }
+
+        int rand_selected = Random.Range(1,7);
+
+        if (pat_1.can_order && !has_chosen_seat && rand_selected == 1 && !pat_1.am_predator)
+        {
+            selected_seat = pat_1.my_seat_script.seat_number;
+            selected_patron_seat = pat_1;
+            has_chosen_seat = true;
+        }
+        if (pat_2.can_order && !has_chosen_seat && rand_selected == 2 && !pat_2.am_predator)
+        {
+            selected_seat = pat_2.my_seat_script.seat_number;
+            selected_patron_seat = pat_2;
+            has_chosen_seat = true;
+        }
+        if (pat_3.can_order && !has_chosen_seat && rand_selected == 3 && !pat_3.am_predator)
+        {
+            selected_seat = pat_3.my_seat_script.seat_number;
+            selected_patron_seat = pat_3;
+            has_chosen_seat = true;
+        }
+        if (pat_4.can_order && !has_chosen_seat && rand_selected == 4 && !pat_4.am_predator)
+        {
+            selected_seat = pat_4.my_seat_script.seat_number;
+            selected_patron_seat = pat_4;
+            has_chosen_seat = true;
+        }
+        if (pat_5.can_order && !has_chosen_seat && rand_selected == 5 && !pat_5.am_predator)
+        {
+            selected_seat = pat_5.my_seat_script.seat_number;
+            selected_patron_seat = pat_5;
+            has_chosen_seat = true;
+        }
+        if (pat_6.can_order && !has_chosen_seat && rand_selected == 6 && !pat_6.am_predator)
+        {
+            selected_seat = pat_6.my_seat_script.seat_number;
+            selected_patron_seat = pat_6;
+            has_chosen_seat = true;
+        }
+
+        if (has_chosen_seat)
+        {
+            return;
+        }
+
+        find_seat_runner_patrons();
+
+    }
+
+    void find_seat_runner_all()
+    {
+        seat_searches += 1;
+
+        if (seat_searches > 50)
         {
             if (pat_1.can_order && !has_chosen_seat)
             {
@@ -175,7 +275,7 @@ public class OrderGenerator : MonoBehaviour
             return;
         }
 
-        find_seat_runner();
+        find_seat_runner_all();
 
     }
 
@@ -265,7 +365,7 @@ public class OrderGenerator : MonoBehaviour
         {
             drink_name = "Just Add Water";
             needed_fluid = "WATER";
-            needed_shake_level = 2;
+            needed_shake_level = 1;
             needed_ingredients[0] = "ICE";
             needed_ingredients[1] = "n/a";
             needed_ingredients[2] = "n/a";
@@ -276,7 +376,7 @@ public class OrderGenerator : MonoBehaviour
         {
             drink_name = "More Water Please";
             needed_fluid = "WATER";
-            needed_shake_level = 3;
+            needed_shake_level = 2;
             needed_ingredients[0] = "ICE";
             needed_ingredients[1] = "ICE";
             needed_ingredients[2] = "ICE";
@@ -534,6 +634,10 @@ public class OrderGenerator : MonoBehaviour
 
         drink_title.text = drink_name;
 
+        if (needed_shake_level == 0)
+        {
+            drink_tier.text = "O";
+        }
         if (needed_shake_level == 1)
         {
             drink_tier.text = "I";

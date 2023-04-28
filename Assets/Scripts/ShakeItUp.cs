@@ -138,6 +138,7 @@ public class ShakeItUp : MonoBehaviour
         if (Mind.drink_shake_level == 1) { intensity_text.text = "I"; }
         if (Mind.drink_shake_level == 2) { intensity_text.text = "II"; }
         if (Mind.drink_shake_level == 3) { intensity_text.text = "III"; }
+        if (Mind.drink_shake_level > 3) { intensity_text.text = "X"; }
 
         Mind.filling_shaker = placing_ingredients;
 
@@ -226,7 +227,7 @@ public class ShakeItUp : MonoBehaviour
             {
                 SetShakeKeys(3, true);
                 times_shaken = 0;
-                times_until_flip = Random.Range(13,20);
+                times_until_flip = Random.Range(8,10) + Mind.drink_shake_level;
                 times_until_flip = times_until_flip * 2;
                 times_until_flip -= 1;
                 Mind.drink_shake_level += 1;

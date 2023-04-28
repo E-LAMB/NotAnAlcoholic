@@ -29,6 +29,11 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Break();
+        }
+
         if (Mind.in_control)
         {
 
@@ -49,11 +54,6 @@ public class CameraController : MonoBehaviour
                 if (bar_holster.position.x > bar_right.position.x)
                 {
                     bar_holster.position = bar_right.position;
-                }
-
-                if (Input.GetKeyDown(KeyCode.P))
-                {
-                    Debug.Break();
                 }
 
                 camera_mover.position = bar_holster.position;
