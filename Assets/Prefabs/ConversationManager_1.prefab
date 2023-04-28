@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7953742760112799586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7953742760112799587}
+  - component: {fileID: 7953742760112799588}
+  m_Layer: 0
+  m_Name: ConversationManager_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7953742760112799587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953742760112799586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7953742760112799588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953742760112799586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce49e5a0683c0924780b7be0c7b443a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currently_free: 1
+  commanding_1: {fileID: 0}
+  commanding_2: {fileID: 0}
+  seat_1: {fileID: 0}
+  seat_2: {fileID: 0}
+  spawner_1: {fileID: 0}
+  spawner_2: {fileID: 0}
+  conversation_progress: 0
+  dia_countdown: 0
+  time_to_wait: 0
+  from_speaker_a: 000100010001010000
+  what_to_say:
+  - '&StartOfConvo'
+  - Hi
+  - Hi
+  - How are you?
+  - Oh I'm good, You?
+  - I'm great
+  - Weather's nice
+  - Ok Bye Lets Go Lol
+  - $EndOfConvo
+  conversation_concluded: 0
+  notamper_active: 0
+  notamper_fsa: 
+  notamper_wts: []
+  speaking_speed: 0
+  my_own_state: 0
+  debug_controller: '"Manager 1"'
+  predator_present: 0
+  predator_is_a: 0
+  max_chosen: 0
+  perform_action: 0
+  conversation_chooser: {fileID: 0}
+  bell_selected_patron: {fileID: 0}

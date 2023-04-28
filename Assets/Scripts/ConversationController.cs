@@ -25,9 +25,11 @@ public class ConversationController : MonoBehaviour
     public string[] what_to_say;
     public bool conversation_concluded;
 
+    /*
     public bool notamper_active;
     public bool[] notamper_fsa;
     public string[] notamper_wts;
+    */
 
     public float speaking_speed;
 
@@ -55,7 +57,7 @@ public class ConversationController : MonoBehaviour
 
     void Start()
     {
-        notamper_active = false;
+        //notamper_active = false;
     }
     public void Activate()
     {
@@ -137,6 +139,7 @@ public class ConversationController : MonoBehaviour
             what_to_say = conversation_chooser.assembled_string;
             from_speaker_a = conversation_chooser.assembled_bool;
 
+            /*
             if (!notamper_active)
             {
                 Debug.Log("NoTamperRan " + debug_controller);
@@ -144,6 +147,7 @@ public class ConversationController : MonoBehaviour
                 notamper_fsa = from_speaker_a;
                 notamper_wts = what_to_say;
             }
+            */
             
         }
 
@@ -152,7 +156,7 @@ public class ConversationController : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(debug_controller + " = " + notamper_active);
+        //Debug.Log(debug_controller + " = " + notamper_active);
 
         if (my_own_state == 1)
         {
@@ -191,7 +195,7 @@ public class ConversationController : MonoBehaviour
             {
                 conversation_progress += 1;
 
-                time_to_wait = notamper_wts[conversation_progress].Length / speaking_speed;
+                time_to_wait = what_to_say[conversation_progress].Length / speaking_speed;
 
                 if (1f > time_to_wait)
                 {
@@ -204,8 +208,8 @@ public class ConversationController : MonoBehaviour
 
                 dia_countdown = 0;
 
-                notamper_wts[conversation_progress] = notamper_wts[conversation_progress].Replace("£", "$");
-                notamper_wts[conversation_progress] = notamper_wts[conversation_progress].Replace("&", "$");
+                what_to_say[conversation_progress] = what_to_say[conversation_progress].Replace("£", "$");
+                what_to_say[conversation_progress] = what_to_say[conversation_progress].Replace("&", "$");
 
                 if (conversation_progress > 100) // Backup ending to the conversation
                 {
@@ -215,7 +219,7 @@ public class ConversationController : MonoBehaviour
                     commanding_2.my_state = 4;
                 }
 
-                if (notamper_wts[conversation_progress] == "$EndOfConvo")
+                if (what_to_say[conversation_progress].Contains("$EndOfConvo"))
                 {
                     conversation_concluded = true;
                     my_own_state = 4;
@@ -223,42 +227,42 @@ public class ConversationController : MonoBehaviour
                     commanding_2.my_state = 4;
                 }
 
-                if (notamper_wts[conversation_progress] == "$Emote/Default")
+                if (what_to_say[conversation_progress].Contains("$Emote/Default"))
                 {
                     perform_action = true;
                 }
-                if (notamper_wts[conversation_progress] == "$Emote/Sick")
+                if (what_to_say[conversation_progress].Contains("$Emote/Sick"))
                 {
                     perform_action = true;
                 }
-                if (notamper_wts[conversation_progress] == "$Emote/Uncomfortable")
+                if (what_to_say[conversation_progress].Contains("$Emote/Uncomfortable"))
                 {
                     perform_action = true;
                 }
-                if (notamper_wts[conversation_progress] == "$Emote/Suspicious")
+                if (what_to_say[conversation_progress].Contains("$Emote/Suspicious"))
                 {
                     perform_action = true;
                 }
 
-                if (notamper_wts[conversation_progress] == "$Spike/Prepare")
+                if (what_to_say[conversation_progress].Contains("$Spike/Prepare"))
                 {
                     perform_action = true;
                 }
-                if (notamper_wts[conversation_progress] == "$Spike/Perform")
+                if (what_to_say[conversation_progress].Contains("$Spike/Perform"))
                 {
                     perform_action = true;
                 }
 
                 if (!conversation_concluded && !perform_action)
                 {
-                    string i_should_say = notamper_wts[conversation_progress];
+                    string i_should_say = what_to_say[conversation_progress];
 
                     i_should_say = i_should_say.Replace("Roxy",commanding_1.my_name);
                     i_should_say = i_should_say.Replace("Dan",commanding_2.my_name);
 
                     // Roxy refers to Speaker 1, Dan refers to Speaker 2
 
-                    if (notamper_fsa[conversation_progress])
+                    if (from_speaker_a[conversation_progress])
                     {
                         commanding_1.Speaking(i_should_say, time_to_wait);
                     } else
@@ -274,15 +278,15 @@ public class ConversationController : MonoBehaviour
 
                 if (!conversation_concluded && perform_action)
                 {
-                    if (notamper_fsa[conversation_progress])
+                    if (from_speaker_a[conversation_progress])
                     {
 
-                        commanding_1.ExecuteCommand(notamper_wts[conversation_progress]);
+                        commanding_1.ExecuteCommand(what_to_say[conversation_progress]);
 
                     } else
                     {
 
-                        commanding_2.ExecuteCommand(notamper_wts[conversation_progress]);
+                        commanding_2.ExecuteCommand(what_to_say[conversation_progress]);
 
                     }
                 }
@@ -305,7 +309,7 @@ public class ConversationController : MonoBehaviour
         {
             if (commanding_1.completed_state && commanding_2.completed_state)
             {
-                notamper_active = false;
+                //notamper_active = false;
                 commanding_1.my_state = 0;
                 commanding_2.my_state = 0;
                 my_own_state = 0;
@@ -344,7 +348,7 @@ public class ConversationController : MonoBehaviour
         {
             if (commanding_1.completed_state && commanding_2.completed_state)
             {
-                notamper_active = false;
+                //notamper_active = false;
                 commanding_1.my_state = 0;
                 commanding_2.my_state = 0;
                 my_own_state = 0;

@@ -69,6 +69,7 @@ public class Patron : MonoBehaviour
         sprite_collection[1].SetActive(false);
         sprite_collection[2].SetActive(false);
         sprite_collection[3].SetActive(false);
+        sprite_collection[4].SetActive(false);
 
         sprite_collection[sprite_chosen].SetActive(true);
 
@@ -111,13 +112,13 @@ public class Patron : MonoBehaviour
 
     public void ExecuteCommand(string command)
     {
-        if (command == "$Emote/Default") {my_sprite_manager.SetSprite("Default");}
-        if (command == "$Emote/Sick") {my_sprite_manager.SetSprite("Sick");}
-        if (command == "$Emote/Suspicious") {my_sprite_manager.SetSprite("Suspicious");}
-        if (command == "$Emote/Uncomfortable") {my_sprite_manager.SetSprite("Uncomfortable");}
+        if (command.Contains("$Emote/Default")) {my_sprite_manager.SetSprite("Default");}
+        if (command.Contains("$Emote/Sick")) {my_sprite_manager.SetSprite("Sick");}
+        if (command.Contains("$Emote/Suspicious")) {my_sprite_manager.SetSprite("Suspicious");}
+        if (command.Contains("$Emote/Uncomfortable")) {my_sprite_manager.SetSprite("Uncomfortable");}
 
-        if (command == "$Spike/Prepare" && !other_person.drink_is_spiked) {my_sprite_manager.SetSprite("Suspicious");}
-        if (command == "$Spike/Perform" && !is_being_watched && !other_person.drink_is_spiked)
+        if (command.Contains("$Spike/Prepare") && !other_person.drink_is_spiked) {my_sprite_manager.SetSprite("Suspicious");}
+        if (command.Contains("$Spike/Perform") && !is_being_watched && !other_person.drink_is_spiked)
         {
             other_person.drink_is_spiked = true;
         }

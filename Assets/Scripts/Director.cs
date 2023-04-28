@@ -249,6 +249,8 @@ public class Director : MonoBehaviour
             selected_controller.predator_present = is_predator;
             selected_controller.Activate();
 
+            Debug.Log("Activation Occured From Director");
+
         }
     }
     
