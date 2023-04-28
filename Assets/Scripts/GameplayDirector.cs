@@ -113,6 +113,8 @@ public class GameplayDirector : MonoBehaviour
                 the_shaker.times_shaken = 0;
                 the_shaker.shaker_position = "md";
                 the_server.can_serve = true;
+                the_shaker.shake_direction = true;
+                the_shaker.switched = false;
                 dispensed_fluid = false;
             }
         }
