@@ -406,7 +406,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: baab1844a21ff1a43b7fa2aa881d897a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -503,6 +503,9 @@ MonoBehaviour:
   - {fileID: 1060792677946299220}
   - {fileID: 1256429268035971443}
   sprite_chosen: 0
+  drink_fluid: {fileID: 7526241542391661007}
+  drink_color: {x: 0, y: 0, z: 0, w: 0}
+  drink_spike_change: 0
   my_sprite_manager: {fileID: 0}
   my_conversation_controller: {fileID: 0}
   distance_to_seat: 0
@@ -521,6 +524,7 @@ MonoBehaviour:
   spiker_stare_time: 0
   spiker_chance: 0
   sick_time: 0
+  spike_change: 0.8
 --- !u!61 &4499564344760786073
 BoxCollider2D:
   m_ObjectHideFlags: 0

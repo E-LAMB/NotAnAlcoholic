@@ -62,6 +62,10 @@ public class Patron : MonoBehaviour
     public GameObject[] sprite_collection;
     public int sprite_chosen;
 
+    public SpriteRenderer drink_fluid;
+    public Vector4 drink_color;
+    public bool drink_spike_change;
+
     public PatronSprites my_sprite_manager;
     public ConversationController my_conversation_controller;
 
@@ -73,6 +77,8 @@ public class Patron : MonoBehaviour
         sprite_collection[2].SetActive(false);
         sprite_collection[3].SetActive(false);
         sprite_collection[4].SetActive(false);
+
+        drink_color = new Vector4(1f, 1f, 1f, 1f);
 
         sprite_collection[sprite_chosen].SetActive(true);
 
@@ -98,12 +104,39 @@ public class Patron : MonoBehaviour
 
         has_drink = false;
         drink_is_spiked = false;
+        drink_spike_change = false;
         can_order = false;
         spiking_stage = false;
 
         time_until_drink = Random.Range(-10f, 0f);
 
         sick_time = 0f;
+
+    }
+
+    public void DrinkServed(string type)
+    {
+
+        drink_color = new Vector4(0f, 0f, 0f, 1f);
+
+        if (type == "ALCOHOL")
+        {
+            drink_color = new Vector4(1f, 1f, 0.7f, 0.4f);
+        }
+        if (type == "WATER")
+        {
+            drink_color = new Vector4(0.5f, 1f, 1f, 0.5f);
+        }
+        if (type == "JUICE")
+        {
+            drink_color = new Vector4(1f, 0.5f, 0f, 1f);
+        }
+
+        drink_fluid.color = drink_color;
+
+        has_drink = true;
+
+        drink_fluid.color = drink_color;
 
     }
 
@@ -181,6 +214,7 @@ public class Patron : MonoBehaviour
     public int spiker_chance;
 
     public float sick_time;
+    public float spike_change;
 
     void OnMouseDown()
     {
@@ -195,6 +229,13 @@ public class Patron : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (drink_is_spiked && !drink_spike_change)
+        {
+            drink_spike_change = true;
+            drink_color = new Vector4 (spike_change, spike_change, spike_change, 1f);
+            drink_fluid.color = drink_color;
+        }
 
         if (is_a_spiker && my_state == 3 && other_person.has_drink)
         {
@@ -379,9 +420,25 @@ public class Patron : MonoBehaviour
             {
                 if (!completed_state && am_predator)
                 {
-                    gameplay_director.predators_missed += 1;
-                    gameplay_director.predators_victim_count += 1;
-                    announcer.MakeAnnouncement("A Predator left with their Victim...");
+                    if (is_a_spiker)
+                    {
+                        gameplay_director.predators_missed += 1;
+                        if (other_person.drink_is_spiked)
+                        {
+                            gameplay_director.predators_victim_count += 1;
+                        announcer.MakeAnnouncement("A Predator left with their Spiked Victim...");
+                        } else
+                        {
+                            announcer.MakeAnnouncement("A Predator left without Spiking their Victim...");
+                        }
+
+                    } else
+                    {
+                        gameplay_director.predators_missed += 1;
+                        gameplay_director.predators_victim_count += 1;
+                        announcer.MakeAnnouncement("A Predator left with their Victim...");
+                    }
+
                 }
                 completed_state = true;
             }

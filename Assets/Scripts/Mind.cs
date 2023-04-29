@@ -25,7 +25,7 @@ public static class Mind
     public static string[] drink_ingredients;
     public static int drink_shake_level = 0;
 
-    public static float ingredient_gap_time = 0.5f;
+    public static float ingredient_gap_time = 0.2f;
     public static float ice_melting_time = 12f;
 
     public static bool currently_in_back;

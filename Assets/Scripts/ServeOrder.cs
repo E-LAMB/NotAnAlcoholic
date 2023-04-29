@@ -202,7 +202,10 @@ public class ServeOrder : MonoBehaviour
             shaker_dropper.items_in_shaker[4] = "n/a";
             Mind.drink_shake_level = 0;
 
-            if (the_generator.selected_patron_seat.can_order) {the_generator.selected_patron_seat.has_drink = true;}
+            if (the_generator.selected_patron_seat.can_order) 
+            {
+                the_generator.selected_patron_seat.DrinkServed(Mind.drink_fluid);
+            }
 
             the_gameplay_director.just_served = true;
             can_serve = !can_serve;
