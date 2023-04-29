@@ -20,6 +20,7 @@ public class GameplayDirector : MonoBehaviour
     public float drinks_logged;
 
     public bool has_an_order;
+    public bool in_endgame;
 
     public bool dispensed_fluid;
 
@@ -34,6 +35,7 @@ public class GameplayDirector : MonoBehaviour
     public ShakeItUp the_shaker;
     public OrderGenerator the_order_generator;
     public ServeOrder the_server;
+    public ShiftEnder the_ender;
 
     public float time_since_summoned;
 
@@ -48,6 +50,8 @@ public class GameplayDirector : MonoBehaviour
     public GameObject unable_to_order;
 
     public Image timer;
+
+    public float summoner_time;
 
     // Start is called before the first frame update
     void Start()
@@ -79,9 +83,9 @@ public class GameplayDirector : MonoBehaviour
 
         time_since_summoned += Time.deltaTime;
 
-        if (time_since_summoned > 30f || customers_at_disposal == 6 && time_since_summoned > 5f)
+        if (time_since_summoned > summoner_time || customers_at_disposal == 6 && time_since_summoned > 5f)
         {
-            if (quota_drinks_given != quota_for_today)
+            if (quota_drinks_given < quota_for_today * 1.2 && quota_fufilled <= quota_for_today && !in_endgame)
             {
                 the_director.should_assign = true;
                 time_since_summoned = 0f;
@@ -91,7 +95,7 @@ public class GameplayDirector : MonoBehaviour
         if (gameplay_loop_drinks == 0)
         {
 
-            if (drinks_logged > 1f && !has_an_order && quota_fufilled < quota_for_today && order_time < 0.5f && the_order_generator.has_a_customer)
+            if (drinks_logged > 1f && !has_an_order && order_time < 0.5f && the_order_generator.has_a_customer)
             {
                 gameplay_loop_drinks = 1;
                 drinks_logged -= 1f;
@@ -113,22 +117,44 @@ public class GameplayDirector : MonoBehaviour
                 the_shaker.times_shaken = 0;
                 the_shaker.shaker_position = "md";
                 the_server.can_serve = true;
-                the_shaker.shake_direction = true;
-                the_shaker.switched = false;
                 dispensed_fluid = false;
             }
         }
 
         if (gameplay_loop_drinks == 2)
         {
-            if (just_served)
+
+            if (just_served && quota_fufilled > quota_for_today && the_director.patron_free_count > 5 && !the_order_generator.has_a_customer)
             {
-                gameplay_loop_drinks = 0;
-                the_shaker.placing_ingredients = true;
-                has_an_order = false;
-                just_served = false;
-                the_order_generator.clear_note();
+                gameplay_loop_drinks = 3;
+
+            } else
+            {
+                if (just_served)
+                {
+                    gameplay_loop_drinks = 0;
+                    the_shaker.placing_ingredients = true;
+                    has_an_order = false;
+                    just_served = false;
+                    quota_fufilled += 1;
+                    the_order_generator.clear_note();
+                    // Debug.Log("Served");
+                }
             }
         }
+
+        if (!in_endgame && quota_fufilled > quota_for_today && the_director.patron_free_count > 5 && !the_order_generator.has_a_customer)
+        {
+            in_endgame = true;
+        }
+
+        if (gameplay_loop_drinks == 3)
+        {
+            the_order_generator.clear_note();
+            
+            the_ender.Activate();
+
+        }
+
     }
 }

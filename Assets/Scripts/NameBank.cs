@@ -16,12 +16,16 @@ public class NameBank : MonoBehaviour
     public string[] female_setup;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (editing_the_bank)
         {
             male_names = male_setup;
             female_names = female_setup;
+        } else
+        {
+            male_setup = male_names;
+            female_setup = female_names;
         }
     }
 
@@ -30,11 +34,11 @@ public class NameBank : MonoBehaviour
 
         if (should_access_males) 
         { 
-            return male_names[Random.Range(0, male_names.Length - 1)]; 
+            return male_names[Random.Range(1, male_names.Length - 1)]; 
 
         } else 
         { 
-            return female_names[Random.Range(0, female_names.Length - 1)]; 
+            return female_names[Random.Range(1, female_names.Length - 1)]; 
         }
 
     }

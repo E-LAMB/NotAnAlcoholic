@@ -1,5 +1,263 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5270384871992125025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6662829546956059603}
+  - component: {fileID: 1251520484348537499}
+  m_Layer: 0
+  m_Name: Pred A Conversation 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6662829546956059603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5270384871992125025}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6956880710411494900}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1251520484348537499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5270384871992125025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8e230afa758945b21371b7facf34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notes: 'Roxy refers to Speaker 1, Dan refers to Speaker 2.
+
+    This is a conversation
+    that only occurs between predators. This is an "Abuser" conversation.'
+  command_list: "$StartOfConvo\r\n$EndOfConvo\n\n$Emote/Default   \n$Emote/Sick  
+    \n$Emote/Suspicious   \n$Emote/Uncomfortable \n\n$Spike\n\n$Abuse/RedText"
+  to_draw_from:
+  - speaker_a: 0
+    to_say: '&StartOfConvo'
+  - speaker_a: 1
+    to_say: Are you Dan?
+  - speaker_a: 0
+    to_say: Yeah I am
+  - speaker_a: 0
+    to_say: You're Roxy?
+  - speaker_a: 1
+    to_say: Yeah
+  - speaker_a: 1
+    to_say: I'm Roxy, It says on my profile
+  - speaker_a: 0
+    to_say: I know
+  - speaker_a: 0
+    to_say: But you've gotta be more careful these days
+  - speaker_a: 0
+    to_say: People pretending to be others recently
+  - speaker_a: 0
+    to_say: It's concerning... Unsettling...
+  - speaker_a: 1
+    to_say: I know what you mean
+  - speaker_a: 0
+    to_say: And then they're not even the same at all
+  - speaker_a: 0
+    to_say: Anyways, What brings you to town?
+  - speaker_a: 1
+    to_say: Hmm?
+  - speaker_a: 0
+    to_say: You said you were only here for a week or two
+  - speaker_a: 1
+    to_say: Yes
+  - speaker_a: 1
+    to_say: I'm visiting family
+  - speaker_a: 0
+    to_say: Interesting...
+  - speaker_a: 0
+    to_say: So what have you seen since you've gotten here?
+  - speaker_a: 1
+    to_say: Well I saw a fight on the way here
+  - speaker_a: 0
+    to_say: Oh no
+  - speaker_a: 0
+    to_say: It's not very safe here sometimes
+  - speaker_a: 1
+    to_say: It really isn't
+  - speaker_a: 1
+    to_say: You should be really careful out there
+  - speaker_a: 0
+    to_say: Yeah, In fact I'm going to be heading home soon
+  - speaker_a: 1
+    to_say: Oh, Why not stay here?
+  - speaker_a: 0
+    to_say: It'll get darker out
+  - speaker_a: 0
+    to_say: I don't want to go home late
+  - speaker_a: 1
+    to_say: I could come with you
+  - speaker_a: 0
+    to_say: I'm not into that for the first date
+  - speaker_a: 1
+    to_say: It'll be fun for the both of us
+  - speaker_a: 0
+    to_say: I'd rather walk home alone
+  - speaker_a: 1
+    to_say: There's some dangerous people in the world
+  - speaker_a: 0
+    to_say: $Emote/Uncomfortable
+  - speaker_a: 0
+    to_say: I know but I don't feel comfortable with it
+  - speaker_a: 0
+    to_say: I don't just invite anyone into my home
+  - speaker_a: 0
+    to_say: That's my space, It's where I live
+  - speaker_a: 0
+    to_say: $Emote/Default
+  - speaker_a: 1
+    to_say: What? Do I scare you?
+  - speaker_a: 0
+    to_say: ...
+  - speaker_a: 1
+    to_say: Are you threatened by me?
+  - speaker_a: 1
+    to_say: Trust me it's safer
+  - speaker_a: 0
+    to_say: $Emote/Uncomfortable
+  - speaker_a: 0
+    to_say: ...
+  - speaker_a: 1
+    to_say: Come with me
+  - speaker_a: 1
+    to_say: It's safer
+  - speaker_a: 0
+    to_say: I-
+  - speaker_a: 0
+    to_say: I'd rather just walk home alone
+  - speaker_a: 1
+    to_say: I don't want anything bad to happen
+  - speaker_a: 1
+    to_say: You don't either, Do you?
+  - speaker_a: 0
+    to_say: I don't
+  - speaker_a: 1
+    to_say: Good
+  - speaker_a: 1
+    to_say: Let's Go
+  - speaker_a: 0
+    to_say: $EndOfConvo
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: 
+  - speaker_a: 0
+    to_say: '&EndOfConvo'
 --- !u!1 &6956880709981425829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,7 +1561,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6956880710411494900}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6956880710389148168
 MonoBehaviour:
@@ -1576,6 +1834,7 @@ Transform:
   - {fileID: 6956880710087427256}
   - {fileID: 6956880710482210280}
   - {fileID: 6956880710113350942}
+  - {fileID: 6662829546956059603}
   - {fileID: 6956880710389148167}
   m_Father: {fileID: 0}
   m_RootOrder: 0

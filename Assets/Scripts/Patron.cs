@@ -241,11 +241,11 @@ public class Patron : MonoBehaviour
         {
             spiker_time += Time.deltaTime;
 
-            if (spiker_time > 5f)
+            if (spiker_time > 2.5f)
             {
                 spiker_time = 0f;
 
-                if (Random.Range(1,100) < spiker_chance && !is_being_watched && !other_person.has_drink && !other_person.is_being_watched && !other_person.drink_is_spiked)
+                if (Random.Range(1,100) < spiker_chance && !is_being_watched && other_person.has_drink && !other_person.is_being_watched && !other_person.drink_is_spiked)
                 {
 
                     if (!spiking_stage)
@@ -266,6 +266,7 @@ public class Patron : MonoBehaviour
 
                 } else
                 {
+                    spiker_chance += 2;
                     // Debug.Log("Failed");
                 }
             }
@@ -360,9 +361,15 @@ public class Patron : MonoBehaviour
         } else
         {
             text_gameobject.SetActive(false);
-            can_be_belled = false;
-            can_order = false;
+            can_be_belled = false;       
             my_drink.SetActive(false);
+            if (my_state == 6 || my_state == 7)
+            {
+                can_order = true;
+            } else
+            {
+                can_order = false;
+            }
         }
 
         if (my_state == 6)

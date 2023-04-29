@@ -15,9 +15,13 @@ public class ServeOrder : MonoBehaviour
     public OrderGenerator the_generator;
     public ShakeItUp shaker_shake;
 
+    public ShiftEnder the_ender;
+
     public TextMeshPro overall_text;
     public TextMeshPro recent_text;
     public float recent_text_trans;
+
+    public GameObject serve_prompt;
 
     public float points_value;
     // Max of 80
@@ -43,8 +47,12 @@ public class ServeOrder : MonoBehaviour
         recent_text.text = points_value.ToString() + " POINTS!";
         overall_text.text = "SCORE: " + overall_score.ToString();
     }
+
     void Update()
     {
+
+        serve_prompt.SetActive(can_serve);
+        
         if (recent_text_trans >= 0f)
         {
             recent_text_trans -= Time.deltaTime / 5f;
@@ -188,6 +196,9 @@ public class ServeOrder : MonoBehaviour
 
             recent_text_trans = 1.5f;
             overall_score += points_value;
+
+            the_ender.total_score += points_value;
+            the_ender.orders += 1;
 
             recent_text.text = points_value.ToString() + " POINTS!";
             overall_text.text = "SCORE: " + overall_score.ToString();

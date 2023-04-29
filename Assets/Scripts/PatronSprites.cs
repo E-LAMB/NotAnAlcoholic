@@ -43,7 +43,7 @@ public class PatronSprites : MonoBehaviour
             sprite_default.SetActive(false);
             sprite_sick.SetActive(false);
             sprite_uncomfortable.SetActive(false);
-            sprite_suspicious.SetActive(false);
+            sprite_suspicious.SetActive(true);
         }
 
         if (ideal_sprite_name == "Sick" || my_owner.sick_time > 7f) 

@@ -134,6 +134,8 @@ MonoBehaviour:
   sprite_sick: {fileID: 4689424041749565019}
   sprite_uncomfortable: {fileID: 9203082801991994959}
   sprite_suspicious: {fileID: 6010849647138151068}
+  my_owner: {fileID: 0}
+  ideal_sprite_name: 
 --- !u!114 &4702251695169071640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +450,8 @@ MonoBehaviour:
   sprite_sick: {fileID: 3471955906643845209}
   sprite_uncomfortable: {fileID: 5717459212678642918}
   sprite_suspicious: {fileID: 6639846619085589514}
+  my_owner: {fileID: 0}
+  ideal_sprite_name: 
 --- !u!114 &9088841727361131611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1219,7 +1223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8364084069162534755
 Transform:
   m_ObjectHideFlags: 0
@@ -1254,6 +1258,8 @@ MonoBehaviour:
   sprite_sick: {fileID: 8708725371189805225}
   sprite_uncomfortable: {fileID: 765164817609112791}
   sprite_suspicious: {fileID: 7692358559746200342}
+  my_owner: {fileID: 0}
+  ideal_sprite_name: 
 --- !u!114 &5065914687325729645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1568,6 +1574,8 @@ MonoBehaviour:
   sprite_sick: {fileID: 492107858510900010}
   sprite_uncomfortable: {fileID: 1094088655542875989}
   sprite_suspicious: {fileID: 3609748829741335840}
+  my_owner: {fileID: 0}
+  ideal_sprite_name: 
 --- !u!114 &8571172973126865512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1835,6 +1843,8 @@ MonoBehaviour:
   sprite_sick: {fileID: 2727636146811805434}
   sprite_uncomfortable: {fileID: 2460945374154448045}
   sprite_suspicious: {fileID: 4343232398950280399}
+  my_owner: {fileID: 0}
+  ideal_sprite_name: 
 --- !u!114 &1744401292065907531
 MonoBehaviour:
   m_ObjectHideFlags: 0

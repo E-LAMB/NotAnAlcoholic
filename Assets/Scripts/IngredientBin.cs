@@ -9,7 +9,7 @@ public class IngredientBin : MonoBehaviour
     {
         if (other.tag == "Ingredient")
         {
-            Destroy(other.gameObject, 2f);
+            Destroy(other.gameObject);
         }
     }
 
