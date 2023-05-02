@@ -433,9 +433,10 @@ public class Patron : MonoBehaviour
                         if (other_person.drink_is_spiked)
                         {
                             gameplay_director.predators_victim_count += 1;
-                        announcer.MakeAnnouncement("A Predator left with their Spiked Victim...");
+                            announcer.MakeAnnouncement("A Predator left with their Spiked Victim...");
                         } else
                         {
+                            gameplay_director.predators_victim_saved += 1;
                             announcer.MakeAnnouncement("A Predator left without Spiking their Victim...");
                         }
 
@@ -513,6 +514,7 @@ public class Patron : MonoBehaviour
                 if (!completed_state && am_predator)
                 {
                     gameplay_director.predators_missed += 1;
+                    gameplay_director.predators_victim_count += 1;
                     announcer.MakeAnnouncement("You caught the Victim, Not the Predator.");
                 }
                 completed_state = true;
@@ -557,6 +559,7 @@ public class Patron : MonoBehaviour
                 if (!completed_state && am_predator)
                 {
                     gameplay_director.predators_caught += 1;
+                    gameplay_director.predators_victim_saved += 1;
                     announcer.MakeAnnouncement("You caught a Predator.");
                 }
                 completed_state = true;

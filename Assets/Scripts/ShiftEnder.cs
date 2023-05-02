@@ -24,6 +24,9 @@ public class ShiftEnder : MonoBehaviour
 
     public int victims_saved;
 
+    public GameObject deact_quota;
+    public GameObject deact_patrons;
+
     public TextMeshPro txt_AverageServingScore;
     public TextMeshPro txt_OverallServingScore;
     public TextMeshPro txt_PredatorCaught;
@@ -32,6 +35,8 @@ public class ShiftEnder : MonoBehaviour
 
     public void Activate()
     {
+        deact_quota.SetActive(false);
+        deact_patrons.SetActive(false);
 
         Debug.Log("Shift Is Over");
 
@@ -43,7 +48,7 @@ public class ShiftEnder : MonoBehaviour
         average_score = Mathf.RoundToInt(average_score * 10f);
         average_score = average_score / 10f;
 
-        victims_saved = the_director.predators_total - the_director.predators_victim_count;
+        victims_saved = the_director.predators_victim_saved;
 
         txt_AverageServingScore.text = "Average Serving Score: " + average_score.ToString();
         txt_OverallServingScore.text = "Overall Serving Score: " + total_score.ToString();

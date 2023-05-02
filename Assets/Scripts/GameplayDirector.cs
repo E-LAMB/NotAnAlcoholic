@@ -46,6 +46,7 @@ public class GameplayDirector : MonoBehaviour
     public int predators_missed;
     public int predators_caught;
     public int predators_victim_count;
+    public int predators_victim_saved;
 
     public GameObject unable_to_order;
 
@@ -53,15 +54,22 @@ public class GameplayDirector : MonoBehaviour
 
     public float summoner_time;
 
-    // Start is called before the first frame update
-    void Start()
+    public GameObject end_shift_button;
+
+    public void EndMyShift()
     {
-        
+        gameplay_loop_drinks = 3;
+        the_shaker.placing_ingredients = true;
+        has_an_order = false;
+        just_served = false;
+        the_order_generator.clear_note();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        current_day = Mind.current_day;
 
         if (has_an_order)
         {
@@ -123,14 +131,7 @@ public class GameplayDirector : MonoBehaviour
 
         if (gameplay_loop_drinks == 2)
         {
-
-            if (just_served && quota_fufilled > quota_for_today && the_director.patron_free_count > 5 && !the_order_generator.has_a_customer)
-            {
-                gameplay_loop_drinks = 3;
-
-            } else
-            {
-                if (just_served)
+            if (just_served)
                 {
                     gameplay_loop_drinks = 0;
                     the_shaker.placing_ingredients = true;
@@ -140,16 +141,21 @@ public class GameplayDirector : MonoBehaviour
                     the_order_generator.clear_note();
                     // Debug.Log("Served");
                 }
-            }
         }
 
-        if (!in_endgame && quota_fufilled > quota_for_today && the_director.patron_free_count > 5 && !the_order_generator.has_a_customer)
+        if (in_endgame)
+        {
+            end_shift_button.SetActive(true);
+        }
+
+        if (!in_endgame && quota_fufilled >= quota_for_today)
         {
             in_endgame = true;
         }
 
         if (gameplay_loop_drinks == 3)
         {
+
             the_order_generator.clear_note();
             
             the_ender.Activate();
