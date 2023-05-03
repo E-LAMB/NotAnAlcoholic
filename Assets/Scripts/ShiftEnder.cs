@@ -26,6 +26,7 @@ public class ShiftEnder : MonoBehaviour
 
     public GameObject deact_quota;
     public GameObject deact_patrons;
+    public GameObject deact_announcer;
 
     public TextMeshPro txt_AverageServingScore;
     public TextMeshPro txt_OverallServingScore;
@@ -38,7 +39,7 @@ public class ShiftEnder : MonoBehaviour
         deact_quota.SetActive(false);
         deact_patrons.SetActive(false);
 
-        Debug.Log("Shift Is Over");
+        // Debug.Log("Shift Is Over");
 
         other_cameras.SetActive(false);
         
@@ -48,13 +49,13 @@ public class ShiftEnder : MonoBehaviour
         average_score = Mathf.RoundToInt(average_score * 10f);
         average_score = average_score / 10f;
 
-        victims_saved = the_director.predators_victim_saved;
+        victims_saved = the_director.predators_victim_count;
 
         txt_AverageServingScore.text = "Average Serving Score: " + average_score.ToString();
-        txt_OverallServingScore.text = "Overall Serving Score: " + total_score.ToString();
+        txt_OverallServingScore.text = "Total Serving Score: " + total_score.ToString();
 
-        txt_PredatorCaught.text = "Predators Caught: " + the_director.predators_caught.ToString() + "/" + the_director.predators_total.ToString();
-        txt_PredatorVictimsSaved.text = "Victims Saved: " + victims_saved.ToString() + "/" + the_director.predators_total.ToString();
+        txt_PredatorCaught.text = "Predators Caught: " + the_director.predators_caught.ToString() + " / " + the_director.predators_total.ToString();
+        txt_PredatorVictimsSaved.text = "Victims: " + victims_saved.ToString();
 
         if (time_in_seconds < 10)
         {
@@ -68,12 +69,6 @@ public class ShiftEnder : MonoBehaviour
         txt_TimeTaken.text = "Time Taken: " + time_in_minutes.ToString() + ":" + time_in_seconds_string;
 
         my_camera.SetActive(true);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

@@ -94,8 +94,13 @@ public class BouncerBell : MonoBehaviour
                 my_director.has_an_order = false;
                 my_director.just_served = false;
                 my_director.the_order_generator.clear_note();
+                my_order_generator.selected_patron_seat.drink_color = new Vector4(1f, 0f, 0f, 1f);
+                my_order_generator.selected_patron_seat.drink_fluid.color = my_order_generator.selected_patron_seat.drink_color;
+                my_order_generator.selected_patron_seat.other_person.drink_fluid.color = my_order_generator.selected_patron_seat.drink_color;
                 my_order_generator.selected_patron_seat.has_drink = true;
                 my_order_generator.selected_patron_seat.other_person.has_drink = true;
+                my_order_generator.selected_patron_seat.can_order = false;
+                my_order_generator.selected_patron_seat.other_person.can_order = false;
             }
         }
 

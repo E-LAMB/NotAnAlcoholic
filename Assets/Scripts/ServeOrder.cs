@@ -194,6 +194,11 @@ public class ServeOrder : MonoBehaviour
                 //Debug.Log("Timer = +0");
             }
 
+            if (the_generator.is_angelshot)
+            {
+                points_value = 0f;
+            }
+
             recent_text_trans = 1.5f;
             overall_score += points_value;
 
@@ -219,6 +224,10 @@ public class ServeOrder : MonoBehaviour
             }
 
             the_gameplay_director.just_served = true;
+            if (points_value == 0f)
+            {
+                the_gameplay_director.quota_fufilled -= 1;
+            }
             can_serve = !can_serve;
         }
     }

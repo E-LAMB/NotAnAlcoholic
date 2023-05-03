@@ -3579,8 +3579,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.20754719, g: 0.17435455, b: 0.12041653, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6821702d3c0aac249a746296256f0afd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3598,8 +3598,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417133241}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.5, y: -5, z: -3.5}
-  m_LocalScale: {x: 50, y: 4.5, z: 1}
+  m_LocalPosition: {x: -37.5, y: -4.86, z: -3.5}
+  m_LocalScale: {x: 1.815, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 480909591}
   m_RootOrder: 3
@@ -8015,6 +8015,7 @@ MonoBehaviour:
   victims_saved: 0
   deact_quota: {fileID: 1984493176}
   deact_patrons: {fileID: 811029745}
+  deact_announcer: {fileID: 459096772}
   txt_AverageServingScore: {fileID: 544193142}
   txt_OverallServingScore: {fileID: 1205707449}
   txt_PredatorCaught: {fileID: 1110262936}
@@ -8206,7 +8207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1051921266
 Transform:
   m_ObjectHideFlags: 0
@@ -19700,7 +19701,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312247685}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -58.5, y: 6.95, z: -6}
+  m_LocalPosition: {x: -58.5, y: 5.7, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1681705232}
@@ -21770,6 +21771,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3732d0846394d4097e454299ff5958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pat_1: {fileID: 911679323}
+  pat_2: {fileID: 1698010612}
+  pat_3: {fileID: 238766558}
+  pat_4: {fileID: 1574839027}
+  pat_5: {fileID: 1784795888}
+  pat_6: {fileID: 1761193213}
+  announcer: {fileID: 459096776}
   the_director: {fileID: 428526188}
 --- !u!1 &1691072972
 GameObject:

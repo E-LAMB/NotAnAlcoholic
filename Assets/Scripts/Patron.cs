@@ -376,13 +376,6 @@ public class Patron : MonoBehaviour
             text_gameobject.SetActive(false);
             can_be_belled = false;       
             my_drink.SetActive(false);
-            if (my_state == 6 || my_state == 7)
-            {
-                can_order = true;
-            } else
-            {
-                can_order = false;
-            }
         }
 
         if (my_state == 6)
@@ -490,7 +483,7 @@ public class Patron : MonoBehaviour
         if (my_state == 7)
         {
             bouncer_wait_time += Time.deltaTime;
-            if (bouncer_wait_time > 12f)
+            if (bouncer_wait_time > 8f)
             {
                 my_state = 8;
             }

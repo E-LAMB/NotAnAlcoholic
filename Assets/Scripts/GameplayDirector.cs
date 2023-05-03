@@ -80,10 +80,20 @@ public class GameplayDirector : MonoBehaviour
             }
         } else
         {
-            if (order_time > 0f)
+            if (the_order_generator.selected_drink == "ANGEL")
             {
-                order_time -= Time.deltaTime * order_regression_speed;
+                if (order_time > 0f)
+                {
+                    order_time -= (Time.deltaTime * order_regression_speed) / 4f;
+                }
+            } else
+            {
+                if (order_time > 0f)
+                {
+                    order_time -= Time.deltaTime * order_regression_speed;
+                }
             }
+          
         }
 
         timer.fillAmount = order_time / max_time;
