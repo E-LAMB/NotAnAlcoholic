@@ -140,6 +140,19 @@ public class Patron : MonoBehaviour
 
     }
 
+    public void AngelDrinkServed()
+    {
+
+        drink_color = new Vector4(1f, 0f, 0f, 0f);
+
+        drink_fluid.color = drink_color;
+
+        has_drink = true;
+
+        drink_fluid.color = drink_color;
+
+    }
+
     public void Speaking(string to_say, float time_to_say)
     {
 

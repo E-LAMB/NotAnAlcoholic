@@ -53,6 +53,7 @@ public class GameplayDirector : MonoBehaviour
     public Image timer;
 
     public float summoner_time;
+    public float order_regression_speed;
 
     public GameObject end_shift_button;
 
@@ -81,7 +82,7 @@ public class GameplayDirector : MonoBehaviour
         {
             if (order_time > 0f)
             {
-                order_time -= Time.deltaTime * 10f;
+                order_time -= Time.deltaTime * order_regression_speed;
             }
         }
 

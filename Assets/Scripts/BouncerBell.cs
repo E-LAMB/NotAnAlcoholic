@@ -19,6 +19,9 @@ public class BouncerBell : MonoBehaviour
 
     public Bouncer hugo_npc;
 
+    public GameplayDirector my_director;
+    public OrderGenerator my_order_generator;
+
     void OnMouseDown()
     {
 
@@ -71,13 +74,29 @@ public class BouncerBell : MonoBehaviour
             {
                 hugo_npc.victim_patron = targeted.my_conversation_controller.commanding_1;
             }
-            
+
             if (hugo_npc.victim_patron == hugo_npc.pred_patron)
             {
                 hugo_npc.victim_patron = targeted.my_conversation_controller.commanding_2;
             }
 
             hugo_npc.Activate();
+
+            // Stuff to reset order
+            if (my_order_generator.is_angelshot)
+            {
+                my_order_generator.just_served_angel = true;
+                my_director.the_shaker.times_shaken = 0;
+                my_director.the_shaker.shaker_position = "md";
+                my_director.dispensed_fluid = false;
+                my_director.gameplay_loop_drinks = 0;
+                my_director.the_shaker.placing_ingredients = true;
+                my_director.has_an_order = false;
+                my_director.just_served = false;
+                my_director.the_order_generator.clear_note();
+                my_order_generator.selected_patron_seat.has_drink = true;
+                my_order_generator.selected_patron_seat.other_person.has_drink = true;
+            }
         }
 
     }

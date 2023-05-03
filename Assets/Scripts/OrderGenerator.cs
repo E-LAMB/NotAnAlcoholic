@@ -41,6 +41,8 @@ public class OrderGenerator : MonoBehaviour
     public int seat_searches;
     public Patron selected_patron_seat;
 
+    public int chance_of_shot;
+
     // Drink Data
 
     public string selected_addon;
@@ -49,6 +51,10 @@ public class OrderGenerator : MonoBehaviour
     public string needed_fluid;
     public int needed_shake_level;
     public string drink_name;
+    public bool is_angelshot;
+
+    public bool angelshots_allowed;
+    public bool just_served_angel;
 
     void Start()
     {
@@ -73,6 +79,7 @@ public class OrderGenerator : MonoBehaviour
         drink_fluid.text = " ";
         drink_tier.text = " ";
         seat_text.text = " ";
+        is_angelshot = false;
     }
 
     void find_seat_head()
@@ -281,6 +288,97 @@ public class OrderGenerator : MonoBehaviour
 
     void new_angelshot()
     {
+        is_angelshot = true;
+        selected_drink = "ANGEL";
+
+        if (selected_drink == "ANGEL")
+        {
+            drink_name = "Angel Shot";
+            needed_fluid = "ALCOHOL";
+            needed_shake_level = 3;
+            needed_ingredients[0] = "CHERRY";
+            needed_ingredients[1] = "n/a";
+            needed_ingredients[2] = "n/a";
+            needed_ingredients[3] = "n/a";
+        }
+
+        if (needed_fluid == "ALCOHOL")
+        {
+            drink_fluid.text = "ALC.";
+        }
+        if (needed_fluid == "WATER")
+        {
+            drink_fluid.text = "WTR.";
+        }
+        if (needed_fluid == "JUICE")
+        {
+            drink_fluid.text = "JUC.";
+        }
+
+        ordering_icon[0].new_icon(needed_ingredients[0]);
+        ordering_icon[1].new_icon(needed_ingredients[1]);
+        ordering_icon[2].new_icon(needed_ingredients[2]);
+        ordering_icon[3].new_icon(needed_ingredients[3]);
+
+        drink_title.text = drink_name;
+
+        if (needed_shake_level == 0)
+        {
+            drink_tier.text = "O";
+        }
+        if (needed_shake_level == 1)
+        {
+            drink_tier.text = "I";
+        }
+        if (needed_shake_level == 2)
+        {
+            drink_tier.text = "II";
+        }
+        if (needed_shake_level == 3)
+        {
+            drink_tier.text = "III";
+        }
+
+        has_chosen_seat = false;
+
+        if (pat_1.can_order && !pat_1.am_predator && pat_1.pred_present && !has_chosen_seat)
+        {
+            selected_patron_seat = pat_1;
+            selected_seat = pat_1.my_seat_script.seat_number;
+            has_chosen_seat = true;
+        }
+        if (pat_2.can_order && !pat_2.am_predator && pat_2.pred_present && !has_chosen_seat)
+        {
+            selected_patron_seat = pat_2;
+            selected_seat = pat_2.my_seat_script.seat_number;
+            has_chosen_seat = true;
+        }
+        if (pat_3.can_order && !pat_3.am_predator && pat_3.pred_present && !has_chosen_seat)
+        {
+            selected_patron_seat = pat_3;
+            selected_seat = pat_3.my_seat_script.seat_number;
+            has_chosen_seat = true;
+        }
+        if (pat_4.can_order && !pat_4.am_predator && pat_4.pred_present && !has_chosen_seat)
+        {
+            selected_patron_seat = pat_4;
+            selected_seat = pat_4.my_seat_script.seat_number;
+            has_chosen_seat = true;
+        }
+        if (pat_5.can_order && !pat_5.am_predator && pat_5.pred_present && !has_chosen_seat)
+        {
+            selected_patron_seat = pat_5;
+            selected_seat = pat_5.my_seat_script.seat_number;
+            has_chosen_seat = true;
+        }
+        if (pat_6.can_order && !pat_6.am_predator && pat_6.pred_present && !has_chosen_seat)
+        {
+            selected_patron_seat = pat_6;
+            selected_seat = pat_6.my_seat_script.seat_number;
+            has_chosen_seat = true;
+        }
+
+        seat_text.text = selected_seat.ToString();
 
     }
 
@@ -292,10 +390,13 @@ public class OrderGenerator : MonoBehaviour
         needed_ingredients[3] = "n/a";
         needed_ingredients[4] = "n/a";
 
-        if (can_serve_angel)
+        if (can_serve_angel && !just_served_angel && Random.Range(1, chance_of_shot) == 1)
         {
             new_angelshot();
             return;
+        } else
+        {
+            just_served_angel = false;
         }
 
         selected_addon = "n/a";
@@ -663,12 +764,23 @@ public class OrderGenerator : MonoBehaviour
 
         has_a_customer = false;
 
-        if (pat_1.can_order) {has_a_customer = true;}
-        if (pat_2.can_order) {has_a_customer = true;}
-        if (pat_3.can_order) {has_a_customer = true;}
-        if (pat_4.can_order) {has_a_customer = true;}
-        if (pat_5.can_order) {has_a_customer = true;}
-        if (pat_6.can_order) {has_a_customer = true;}
+        if (pat_1.can_order && !pat_1.has_drink) {has_a_customer = true;}
+        if (pat_2.can_order && !pat_2.has_drink) {has_a_customer = true;}
+        if (pat_3.can_order && !pat_3.has_drink) {has_a_customer = true;}
+        if (pat_4.can_order && !pat_4.has_drink) {has_a_customer = true;}
+        if (pat_5.can_order && !pat_5.has_drink) {has_a_customer = true;}
+        if (pat_6.can_order && !pat_6.has_drink) {has_a_customer = true;}
+
+        can_serve_angel = false;
+
+        if (pat_1.pred_present && pat_1.can_order) { can_serve_angel = true; }
+        if (pat_2.pred_present && pat_2.can_order) { can_serve_angel = true; }
+        if (pat_3.pred_present && pat_3.can_order) { can_serve_angel = true; }
+        if (pat_4.pred_present && pat_4.can_order) { can_serve_angel = true; }
+        if (pat_5.pred_present && pat_5.can_order) { can_serve_angel = true; }
+        if (pat_6.pred_present && pat_6.can_order) { can_serve_angel = true; }
+
+        if (!angelshots_allowed) { can_serve_angel = false; }
 
         if (generate)
         {
