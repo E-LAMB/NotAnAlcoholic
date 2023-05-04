@@ -31,4 +31,7 @@ public static class Mind
     public static bool currently_in_back;
     public static bool in_control;
 
+    public static string save_path;
+    public static bool ran_startup;
+
 }

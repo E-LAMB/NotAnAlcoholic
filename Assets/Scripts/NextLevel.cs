@@ -30,7 +30,7 @@ public class NextLevel : MonoBehaviour
         if (moving)
         {
             change_time += Time.deltaTime / 2f;
-            darkness.color = new Vector4 (0f, 0f, 0f, (1f - change_time));
+            darkness.color = new Vector4 (0f, 0f, 0f, change_time);
         }
 
         if (change_time > 1.5f)

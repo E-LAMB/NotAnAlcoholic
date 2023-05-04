@@ -19,7 +19,7 @@ public class Identifier_Shaker : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<ItemIdentity>())
+        if (other.gameObject.GetComponent<ItemIdentity>() && item_number < 4)
         {
             most_recent_item = other.gameObject.GetComponent<ItemIdentity>().my_identity;
             if (other.gameObject.layer == destructable_layer)
