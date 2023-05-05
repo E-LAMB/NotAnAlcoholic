@@ -227,7 +227,7 @@ public class ShakeItUp : MonoBehaviour
             {
                 SetShakeKeys(3, true);
                 times_shaken = 0;
-                times_until_flip = Random.Range(8,10) + Mind.drink_shake_level;
+                times_until_flip = Random.Range(8,10) + Mind.drink_shake_level + Mind.current_day;
                 times_until_flip = times_until_flip * 2;
                 times_until_flip -= 1;
                 Mind.drink_shake_level += 1;

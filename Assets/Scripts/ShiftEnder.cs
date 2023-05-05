@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 
 public class ShiftEnder : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class ShiftEnder : MonoBehaviour
     public TextMeshPro txt_PredatorCaught;
     public TextMeshPro txt_PredatorVictimsSaved;
     public TextMeshPro txt_TimeTaken;
+
+    public bool saved_data;
+    public string new_data;
 
     public void Activate()
     {
@@ -69,6 +73,20 @@ public class ShiftEnder : MonoBehaviour
         txt_TimeTaken.text = "Time Taken: " + time_in_minutes.ToString() + ":" + time_in_seconds_string;
 
         my_camera.SetActive(true);
+
+        if (!saved_data)
+        {
+            saved_data = true;
+            SaveData(new_data);
+        }
+    }
+
+    public void SaveData(string content)
+    {
+        StreamWriter writer = new StreamWriter(Mind.save_path, false); // Writes the progress to the file when the scene is loaded
+        writer.Write(content);
+        writer.Close();
+        Debug.Log("Saved progress - " + content);
     }
 
     // Update is called once per frame

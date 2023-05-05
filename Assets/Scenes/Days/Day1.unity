@@ -483,6 +483,115 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201710814}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &215875128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215875131}
+  - component: {fileID: 215875130}
+  - component: {fileID: 215875129}
+  m_Layer: 3
+  m_Name: BOOB_Collider (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &215875129
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215875128}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!212 &215875130
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215875128}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.12156863}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &215875131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215875128}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 9.25, z: 0}
+  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223183058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1236,7 @@ MonoBehaviour:
   the_order_generator: {fileID: 968890901}
   the_server: {fileID: 462345350}
   the_ender: {fileID: 1009619734}
-  time_since_summoned: 0
+  time_since_summoned: -10
   order_time: 0
   max_time: 400
   predators_total: 0
@@ -1137,8 +1246,8 @@ MonoBehaviour:
   predators_victim_saved: 0
   unable_to_order: {fileID: 881102753}
   timer: {fileID: 1370192420}
-  summoner_time: 25
-  order_regression_speed: 10
+  summoner_time: 35
+  order_regression_speed: 14
   end_shift_button: {fileID: 1312247685}
 --- !u!1 &459096772
 GameObject:
@@ -1758,7 +1867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &789864998
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2135,7 +2244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &861158544
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2659,15 +2768,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b108d7965e94c446920d3ff00cec1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaking_speed: 5
+  speaking_speed: 6
   current_day: 1
   ice_melting_time: 14
+  orange_bounciness: 0.6
   temp_string:
   - n/a
   - n/a
   - n/a
   - n/a
   - n/a
+  orange_mat: {fileID: 6200000, guid: 345e44fa20fcf8641bf9bdca5002e763, type: 2}
 --- !u!1 &1068530375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2778,7 +2889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1084888442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2818,14 +2929,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Great Job Yesterday.\n\nHere's the news for today:\nPredator's are getting
-    better at what they do best.\n\nYou heard what happened after your shift, The
-    Spiking. People are just horrible -\n\nWhen you look away, People will try to
-    spike each other's drinks. They'll put on their devious face and they'll drug
-    their date. I reccomend you take a look at their faces - \n\nMost evildoers get
-    a bit uncomfortable when you catch them in the act. And pay attention to the
-    drinks. If it changes color - It might just be spiked,\n\nGet Hugo to take them
-    out.\n\nThat's all - More drinks for you to make too. Have fun. - Bar Owner"
+  m_text: "Final day of the week, \nCongratulations.\n\nIt's the busiest day yet,
+    So I won't make this too long - But it all comes down to this now. Your skills
+    will culminate with today's shift.\n\nDo your best, Catch who you can,\n\nI'll
+    see you when your shift is over."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3697,7 +3804,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aa76414d3e735ac43a748e2790131149, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 340326b5d36589a4e842ff01fd242661, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3765,7 +3872,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select a target for Hugo
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4881,6 +4988,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3382476634808443816, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
+      propertyPath: next_level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382476635409698803, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382476635818464700, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3382476636114360432, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -4930,6 +5049,10 @@ PrefabInstance:
       value: End Of Shift
       objectReference: {fileID: 0}
     - target: {fileID: 3382476636114360435, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
+      propertyPath: new_data
+      value: NotFurry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382476636114360435, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
       propertyPath: deact_quota
       value: 
       objectReference: {fileID: 1984493176}
@@ -4949,6 +5072,10 @@ PrefabInstance:
       propertyPath: deact_announcer
       value: 
       objectReference: {fileID: 459096772}
+    - target: {fileID: 3382476636140666900, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
 --- !u!1001 &4365542874677641945
@@ -4961,6 +5088,26 @@ PrefabInstance:
     - target: {fileID: 4365542874405754408, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: m_Name
       value: CollectivePatrons (Director)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: predator_chance
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: pred_speaking_speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: normal_speaker_speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: initial_predator_chance
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: predator_chance_reduction
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754411, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: m_RootOrder
@@ -5100,9 +5247,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4847596632319649500, guid: e7650dd87982e7644b1412052f27f784, type: 3}
+      propertyPath: juice_active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847596632319649500, guid: e7650dd87982e7644b1412052f27f784, type: 3}
       propertyPath: the_director
       value: 
       objectReference: {fileID: 428526188}
+    - target: {fileID: 4847596632319649500, guid: e7650dd87982e7644b1412052f27f784, type: 3}
+      propertyPath: water_active
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847596633004552989, guid: e7650dd87982e7644b1412052f27f784, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847596633032168599, guid: e7650dd87982e7644b1412052f27f784, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4847596633941007118, guid: e7650dd87982e7644b1412052f27f784, type: 3}
       propertyPath: m_Name
       value: FluidSelector
@@ -5407,6 +5570,14 @@ PrefabInstance:
       propertyPath: pat_6
       value: 
       objectReference: {fileID: 1761193213}
+    - target: {fileID: 7478697539711793751, guid: 81c272a614d3cd946a957c70c6e0d875, type: 3}
+      propertyPath: current_day
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478697539711793751, guid: 81c272a614d3cd946a957c70c6e0d875, type: 3}
+      propertyPath: angelshots_allowed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81c272a614d3cd946a957c70c6e0d875, type: 3}
 --- !u!1001 &8385312407550669104
@@ -5496,6 +5667,10 @@ PrefabInstance:
     - target: {fileID: 1317866360542799358, guid: 90785281f24610b47ae046fc56f4f10b, type: 3}
       propertyPath: m_Name
       value: Bouncer Stuff
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317866360542799358, guid: 90785281f24610b47ae046fc56f4f10b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6200997129818144416, guid: 90785281f24610b47ae046fc56f4f10b, type: 3}
       propertyPath: m_RootOrder

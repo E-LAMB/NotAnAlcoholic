@@ -8,11 +8,14 @@ public class MindResetter : MonoBehaviour
     public float speaking_speed;
     public int current_day;
     public float ice_melting_time;
+    public float orange_bounciness;
 
     public string[] temp_string;
+    public PhysicsMaterial2D orange_mat;
 
     void Start()
     {
+        orange_mat.bounciness = orange_bounciness;
 
         Mind.filling_shaker = false;
         Mind.speaking_speed = speaking_speed;

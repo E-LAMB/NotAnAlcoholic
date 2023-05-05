@@ -5,9 +5,9 @@ using UnityEngine;
 public class FluidController : MonoBehaviour
 {
 
-    public bool alcohol_selected;
-    public bool water_selected;
-    public bool juice_selected;
+    bool alcohol_selected;
+    bool water_selected;
+    bool juice_selected;
 
     public bool alcohol_active;
     public bool water_active;

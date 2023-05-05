@@ -18,6 +18,6 @@ public class QuotaShower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        my_text.text = "Quota: " + the_director.quota_fufilled.ToString() + "/" + the_director.quota_for_today.ToString();
+        my_text.text = "Quota: " + the_director.quota_fufilled.ToString() + " / " + the_director.quota_for_today.ToString();
     }
 }
