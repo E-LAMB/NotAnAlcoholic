@@ -14,6 +14,8 @@ public class MainMenuButtons : MonoBehaviour
 
     public GameObject menu_CONTINUE_Button;
 
+    public GameObject menu_Quit;
+
     public float darkness_setting = 1f;
     public int new_scene;
 
@@ -53,12 +55,10 @@ public class MainMenuButtons : MonoBehaviour
         going_to_scene = true;
         scene_change = true;
 
+        save_sys.SaveData("WelcomeToTheFurmaly");
+        save_sys.player_location = 0;
+
         if (save_sys.player_location == 0) { new_scene = 1; }
-        if (save_sys.player_location == 1) { new_scene = 2; }
-        if (save_sys.player_location == 2) { new_scene = 3; }
-        if (save_sys.player_location == 3) { new_scene = 4; }
-        if (save_sys.player_location == 4) { new_scene = 5; }
-        if (save_sys.player_location == 5) { new_scene = 6; }
 
         darkness_setting = 1.3f;
         DisableTheMenu();
@@ -76,7 +76,11 @@ public class MainMenuButtons : MonoBehaviour
     {
         main_menu.SetActive(false);
         button_1.SetActive(false);
-        button_2.SetActive(false);
+        // button_2.SetActive(false);
+
+        menu_CONTINUE_Button.SetActive(false);
+        menu_NEWGAME_New.SetActive(false);
+        menu_NEWGAME_Old.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -88,6 +92,26 @@ public class MainMenuButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!going_to_scene && save_sys.player_location == 0)
+        {
+            menu_NEWGAME_New.SetActive(true);
+            menu_NEWGAME_Old.SetActive(false);
+            menu_CONTINUE_Button.SetActive(false);
+        } else if (!going_to_scene)
+        {
+            menu_NEWGAME_New.SetActive(false);
+            menu_NEWGAME_Old.SetActive(true);
+            menu_CONTINUE_Button.SetActive(true);
+        } else
+        {
+            menu_NEWGAME_New.SetActive(false);
+            menu_NEWGAME_Old.SetActive(false);
+            menu_CONTINUE_Button.SetActive(false);
+        }
+
+        menu_Quit.SetActive(!going_to_scene);
+
         if (scene_change)
         {
             darkness_setting -= Time.deltaTime / 2f;

@@ -37,6 +37,7 @@ public class FluidController : MonoBehaviour
             alcohol_selected = true;
             water_selected = false;
             juice_selected = false;
+            DispenseFluid();
         }
     }
     public void FluidSelected_Water()
@@ -46,6 +47,7 @@ public class FluidController : MonoBehaviour
             alcohol_selected = false;
             water_selected = true;
             juice_selected = false;
+            DispenseFluid();
         }
     }
     public void FluidSelected_Juice()
@@ -55,6 +57,7 @@ public class FluidController : MonoBehaviour
             alcohol_selected = false;
             water_selected = false;
             juice_selected = true;
+            DispenseFluid();
         }
     }
 
@@ -72,7 +75,7 @@ public class FluidController : MonoBehaviour
             if (water_selected) { Mind.drink_fluid = "WATER"; }
             if (juice_selected) { Mind.drink_fluid = "JUICE"; }
 
-            time_to_fluid = 9f;
+            time_to_fluid = 12f;
             has_just_dispensed = true;
             // the_director.dispensed_fluid = true;
         }

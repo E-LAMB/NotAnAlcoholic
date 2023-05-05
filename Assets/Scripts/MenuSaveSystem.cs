@@ -8,21 +8,18 @@ public class MenuSaveSystem : MonoBehaviour
 
     public string content = "NEVER_RAN_SO_YOURE_NEW"; // The text that should be written in the save file
 
-    public float icon_time = 3f; // How long to show the save icon for
-    public GameObject icon; // The icon to show
-
     public int player_location;
 
     void Start()
     {
         Mind.save_path = Application.persistentDataPath + "/dairyofthealcoholicfurries.txt";
 
-        if (!File.Exists(Mind.save_path)) 
+        if (!File.Exists(Mind.save_path))
         {
-            File.Create(Mind.save_path); 
-        } else 
-        { 
-            Debug.Log("Exists!"); 
+            File.Create(Mind.save_path);
+        } else
+        {
+            Debug.Log("Exists!");
         }
 
         StreamReader reader = new StreamReader(Mind.save_path);
@@ -36,6 +33,8 @@ public class MenuSaveSystem : MonoBehaviour
         // Funny reference to this video ---> https://www.youtube.com/watch?v=WIpRkhcz3lQ
 
         // Else the location is at 0
+
+        // "WelcomeToTheFurmaly" - Reset Data (Resident evil joke) - Also at 0
 
         // "NotFurry" - Completed Day 1
         // "SemiFurry" - Completed Day 2
@@ -65,6 +64,14 @@ public class MenuSaveSystem : MonoBehaviour
         {
             player_location = 5;
         }
+    }
+
+    public void SaveData(string content)
+    {
+        StreamWriter writer = new StreamWriter(Mind.save_path, false); // Writes the progress to the file when the scene is loaded
+        writer.Write(content);
+        writer.Close();
+        Debug.Log("Saved progress - " + content);
     }
 
     void Update()
