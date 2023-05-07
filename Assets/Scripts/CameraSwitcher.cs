@@ -9,6 +9,17 @@ public class CameraSwitcher : MonoBehaviour
     // 1 = To Bar
     // 2 = To Back
 
+    void Update()
+    {
+        if (type_of_button == 1)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && Mind.in_control)
+            {
+                Mind.currently_in_back = !Mind.currently_in_back;
+            }
+        }
+    }
+
     void OnMouseDown()
     {
 

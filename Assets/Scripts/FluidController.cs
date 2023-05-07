@@ -24,10 +24,19 @@ public class FluidController : MonoBehaviour
 
     public GameplayDirector the_director;
 
+    public SpriteRenderer but_alc;
+    public SpriteRenderer but_wat;
+    public SpriteRenderer but_juc;
+
+    public Vector4 disable_color;
+    public Vector4 enable_color;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (alcohol_active) {but_alc.color = enable_color;} else {but_alc.color = disable_color;}
+        if (water_active) {but_wat.color = enable_color;} else {but_wat.color = disable_color;}
+        if (juice_active) {but_juc.color = enable_color;} else {but_juc.color = disable_color;}
     }
 
     public void FluidSelected_Alcohol()

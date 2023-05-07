@@ -57,6 +57,8 @@ public class GameplayDirector : MonoBehaviour
 
     public GameObject end_shift_button;
 
+    public bool began_shift;
+
     public void EndMyShift()
     {
         gameplay_loop_drinks = 3;
@@ -104,7 +106,7 @@ public class GameplayDirector : MonoBehaviour
 
         if (time_since_summoned > summoner_time || customers_at_disposal == 6 && time_since_summoned > 5f)
         {
-            if (quota_drinks_given < quota_for_today * 1.2 && quota_fufilled <= quota_for_today && !in_endgame)
+            if (quota_drinks_given < quota_for_today * 1.2 && quota_fufilled <= quota_for_today && began_shift && !in_endgame)
             {
                 the_director.should_assign = true;
                 time_since_summoned = 0f;
@@ -114,7 +116,7 @@ public class GameplayDirector : MonoBehaviour
         if (gameplay_loop_drinks == 0)
         {
 
-            if (drinks_logged > 1f && !has_an_order && order_time < 0.5f && the_order_generator.has_a_customer)
+            if (began_shift && drinks_logged > 1f && !has_an_order && order_time < 0.5f && the_order_generator.has_a_customer)
             {
                 gameplay_loop_drinks = 1;
                 drinks_logged -= 1f;

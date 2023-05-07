@@ -5284,9 +5284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9f37ec017e328449eeaf9e9b0f0e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alcohol_selected: 1
-  water_selected: 0
-  juice_selected: 0
   alcohol_active: 1
   water_active: 1
   juice_active: 1
@@ -5297,6 +5294,11 @@ MonoBehaviour:
   particle_water: {fileID: 4847596632315597714}
   particle_juice: {fileID: 4847596633032168599}
   the_director: {fileID: 0}
+  but_alc: {fileID: 7896026243337286599}
+  but_wat: {fileID: 3983986749344249546}
+  but_juc: {fileID: 6432150601979571421}
+  disable_color: {x: 0.5, y: 0.2, z: 0.2, w: 1}
+  enable_color: {x: 1, y: 1, z: 1, w: 1}
 --- !u!1 &4847596632508027603
 GameObject:
   m_ObjectHideFlags: 0

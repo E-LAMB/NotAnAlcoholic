@@ -23,16 +23,19 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         Mind.in_control = true;
+        Mind.currently_in_back = false;
         Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Break();
         }
+        */
 
         if (Mind.in_control)
         {

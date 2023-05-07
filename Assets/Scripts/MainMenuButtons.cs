@@ -118,7 +118,7 @@ public class MainMenuButtons : MonoBehaviour
 
             no_ui_menu.color = new Vector4 (1f,1f,1f,darkness_setting);
 
-            if (darkness_setting < -1f)
+            if (darkness_setting < -0f)
             {
                 if (going_to_scene)
                 {
