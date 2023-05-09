@@ -45,7 +45,7 @@ public class ServeOrder : MonoBehaviour
     void Start()
     {
         recent_text.text = points_value.ToString() + " POINTS!";
-        overall_text.text = "SCORE: " + overall_score.ToString();
+        overall_text.text = overall_score.ToString();
     }
 
     void Update()
@@ -206,7 +206,7 @@ public class ServeOrder : MonoBehaviour
             the_ender.orders += 1;
 
             recent_text.text = points_value.ToString() + " POINTS!";
-            overall_text.text = "SCORE: " + overall_score.ToString();
+            overall_text.text = overall_score.ToString();
 
             recent_text.color = new Vector4(1f, 1f, 1f, recent_text_trans);
 

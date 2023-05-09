@@ -25,6 +25,8 @@ public class MainMenuButtons : MonoBehaviour
     public Image no_ui_menu;
     public MenuSaveSystem save_sys;
 
+    public bool exiting_game;
+
     public void TakeToSceneWithFade(int chosen)
     {
         going_to_scene = true;
@@ -67,6 +69,7 @@ public class MainMenuButtons : MonoBehaviour
     public void ExitApplicationWithFade()
     {
         going_to_scene = false;
+        exiting_game = true;
         scene_change = true;
         darkness_setting = 1.3f;
         DisableTheMenu();
@@ -77,6 +80,8 @@ public class MainMenuButtons : MonoBehaviour
         main_menu.SetActive(false);
         button_1.SetActive(false);
         // button_2.SetActive(false);
+
+        menu_Quit.SetActive(false);
 
         menu_CONTINUE_Button.SetActive(false);
         menu_NEWGAME_New.SetActive(false);
@@ -110,10 +115,21 @@ public class MainMenuButtons : MonoBehaviour
             menu_CONTINUE_Button.SetActive(false);
         }
 
+        if (exiting_game)
+        {
+            menu_NEWGAME_New.SetActive(false);
+            menu_NEWGAME_Old.SetActive(false);
+            menu_CONTINUE_Button.SetActive(false);
+            main_menu.SetActive(false);
+            button_1.SetActive(false);
+            menu_Quit.SetActive(false);
+        }
+
         menu_Quit.SetActive(!going_to_scene);
 
         if (scene_change)
         {
+            menu_Quit.SetActive(false);
             darkness_setting -= Time.deltaTime / 2f;
 
             no_ui_menu.color = new Vector4 (1f,1f,1f,darkness_setting);

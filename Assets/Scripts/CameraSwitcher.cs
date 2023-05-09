@@ -11,7 +11,7 @@ public class CameraSwitcher : MonoBehaviour
 
     void Update()
     {
-        if (type_of_button == 1)
+        if (type_of_button == 2)
         {
             if (Input.GetKeyDown(KeyCode.Space) && Mind.in_control)
             {

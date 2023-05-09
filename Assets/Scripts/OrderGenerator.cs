@@ -42,6 +42,7 @@ public class OrderGenerator : MonoBehaviour
     public Patron selected_patron_seat;
 
     public int chance_of_shot;
+    public int max_addon_chance;
 
     // Drink Data
 
@@ -653,7 +654,7 @@ public class OrderGenerator : MonoBehaviour
 
         if (can_do_addon)
         {
-            if (Random.Range(1,4) == 1)
+            if (Random.Range(1,max_addon_chance) == 1)
             {
                 int rand_addon = Random.Range(1, 4);
                 bool done_addon = false;

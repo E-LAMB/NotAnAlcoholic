@@ -9,12 +9,15 @@ public class EnableOnClick : MonoBehaviour
 
     public bool tutorial_note;
 
+    public StartButton the_start;
+
     void OnMouseDown()
     {
         to_enable.SetActive(true);
         if (tutorial_note)
         {
             Mind.in_control = false;
+            the_start.read_note = true;
         }
     }
 
