@@ -945,7 +945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   current_day: 3
   gameplay_loop_drinks: 0
-  quota_for_today: 10
+  quota_for_today: 8
   quota_fufilled: 0
   quota_drinks_given: 0
   drinks_logged: 0
@@ -4511,6 +4511,10 @@ PrefabInstance:
       propertyPath: the_director
       value: 
       objectReference: {fileID: 428526188}
+    - target: {fileID: 6846868741008749826, guid: 52f4ed69bd04ec443ac7e3675f808868, type: 3}
+      propertyPath: needs_to_read
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f4ed69bd04ec443ac7e3675f808868, type: 3}
 --- !u!114 &2089530757 stripped

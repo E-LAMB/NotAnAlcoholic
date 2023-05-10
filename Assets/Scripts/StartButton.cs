@@ -19,12 +19,12 @@ public class StartButton : MonoBehaviour
     {
         if (!read_note && needs_to_read)
         {
+            announcer.MakeAnnouncement("I should read the note my boss left me.");
+        } else
+        {
             the_director.began_shift = true;
             if (others != null) { others.SetActive(false); }
             self.SetActive(false);
-        } else
-        {
-            announcer.MakeAnnouncement("I should read the note my boss left me.");
         }
     }
 }

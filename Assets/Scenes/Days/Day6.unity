@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   current_day: 6
   gameplay_loop_drinks: 0
-  quota_for_today: 20
+  quota_for_today: 15
   quota_fufilled: 0
   quota_drinks_given: 0
   drinks_logged: 0

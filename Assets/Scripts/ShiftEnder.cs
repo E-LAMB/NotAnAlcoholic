@@ -86,7 +86,7 @@ public class ShiftEnder : MonoBehaviour
         StreamWriter writer = new StreamWriter(Mind.save_path, false); // Writes the progress to the file when the scene is loaded
         writer.Write(content);
         writer.Close();
-        Debug.Log("Saved progress - " + content);
+        // Debug.Log("Saved progress - " + content);
     }
 
     // Update is called once per frame

@@ -26,7 +26,7 @@ public class MenuSaveSystem : MonoBehaviour
         string content;
         content = reader.ReadToEnd(); // Reads the content in the file
         reader.Close();
-        Debug.Log(content);
+        // Debug.Log(content);
 
         // Different Values based on player's progress
 
