@@ -441,7 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4982155667069163183, guid: 52f4ed69bd04ec443ac7e3675f808868, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.7
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4982155667069163183, guid: 52f4ed69bd04ec443ac7e3675f808868, type: 3}
       propertyPath: m_LocalPosition.z
@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   to_enable: {fileID: 789864997}
-  tutorial_note: 0
+  tutorial_note: 1
   the_start: {fileID: 83023313}
 --- !u!61 &362595791
 BoxCollider2D:
@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 205.94983, y: 0, z: 124.03613, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4944,7 +4944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 179735507114597938, guid: 6c4fbefc1c2aae943bb44030703fd25d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.7
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 179735507114597938, guid: 6c4fbefc1c2aae943bb44030703fd25d, type: 3}
       propertyPath: m_LocalPosition.z
