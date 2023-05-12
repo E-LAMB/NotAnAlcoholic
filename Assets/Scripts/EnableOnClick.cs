@@ -8,6 +8,8 @@ public class EnableOnClick : MonoBehaviour
     public GameObject to_enable;
 
     public bool tutorial_note;
+    public GameObject unread_note;
+    public GameObject read_note;
 
     public StartButton the_start;
 
@@ -16,6 +18,8 @@ public class EnableOnClick : MonoBehaviour
         to_enable.SetActive(true);
         if (tutorial_note)
         {
+            unread_note.SetActive(false);
+            read_note.SetActive(true);
             Mind.in_control = false;
             the_start.read_note = true;
         }

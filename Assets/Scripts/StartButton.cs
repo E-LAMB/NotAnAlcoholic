@@ -15,6 +15,8 @@ public class StartButton : MonoBehaviour
     public bool read_note;
     public bool needs_to_read;
 
+    public bool shift_started;
+
     void OnMouseDown()
     {
         if (!read_note && needs_to_read)
@@ -22,6 +24,7 @@ public class StartButton : MonoBehaviour
             announcer.MakeAnnouncement("I should read the note my boss left me.");
         } else
         {
+            shift_started = true;
             the_director.began_shift = true;
             if (others != null) { others.SetActive(false); }
             self.SetActive(false);

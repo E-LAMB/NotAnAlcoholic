@@ -74,6 +74,11 @@ public class GameplayDirector : MonoBehaviour
 
         current_day = Mind.current_day;
 
+        if (0f > order_time)
+        {
+            order_time = 0f;
+        }
+
         if (has_an_order)
         {
             if (order_time <= max_time + 0.5f)

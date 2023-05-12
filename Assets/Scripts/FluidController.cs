@@ -84,7 +84,7 @@ public class FluidController : MonoBehaviour
             if (water_selected) { Mind.drink_fluid = "WATER"; }
             if (juice_selected) { Mind.drink_fluid = "JUICE"; }
 
-            time_to_fluid = 12f;
+            time_to_fluid = 12.2f;
             has_just_dispensed = true;
             // the_director.dispensed_fluid = true;
         }
