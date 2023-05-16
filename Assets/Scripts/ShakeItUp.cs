@@ -24,6 +24,8 @@ public class ShakeItUp : MonoBehaviour
     public int times_until_flip;
     public int times_shaken;
 
+    public GameObject shake_by;
+
     public bool shake_direction;
 
     public bool switched;
@@ -133,6 +135,7 @@ public class ShakeItUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        shake_by.SetActive(!placing_ingredients);
 
         if (Mind.drink_shake_level == 0) { intensity_text.text = "X"; }
         if (Mind.drink_shake_level == 1) { intensity_text.text = "I"; }

@@ -6254,6 +6254,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1585133406031401236, guid: 4074a13c9b7bc924d95aec0c22fb6d1a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.9999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585133406031401236, guid: 4074a13c9b7bc924d95aec0c22fb6d1a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1585133406493624193, guid: 4074a13c9b7bc924d95aec0c22fb6d1a, type: 3}
       propertyPath: m_Name
       value: Both Shakers
