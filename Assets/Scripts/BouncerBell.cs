@@ -89,6 +89,8 @@ public class BouncerBell : MonoBehaviour
             targeted.drink_color = new Vector4(0f, 0f, 0f, 0f);
             targeted.drink_fluid.color = new Vector4(0f, 0f, 0f, 0f);
             targeted.other_person.drink_fluid.color = my_order_generator.selected_patron_seat.drink_color;
+            targeted.other_person.served_angel_shot = true;
+            targeted.served_angel_shot = false;
 
             // Stuff to reset order
             if (my_order_generator.is_angelshot)

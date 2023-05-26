@@ -210,6 +210,9 @@ public class ServeOrder : MonoBehaviour
 
             recent_text.color = new Vector4(1f, 1f, 1f, recent_text_trans);
 
+            shaker_shake.times_shaken = 0;
+            shaker_shake.shake_level = 0;
+
             shaker_dropper.item_number = 0;
             shaker_dropper.items_in_shaker[0] = "n/a";
             shaker_dropper.items_in_shaker[1] = "n/a";

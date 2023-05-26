@@ -71,6 +71,7 @@ public class Patron : MonoBehaviour
 
     public void Activate()
     {
+        served_angel_shot = false;
 
         sprite_collection[0].SetActive(false);
         sprite_collection[1].SetActive(false);
@@ -112,6 +113,8 @@ public class Patron : MonoBehaviour
 
         sick_time = 0f;
 
+        drink_fluid.enabled = true;
+
     }
 
     public void DrinkServed(string type)
@@ -142,8 +145,9 @@ public class Patron : MonoBehaviour
 
     public void AngelDrinkServed()
     {
+        served_angel_shot = true;
 
-        drink_color = new Vector4(1f, 0f, 0f, 0f);
+        drink_color = new Vector4(0f, 0f, 0f, 0f);
 
         drink_fluid.color = drink_color;
 
@@ -229,6 +233,8 @@ public class Patron : MonoBehaviour
     public float sick_time;
     public float spike_change;
 
+    public bool served_angel_shot;
+
     void OnMouseDown()
     {
         //Debug.Log("Clicked on");
@@ -242,6 +248,10 @@ public class Patron : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (served_angel_shot)
+        {
+            drink_fluid.enabled = false;
+        }
 
         if (drink_is_spiked && !drink_spike_change)
         {
@@ -452,7 +462,8 @@ public class Patron : MonoBehaviour
                         gameplay_director.predators_victim_count += 1;
                         announcer.MakeAnnouncement("A Predator left with their Victim...");
                     }
-
+                    pred_present = false;
+                    am_predator = false;
                 }
                 completed_state = true;
             }
@@ -523,6 +534,8 @@ public class Patron : MonoBehaviour
                     gameplay_director.predators_victim_count += 1;
                     announcer.MakeAnnouncement("You caught the Victim, Not the Predator.");
                 }
+                pred_present = false;
+                am_predator = false;
                 completed_state = true;
             }
         }
@@ -568,6 +581,8 @@ public class Patron : MonoBehaviour
                     gameplay_director.predators_victim_saved += 1;
                     announcer.MakeAnnouncement("You caught a Predator.");
                 }
+                pred_present = false;
+                am_predator = false;
                 completed_state = true;
             }
         }
