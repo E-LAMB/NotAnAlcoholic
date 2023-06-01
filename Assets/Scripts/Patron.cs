@@ -64,6 +64,7 @@ public class Patron : MonoBehaviour
 
     public SpriteRenderer drink_fluid;
     public Vector4 drink_color;
+    public SpriteRenderer drink_glass;
     public bool drink_spike_change;
 
     public PatronSprites my_sprite_manager;
@@ -114,6 +115,7 @@ public class Patron : MonoBehaviour
         sick_time = 0f;
 
         drink_fluid.enabled = true;
+        drink_glass.enabled = true;
 
     }
 
@@ -124,20 +126,21 @@ public class Patron : MonoBehaviour
 
         if (type == "ALCOHOL")
         {
-            drink_color = new Vector4(1f, 1f, 0.7f, 0.4f);
+            drink_color = new Vector4(0.95f, 0.9f, 0.65f, 0.8f);
         }
         if (type == "WATER")
         {
-            drink_color = new Vector4(0.5f, 1f, 1f, 0.5f);
+            drink_color = new Vector4(0.5f, 0.8f, 1f, 0.4f);
         }
         if (type == "JUICE")
         {
-            drink_color = new Vector4(1f, 0.5f, 0f, 1f);
+            drink_color = new Vector4(0.9f, 0.5f, 0f, 1f);
         }
 
         drink_fluid.color = drink_color;
 
         has_drink = true;
+        drink_glass.enabled = true;
 
         drink_fluid.color = drink_color;
 
@@ -154,6 +157,7 @@ public class Patron : MonoBehaviour
         has_drink = true;
 
         drink_fluid.color = drink_color;
+        drink_glass.enabled = false;
 
     }
 
@@ -251,12 +255,15 @@ public class Patron : MonoBehaviour
         if (served_angel_shot)
         {
             drink_fluid.enabled = false;
+            drink_glass.enabled = false;
         }
 
         if (drink_is_spiked && !drink_spike_change)
         {
             drink_spike_change = true;
-            drink_color = new Vector4 (spike_change, spike_change, spike_change, 1f);
+            drink_color = drink_fluid.color;
+            drink_color = new Vector4 (drink_color.x - (gameplay_director.spike_impact / 2f), drink_color.y + (gameplay_director.spike_impact), drink_color.z - (gameplay_director.spike_impact / 2f), drink_color.w);
+            drink_glass.enabled = true;
             drink_fluid.color = drink_color;
         }
 
@@ -381,20 +388,24 @@ public class Patron : MonoBehaviour
             can_be_belled = true;
             can_order = !has_drink;
             my_drink.SetActive(has_drink);
+            drink_glass.enabled = has_drink;
         } else
         {
             text_gameobject.SetActive(false);
             can_be_belled = false;       
             my_drink.SetActive(false);
+            drink_glass.enabled = false;
         }
 
         if (my_state == 6)
         {
             my_drink.SetActive(has_drink);
+            drink_glass.enabled = has_drink;
         }
         if (my_state == 7)
         {
             my_drink.SetActive(has_drink);
+            drink_glass.enabled = has_drink;
         }
 
         /*

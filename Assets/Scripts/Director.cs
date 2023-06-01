@@ -7,6 +7,9 @@ public class Director : MonoBehaviour
 
     public bool should_assign;
 
+    public bool should_third_force;
+    public int pairing_number;
+
     public int pairing_one;
     public int pairing_two;
 
@@ -187,6 +190,12 @@ public class Director : MonoBehaviour
         {
 
             predator_is_a = false;
+
+            pairing_number += 1;
+            if (should_third_force && pairing_number == 3)
+            {
+                predator_chance = -20f;
+            }
 
             if (Random.Range(1f, 100f) > predator_chance)
             {

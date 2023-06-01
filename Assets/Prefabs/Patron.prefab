@@ -588,6 +588,7 @@ MonoBehaviour:
   sprite_chosen: 0
   drink_fluid: {fileID: 7526241542391661007}
   drink_color: {x: 0, y: 0, z: 0, w: 0}
+  drink_glass: {fileID: 243584466848153157}
   drink_spike_change: 0
   my_sprite_manager: {fileID: 0}
   my_conversation_controller: {fileID: 0}

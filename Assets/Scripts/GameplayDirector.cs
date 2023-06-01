@@ -10,6 +10,7 @@ public class GameplayDirector : MonoBehaviour
     [Header("Variables")]
 
     public int current_day;
+    public float spike_impact;
 
     public int gameplay_loop_drinks;
 

@@ -18,6 +18,8 @@ public class EndButton : MonoBehaviour
     bool pressed;
     bool gave_warning;
 
+    public BouncerBell the_bell;
+
     void OnMouseDown()
     {
 
@@ -32,21 +34,27 @@ public class EndButton : MonoBehaviour
         if (pat_5.am_predator) { predator_present = true; }
         if (pat_6.am_predator) { predator_present = true; }
 
-        if (!pressed && !predator_present)
+        if (!the_bell.is_using_bouncer)
         {
-            the_director.EndMyShift();
+            if (!the_bell.bell_ready)
+            {
+                announcer.MakeAnnouncement("I should wait for the people I've targeted to leave.");
+
+            }else if (!pressed && !predator_present)
+            {
+                the_director.EndMyShift();
+
+            } else if (!pressed && predator_present && gave_warning)
+            {
+                the_director.EndMyShift();
+            } else if (!pressed && predator_present && !gave_warning)
+            {
+                gave_warning = true;
+                announcer.MakeAnnouncement("I shouldn't end my shift while a predator is still in the building. I should try bounce them first.");
+            }
         }
 
-        if (!pressed && predator_present && gave_warning)
-        {
-            the_director.EndMyShift();
-        }
 
-        if (!pressed && predator_present && !gave_warning)
-        {
-            gave_warning = true;
-            announcer.MakeAnnouncement("I shouldn't end my shift while a predator is still in the building. I should try bounce them first.");
-        }
     }
 
 }

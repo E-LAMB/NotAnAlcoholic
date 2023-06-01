@@ -867,6 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_day: 2
+  spike_impact: 0
   gameplay_loop_drinks: 0
   quota_for_today: 5
   quota_fufilled: 0
@@ -5131,6 +5132,10 @@ PrefabInstance:
     - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: predator_is_spiker
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: should_third_force
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: pred_speaking_speed
