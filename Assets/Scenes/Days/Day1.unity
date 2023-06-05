@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HELLO WORLD!!
+  m_text: I should check the note my boss left for me in the back.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1634,7 +1634,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 60
   m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5940,6 +5940,10 @@ PrefabInstance:
       propertyPath: pat_6
       value: 
       objectReference: {fileID: 1761193213}
+    - target: {fileID: 179735507484055719, guid: 6c4fbefc1c2aae943bb44030703fd25d, type: 3}
+      propertyPath: the_bell
+      value: 
+      objectReference: {fileID: 1305152922}
     - target: {fileID: 179735507484055719, guid: 6c4fbefc1c2aae943bb44030703fd25d, type: 3}
       propertyPath: announcer
       value: 

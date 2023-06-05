@@ -21,7 +21,7 @@ public class StartButton : MonoBehaviour
     {
         if (!read_note && needs_to_read)
         {
-            announcer.MakeAnnouncement("I should read the note my boss left me.");
+            announcer.MakeAnnouncement("I should read the note that my boss left for me in the back.");
         } else
         {
             shift_started = true;

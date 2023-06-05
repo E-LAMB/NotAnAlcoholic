@@ -229,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179735507484055739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 6}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 5, y: 3, z: 1}
   m_Children:
   - {fileID: 179735506399826966}
@@ -307,6 +307,7 @@ MonoBehaviour:
   pat_6: {fileID: 0}
   announcer: {fileID: 0}
   the_director: {fileID: 0}
+  the_bell: {fileID: 0}
 --- !u!61 &179735507484055718
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -358,7 +359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3310416777776137046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 6}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1.3247, y: 1.3247, z: 1.3247}
   m_Children: []
   m_Father: {fileID: 179735507114597938}

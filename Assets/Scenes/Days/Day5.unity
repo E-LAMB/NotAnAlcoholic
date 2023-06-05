@@ -4602,6 +4602,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1761193213}
     - target: {fileID: 179735507484055719, guid: 6c4fbefc1c2aae943bb44030703fd25d, type: 3}
+      propertyPath: the_bell
+      value: 
+      objectReference: {fileID: 1305152922}
+    - target: {fileID: 179735507484055719, guid: 6c4fbefc1c2aae943bb44030703fd25d, type: 3}
       propertyPath: announcer
       value: 
       objectReference: {fileID: 459096776}
