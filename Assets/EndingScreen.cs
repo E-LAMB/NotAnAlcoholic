@@ -5,12 +5,20 @@ using UnityEngine.UI;
 
 public class EndingScreen : MonoBehaviour
 {
-    // made at 1.36am... forgive my sloppy-ness
-
-    public float my_color;
-    public RawImage my_image;
     public float my_time;
-    public AnimationCurve my_curve;
+
+    public float darkness_color;
+    public RawImage darkness_renderer;
+
+    public float overtime_color;
+    public Text overtime_renderer;
+
+    public AnimationCurve darkness_curve;
+    public AnimationCurve overtime_curve;
+
+    public AnimationCurve lynx_position;
+    public Transform lynx_transform;
+    public Vector3 lynx_offset;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +30,16 @@ public class EndingScreen : MonoBehaviour
     void Update()
     {
         my_time += Time.deltaTime;
-        my_color = my_curve.Evaluate(my_time);
-        my_color = 1f - my_color;
-        my_image.color = new Vector4 (0f, 0f, 0f, my_color);
 
-        if (my_time > 10f)
+        darkness_color = darkness_curve.Evaluate(my_time);
+        darkness_renderer.color = new Vector4 (0f, 0f, 0f, darkness_color);
+
+        overtime_color = overtime_curve.Evaluate(my_time);
+        overtime_renderer.color = new Vector4 (1f, 1f, 1f, overtime_color);
+
+        lynx_transform.position = new Vector3(lynx_position.Evaluate(my_time) + lynx_offset.x, 0f + lynx_offset.y, 0f + lynx_offset.z);
+
+        if (my_time > 19.5f)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }

@@ -50,7 +50,7 @@ public class EndButton : MonoBehaviour
             } else if (!pressed && predator_present && !gave_warning)
             {
                 gave_warning = true;
-                announcer.MakeAnnouncement("I shouldn't end my shift while a predator is still in the building. I should try bounce them first.");
+                announcer.MakeAnnouncement("I shouldn't end my shift while a predator is still in the bar.");
             }
         }
 
