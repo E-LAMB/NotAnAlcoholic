@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-
+/*
     public AudioSource my_source;
 
     public bool direction_moving;
@@ -43,4 +43,5 @@ public class MusicPlayer : MonoBehaviour
         my_source.volume = current_volume;
 
     }
+*/
 }

@@ -15,6 +15,8 @@ public class Patron : MonoBehaviour
 
     public bool can_be_belled;
 
+    public AudioSource spiker_sound;
+
     public GameplayDirector gameplay_director;
 
     public GameObject pred_indicator;
@@ -290,6 +292,7 @@ public class Patron : MonoBehaviour
                     {
                         other_person.drink_is_spiked = true;
                         spiking_stage = false;
+                        spiker_sound.Play();
                         // Debug.Log("Spike Set");
                         my_sprite_manager.SetSprite("Default");
                     }
