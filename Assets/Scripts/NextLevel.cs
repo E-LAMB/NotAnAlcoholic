@@ -5,9 +5,12 @@ using UnityEngine;
 public class NextLevel : MonoBehaviour
 {
 
-    public int next_level;
+    public int custom_scene;
+
     public bool moving;
     public float change_time;
+
+    public bool go_custom_scene; 
 
     public SpriteRenderer darkness;
 
@@ -35,7 +38,13 @@ public class NextLevel : MonoBehaviour
 
         if (change_time > 1.5f)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(next_level);
+            if (go_custom_scene)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(custom_scene);
+            } else
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
 }

@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
+
+    public GameMusic my_gamemusic;
+
+    public bool should_activate_track;
+    public int the_track_id;
+
+    void Start()
+    {
+        my_gamemusic = GameObject.FindGameObjectWithTag("Music Player").GetComponent<GameMusic>();
+
+        if (should_activate_track)
+        {
+            my_gamemusic.SwitchTrack(the_track_id);
+        }
+    } 
+
 /*
     public AudioSource my_source;
 

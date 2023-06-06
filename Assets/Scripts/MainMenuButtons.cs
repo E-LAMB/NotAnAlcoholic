@@ -22,6 +22,10 @@ public class MainMenuButtons : MonoBehaviour
 
     public bool exiting_game;
 
+    public RawImage continue_button;
+    public Texture continue_texture;
+    public Texture challenge_texture;
+
     public void TakeToSceneWithFade(int chosen)
     {
         going_to_scene = true;
@@ -36,14 +40,15 @@ public class MainMenuButtons : MonoBehaviour
         going_to_scene = true;
         scene_change = true;
 
-        if (save_sys.player_location == 0) { new_scene = 1; }
-        if (save_sys.player_location == 1) { new_scene = 2; }
-        if (save_sys.player_location == 2) { new_scene = 3; }
-        if (save_sys.player_location == 3) { new_scene = 4; }
-        if (save_sys.player_location == 4) { new_scene = 5; }
-        if (save_sys.player_location == 5) { new_scene = 6; }
-
         darkness_setting = 1.3f;
+
+        if (save_sys.player_location == 0) { new_scene = 3; }
+        if (save_sys.player_location == 1) { new_scene = 4; }
+        if (save_sys.player_location == 2) { new_scene = 5; }
+        if (save_sys.player_location == 3) { new_scene = 6; }
+        if (save_sys.player_location == 4) { new_scene = 7; }
+        if (save_sys.player_location == 5) { new_scene = 2; darkness_setting = 1.1f; }
+
         DisableTheMenu();
     }
 
@@ -87,6 +92,13 @@ public class MainMenuButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (save_sys.player_location == 5)
+        {
+            continue_button.texture = challenge_texture;
+        } else
+        {
+            continue_button.texture = continue_texture;
+        }
 
         if (!going_to_scene && save_sys.player_location == 0)
         {

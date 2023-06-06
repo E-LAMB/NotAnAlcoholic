@@ -10,7 +10,13 @@ EditorBuildSettings:
     guid: 5df744a919d176f468143f64ff0ab84a
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
+    guid: 8659e9a9e57ac504db24d559617d4cda
+  - enabled: 1
+    path: Assets/Scenes/Challenge.unity
     guid: 6d821bf3213ad8249b6ad71659552fce
+  - enabled: 0
+    path: Assets/Scenes/OptionsMenu.unity
+    guid: 1bd7a57901ef5c048b30f9fdf54619fe
   - enabled: 0
     path: Assets/Scenes/Testing.unity
     guid: 2cda990e2423bbf4892e6590ba056729
