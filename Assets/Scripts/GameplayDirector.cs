@@ -58,6 +58,8 @@ public class GameplayDirector : MonoBehaviour
 
     public GameObject end_shift_button;
 
+    public float angel_penalty = 4f;
+
     public bool began_shift;
 
     public void EndMyShift()
@@ -92,7 +94,7 @@ public class GameplayDirector : MonoBehaviour
             {
                 if (order_time > 0f)
                 {
-                    order_time -= (Time.deltaTime * order_regression_speed) / 4f;
+                    order_time -= (Time.deltaTime * order_regression_speed) / angel_penalty;
                 }
             } else
             {

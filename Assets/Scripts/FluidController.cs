@@ -16,6 +16,7 @@ public class FluidController : MonoBehaviour
     public bool can_dispense;
 
     public float time_to_fluid;
+    public float max_fluid_time = 12.2f;
     public bool has_just_dispensed;
 
     public ParticleSystem particle_alcohol;
@@ -84,7 +85,7 @@ public class FluidController : MonoBehaviour
             if (water_selected) { Mind.drink_fluid = "WATER"; }
             if (juice_selected) { Mind.drink_fluid = "JUICE"; }
 
-            time_to_fluid = 12.2f;
+            time_to_fluid = max_fluid_time;
             has_just_dispensed = true;
             // the_director.dispensed_fluid = true;
         }

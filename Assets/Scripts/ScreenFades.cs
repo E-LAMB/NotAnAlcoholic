@@ -24,7 +24,7 @@ public class ScreenFades : MonoBehaviour
 
         the_renderer.color = new Vector4(0f,0f,0f, 1f - (timer / time_to_spend));
 
-        if (time_to_spend + 1f < timer)
+        if (time_to_spend < timer)
         {
             Destroy(this.gameObject);
         }

@@ -59,6 +59,8 @@ public class ConversationController : MonoBehaviour
 
     public int spiker_chance;
 
+    public bool lilith_only;
+
     void Start()
     {
         //notamper_active = false;
@@ -74,10 +76,16 @@ public class ConversationController : MonoBehaviour
             commanding_1.sprite_chosen = Random.Range(0, max_chosen);
             commanding_2.sprite_chosen = Random.Range(0, max_chosen);
 
+            if (lilith_only)
+            {
+                commanding_1.sprite_chosen = 4;
+                commanding_2.sprite_chosen = 4;
+            }
+
             commanding_1.my_conversation_controller = GetComponent<ConversationController>();
             commanding_2.my_conversation_controller = GetComponent<ConversationController>();
 
-            if (commanding_1.sprite_chosen == commanding_2.sprite_chosen)
+            if (commanding_1.sprite_chosen == commanding_2.sprite_chosen && !lilith_only)
             {
                 commanding_2.sprite_chosen += 1;
                 if (commanding_2.sprite_chosen >= max_chosen)

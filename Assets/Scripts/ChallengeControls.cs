@@ -13,6 +13,26 @@ public class ChallengeControls : MonoBehaviour
     public bool scene_change;
     public Image background;
 
+    public Color new_start;
+    public Text start_button;
+
+    public void SelectScene(int chosen)
+    {
+        start_button.color = new_start;
+        new_scene = chosen;
+    }
+
+    public void TakeToSelectedScene()
+    {
+        if (new_scene != 0)
+        {
+            going_to_scene = true;
+            scene_change = true;
+            darkness_setting = 1.1f;
+            DisableTheMenu();
+        }
+    }
+
     public void TakeToSceneWithFade(int chosen)
     {
         going_to_scene = true;
