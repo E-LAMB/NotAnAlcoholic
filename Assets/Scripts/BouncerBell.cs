@@ -92,6 +92,9 @@ public class BouncerBell : MonoBehaviour
             targeted.drink_glass.enabled = false;
             targeted.drink_fluid.enabled = false;
 
+            targeted.drink_collective.position = targeted.drink_offscreen.position;
+            targeted.other_person.drink_collective.position = targeted.other_person.drink_offscreen.position;
+
             targeted.other_person.drink_fluid.color = my_order_generator.selected_patron_seat.drink_color;
             targeted.other_person.served_angel_shot = true;
             targeted.served_angel_shot = false;

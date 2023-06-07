@@ -35,9 +35,7 @@ public class FluidController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (alcohol_active) {but_alc.color = enable_color;} else {but_alc.color = disable_color;}
-        if (water_active) {but_wat.color = enable_color;} else {but_wat.color = disable_color;}
-        if (juice_active) {but_juc.color = enable_color;} else {but_juc.color = disable_color;}
+        
     }
 
     public void FluidSelected_Alcohol()
@@ -94,6 +92,10 @@ public class FluidController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (alcohol_active) {but_alc.color = enable_color;} else {but_alc.color = disable_color;}
+        if (water_active) {but_wat.color = enable_color;} else {but_wat.color = disable_color;}
+        if (juice_active) {but_juc.color = enable_color;} else {but_juc.color = disable_color;}
+        
         time_to_fluid -= Time.deltaTime;
 
         if (0f > time_to_fluid && has_just_dispensed)

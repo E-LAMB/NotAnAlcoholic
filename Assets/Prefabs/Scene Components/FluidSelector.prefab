@@ -5289,6 +5289,7 @@ MonoBehaviour:
   juice_active: 1
   can_dispense: 0
   time_to_fluid: 0
+  max_fluid_time: 12.2
   has_just_dispensed: 0
   particle_alcohol: {fileID: 4847596633004552989}
   particle_water: {fileID: 4847596632315597714}

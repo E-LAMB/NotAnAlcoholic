@@ -493,8 +493,8 @@ MonoBehaviour:
   my_source: {fileID: 1769117676}
   current_track: 0
   my_volume: 0
-  max_volume: 0.6
-  volume_increasing: 0
+  max_volume: 0.5
+  volume_increasing: 1
 --- !u!114 &1769117674
 MonoBehaviour:
   m_ObjectHideFlags: 0

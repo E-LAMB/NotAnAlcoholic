@@ -46,9 +46,9 @@ public class PatronSprites : MonoBehaviour
             sprite_suspicious.SetActive(true);
         }
 
-        if (ideal_sprite_name == "Sick" || my_owner.sick_time > 7f) 
+        if (ideal_sprite_name == "Sick" || my_owner.sick_time > 13f) 
         {
-            if (my_owner.sick_time > 10f)
+            if (my_owner.sick_time > 15f)
             {
                 my_owner.sick_time = 0f;
             }

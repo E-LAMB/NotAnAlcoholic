@@ -72,6 +72,10 @@ public class Patron : MonoBehaviour
     public PatronSprites my_sprite_manager;
     public ConversationController my_conversation_controller;
 
+    public Transform drink_collective;
+    public Transform drink_offscreen;
+    public Transform drink_onscreen;
+
     public void Activate()
     {
         served_angel_shot = false;
@@ -118,6 +122,8 @@ public class Patron : MonoBehaviour
 
         drink_fluid.enabled = true;
         drink_glass.enabled = true;
+
+        drink_collective.position = drink_onscreen.position;
 
     }
 
