@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_day: 6
-  spike_impact: 0.1
+  spike_impact: 0.15
   gameplay_loop_drinks: 0
   quota_for_today: 15
   quota_fufilled: 0
@@ -1479,7 +1479,7 @@ MonoBehaviour:
   the_ender: {fileID: 1009619734}
   time_since_summoned: 0
   order_time: 0
-  max_time: 100
+  max_time: 120
   predators_total: 0
   predators_missed: 0
   predators_caught: 0

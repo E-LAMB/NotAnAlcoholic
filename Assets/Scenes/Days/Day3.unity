@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_day: 3
-  spike_impact: 0.25
+  spike_impact: 0.3
   gameplay_loop_drinks: 0
   quota_for_today: 8
   quota_fufilled: 0

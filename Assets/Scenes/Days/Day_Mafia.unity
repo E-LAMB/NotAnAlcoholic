@@ -4652,7 +4652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: predator_chance_reduction
-      value: 35
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754411, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: m_RootOrder

@@ -989,7 +989,7 @@ MonoBehaviour:
   the_ender: {fileID: 1009619734}
   time_since_summoned: 0
   order_time: 0
-  max_time: 100
+  max_time: 120
   predators_total: 0
   predators_missed: 0
   predators_caught: 0
