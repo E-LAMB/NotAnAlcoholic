@@ -44,6 +44,8 @@ public class OrderGenerator : MonoBehaviour
     public int chance_of_shot;
     public int max_addon_chance;
 
+    public bool prohibit_angelshots;
+
     // Drink Data
 
     public string selected_addon;
@@ -391,7 +393,7 @@ public class OrderGenerator : MonoBehaviour
         needed_ingredients[3] = "n/a";
         needed_ingredients[4] = "n/a";
 
-        if (can_serve_angel && !just_served_angel && Random.Range(1, chance_of_shot) == 1)
+        if (!prohibit_angelshots && can_serve_angel && !just_served_angel && Random.Range(1, chance_of_shot) == 1)
         {
             new_angelshot();
             return;

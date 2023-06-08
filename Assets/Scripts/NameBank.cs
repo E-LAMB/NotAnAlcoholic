@@ -34,11 +34,11 @@ public class NameBank : MonoBehaviour
 
         if (should_access_males) 
         { 
-            return male_names[Random.Range(1, male_names.Length - 1)]; 
+            return male_names[Random.Range(0, male_names.Length)]; 
 
         } else 
         { 
-            return female_names[Random.Range(1, female_names.Length - 1)]; 
+            return female_names[Random.Range(0, female_names.Length)]; 
         }
 
     }

@@ -62,6 +62,11 @@ public class GameplayDirector : MonoBehaviour
 
     public bool began_shift;
 
+    void Start()
+    {
+        time_since_summoned = 5f;
+    }
+
     public void EndMyShift()
     {
         gameplay_loop_drinks = 3;

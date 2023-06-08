@@ -923,6 +923,7 @@ MonoBehaviour:
   summoner_time: 20
   order_regression_speed: 9.5
   end_shift_button: {fileID: 1312247685}
+  angel_penalty: 4
   began_shift: 0
 --- !u!1 &459096772
 GameObject:
@@ -4584,6 +4585,14 @@ PrefabInstance:
     - target: {fileID: 3382476634808443816, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
       propertyPath: next_level
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382476634808443816, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
+      propertyPath: custom_scene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382476634808443816, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
+      propertyPath: go_custom_scene
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3382476636114360432, guid: ede62b6a375eae54a9e149e0a3afd045, type: 3}
       propertyPath: m_RootOrder

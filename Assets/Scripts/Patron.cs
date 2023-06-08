@@ -45,6 +45,8 @@ public class Patron : MonoBehaviour
     public bool is_being_watched;
     public LayerMask watch_layer;
 
+    public float bouncer_waiting_time = 10f;
+
     public string my_name;
 
     public int my_state;
@@ -75,6 +77,8 @@ public class Patron : MonoBehaviour
     public Transform drink_collective;
     public Transform drink_offscreen;
     public Transform drink_onscreen;
+
+    public bool icon_gun_logic;
 
     public void Activate()
     {
@@ -336,7 +340,25 @@ public class Patron : MonoBehaviour
 
         is_being_watched = Physics.CheckSphere(self.position, 1f, watch_layer);
 
-        pred_indicator.SetActive(am_predator);
+        if (icon_gun_logic)
+        {
+            if (my_state == 3 || my_state == 6 || my_state == 7 || my_state == 10)
+            {
+                pred_indicator.SetActive(am_predator);
+                if (am_predator)
+                {
+                    my_sprite_manager.SetSprite("Suspicious");
+                }
+
+            } else
+            {
+                pred_indicator.SetActive(false);
+            }
+        } else
+        {
+            pred_indicator.SetActive(am_predator);
+        }
+        
         spike_indicator.SetActive(drink_is_spiked);
 
         if (text_fade_time <= 0.125f)
@@ -357,7 +379,7 @@ public class Patron : MonoBehaviour
             new_position = Vector3.MoveTowards(self.position, seat_location, Time.deltaTime * movement_speed);
             self.position = new_position;
             distance_to_seat = Vector3.Distance(self.position, seat_location);
-            if (distance_to_seat < 1f)
+            if (distance_to_seat < 0.5f)
             {
                 if (!completed_state) 
                 { 
@@ -514,7 +536,7 @@ public class Patron : MonoBehaviour
         if (my_state == 7)
         {
             bouncer_wait_time += Time.deltaTime;
-            if (bouncer_wait_time > 8f)
+            if (bouncer_wait_time > bouncer_waiting_time)
             {
                 my_state = 8;
             }

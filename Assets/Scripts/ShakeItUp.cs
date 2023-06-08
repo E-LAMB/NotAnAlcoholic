@@ -67,6 +67,8 @@ public class ShakeItUp : MonoBehaviour
     public float shake_base_speed;
     public float shake_speed;
 
+    public int additional_shakes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -233,6 +235,7 @@ public class ShakeItUp : MonoBehaviour
                 times_until_flip = Random.Range(8,10) + Mind.drink_shake_level + Mind.current_day;
                 times_until_flip = times_until_flip * 2;
                 times_until_flip -= 1;
+                times_until_flip += additional_shakes;
                 Mind.drink_shake_level += 1;
             }
 
