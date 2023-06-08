@@ -123,3 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   my_challenger: {fileID: 0}
+  color: 0
+  timer: 0
+  my_render: {fileID: 6546436170621123320}
+  red: {fileID: 21300000, guid: 94a8d757342e042479b182cc59349999, type: 3}
+  blue: {fileID: 21300000, guid: 146c3650eae0f144c94b74f0b9d3a34f, type: 3}
