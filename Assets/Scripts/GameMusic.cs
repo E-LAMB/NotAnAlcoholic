@@ -19,9 +19,17 @@ public class GameMusic : MonoBehaviour
 
     public bool volume_increasing;
 
+    public AudioSource explosion;
+
     void Start()
     {
         SwitchTrack(0);
+    }
+
+    public void Detonate()
+    {
+        SwitchTrack(0);
+        explosion.Play();
     }
 
     public void SwitchTrack(int new_track)

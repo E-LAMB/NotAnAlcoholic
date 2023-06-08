@@ -31,6 +31,8 @@ public class Challenge_Power : MonoBehaviour
 
     public GameObject selected_location;
 
+    public PowerFuse fuse_script;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +77,7 @@ public class Challenge_Power : MonoBehaviour
 
                 sound.Play();
 
+                fuse_script.appearance = 0f;
                 selected_location = fuse_locations[Random.Range(0, fuse_locations.Length)];
                 selected_location = fuse_locations[Random.Range(0, fuse_locations.Length)];
             }
@@ -98,7 +101,7 @@ public class Challenge_Power : MonoBehaviour
             if (fuse_inserted)
             {
                 power_on = true;
-                fuse_time_left = Random.Range(15f, 60f);
+                fuse_time_left = Random.Range(30f, 60f);
                 state = 1;
             }
         }

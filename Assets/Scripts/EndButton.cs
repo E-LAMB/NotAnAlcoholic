@@ -38,7 +38,7 @@ public class EndButton : MonoBehaviour
         {
             if (!the_bell.bell_ready)
             {
-                announcer.MakeAnnouncement("I should wait for the people I've targeted to leave.");
+                announcer.MakeAnnouncement("I should wait for Hugo to do his thing.");
 
             }else if (!pressed && !predator_present)
             {

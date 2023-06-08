@@ -245,6 +245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   should_assign: 0
+  should_third_force: 0
+  pairing_number: 0
   pairing_one: 0
   pairing_two: 0
   normal_speaker_speed: 5

@@ -479,7 +479,8 @@ MonoBehaviour:
   box_active: {fileID: 881112332}
   box_inactive: {fileID: 2043965816}
   fluider: {fileID: 1803177066}
-  selected_location: {fileID: 0}
+  selected_location: {fileID: 1020381110}
+  fuse_script: {fileID: 1020381114}
 --- !u!82 &99913823
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1459,7 +1460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_day: 6
-  spike_impact: 0.15
+  spike_impact: 0.1
   gameplay_loop_drinks: 0
   quota_for_today: 15
   quota_fufilled: 0
@@ -3619,6 +3620,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   my_challenger: {fileID: 99913822}
+  appearance: 0
+  self: {fileID: 1020381112}
 --- !u!1 &1044113997
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,7 +5695,7 @@ MonoBehaviour:
   is_shrinking: 0
   current_size: 20
   big_size: 10
-  small_size: 1
+  small_size: 1.25
   speed: 10
   dark_image:
   - {fileID: 233551458}

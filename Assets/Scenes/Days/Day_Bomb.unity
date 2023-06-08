@@ -552,7 +552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &201710815
 Transform:
   m_ObjectHideFlags: 0
@@ -970,7 +970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_day: 6
-  spike_impact: 0.15
+  spike_impact: 0
   gameplay_loop_drinks: 0
   quota_for_today: 15
   quota_fufilled: 0
@@ -2163,6 +2163,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea16b70d9302d24eb3c4cb303e43707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &913175018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 913175019}
+  - component: {fileID: 913175020}
+  m_Layer: 0
+  m_Name: Challenge_Timebomb
+  m_TagString: BombController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &913175019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913175018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &913175020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913175018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb38701ad952b06428ee0d111a90c024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  my_music: {fileID: 0}
+  bombs: 0
+  time_until_detonation: 10
 --- !u!1 &924693741
 GameObject:
   m_ObjectHideFlags: 0
@@ -4600,11 +4646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: spiker_aggression
-      value: 40
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: predator_is_spiker
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: pred_speaking_speed
@@ -4620,7 +4666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: predator_chance_reduction
-      value: 25
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754411, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: m_RootOrder
@@ -4691,6 +4737,10 @@ PrefabInstance:
       value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 6519965998654090091, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: timebomb_logic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519965998654090091, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
       value: 
       objectReference: {fileID: 428526188}
@@ -4705,6 +4755,10 @@ PrefabInstance:
     - target: {fileID: 6519965999092378200, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: movement_speed
       value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519965999092378200, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: timebomb_logic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6519965999092378200, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
@@ -4723,6 +4777,10 @@ PrefabInstance:
       value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 6519965999527976585, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: timebomb_logic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519965999527976585, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
       value: 
       objectReference: {fileID: 428526188}
@@ -4737,6 +4795,10 @@ PrefabInstance:
     - target: {fileID: 6519965999603869310, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: movement_speed
       value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519965999603869310, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: timebomb_logic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6519965999603869310, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
@@ -4755,6 +4817,10 @@ PrefabInstance:
       value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 6519965999815267647, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: timebomb_logic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519965999815267647, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
       value: 
       objectReference: {fileID: 428526188}
@@ -4771,9 +4837,29 @@ PrefabInstance:
       value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 6519966000270178372, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: timebomb_logic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519966000270178372, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
       value: 
       objectReference: {fileID: 428526188}
+    - target: {fileID: 6961232744597972099, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa03ee4a5b05e7743aa66bb7ef12d7c0, type: 3}
+    - target: {fileID: 6961232745120074232, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa03ee4a5b05e7743aa66bb7ef12d7c0, type: 3}
+    - target: {fileID: 6961232745312647865, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa03ee4a5b05e7743aa66bb7ef12d7c0, type: 3}
+    - target: {fileID: 6961232745331901006, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa03ee4a5b05e7743aa66bb7ef12d7c0, type: 3}
     - target: {fileID: 6961232745331901006, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.size
       value: 3
@@ -4818,6 +4904,14 @@ PrefabInstance:
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outWeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6961232745840817823, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa03ee4a5b05e7743aa66bb7ef12d7c0, type: 3}
+    - target: {fileID: 6961232746203641772, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa03ee4a5b05e7743aa66bb7ef12d7c0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
 --- !u!1001 &4847596634012428982

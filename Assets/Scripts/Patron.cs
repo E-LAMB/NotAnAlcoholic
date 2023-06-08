@@ -6,6 +6,10 @@ using TMPro;
 public class Patron : MonoBehaviour
 {
 
+    public bool timebomb_logic;
+    public GameObject timebomb;
+    public GameObject bomb_spawn_spot;
+
     public bool currently_free;
 
     public bool assigned_to_conversation;
@@ -304,6 +308,12 @@ public class Patron : MonoBehaviour
                         spiking_stage = false;
                         spiker_sound.Play();
                         // Debug.Log("Spike Set");
+
+                        if (timebomb_logic)
+                        {
+                            Instantiate(timebomb, other_person.bomb_spawn_spot.transform);
+                        }
+
                         my_sprite_manager.SetSprite("Default");
                     }
 

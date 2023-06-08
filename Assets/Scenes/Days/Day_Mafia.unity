@@ -4640,11 +4640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: pred_speaking_speed
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: normal_speaker_speed
-      value: 13
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4365542874405754410, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: initial_predator_chance
@@ -4783,6 +4783,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6519965998654090091, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: bouncer_wait_time
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519965998654090091, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
       value: 
       objectReference: {fileID: 428526188}
@@ -4807,6 +4811,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6519965999092378200, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: bouncer_wait_time
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519965999092378200, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
       value: 
       objectReference: {fileID: 428526188}
@@ -4831,6 +4839,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6519965999527976585, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: bouncer_wait_time
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519965999527976585, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
       value: 
       objectReference: {fileID: 428526188}
@@ -4855,6 +4867,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6519965999603869310, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: bouncer_wait_time
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519965999603869310, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
       value: 
       objectReference: {fileID: 428526188}
@@ -4879,6 +4895,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6519965999815267647, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: bouncer_wait_time
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519965999815267647, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director
       value: 
       objectReference: {fileID: 428526188}
@@ -4901,6 +4921,10 @@ PrefabInstance:
     - target: {fileID: 6519966000270178372, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: movement_speed
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519966000270178372, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
+      propertyPath: bouncer_wait_time
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6519966000270178372, guid: 060969abf8abaf847b9abef73ef7229c, type: 3}
       propertyPath: gameplay_director

@@ -1022,8 +1022,8 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 0.5
   m_Text: "\"\"The Spike Has Been Planted\"\"\n\n\nWhen  a  drink  is  spiked,  A 
-    bomb  also  appears  on  the  drink.  \n\nYou  have  15  seconds  to  disarm 
-    the  drink,  Otherwise  you  lose."
+    bomb  also  appears  on  the  drink.  \n\nYou  have  7  seconds  to  disarm 
+    the  bomb  by  clicking  on  it."
 --- !u!222 &1246657510
 CanvasRenderer:
   m_ObjectHideFlags: 0
