@@ -60,7 +60,7 @@ public class MainMenuButtons : MonoBehaviour
         save_sys.SaveData("WelcomeToTheFurmaly");
         save_sys.player_location = 0;
 
-        if (save_sys.player_location == 0) { new_scene = 1; }
+        if (save_sys.player_location == 0) { new_scene = 3; }
 
         darkness_setting = 1.3f;
         DisableTheMenu();
