@@ -278,9 +278,9 @@ MonoBehaviour:
     So if you want, Take a dabble
     and have some fun :)
 
-    (do note that your save file will be updated as if
-    you''d completed the game due to the shift being a copy of overtime as far as
-    the save system is concerned
+    (do note that your save file will be updated to day
+    5 as if you''d completed the game due to the shift being a copy of overtime as
+    far as the save system is concerned)
 
 
     - Redcoat'

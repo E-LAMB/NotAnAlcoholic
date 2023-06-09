@@ -46,7 +46,7 @@ public class EndingScreen : MonoBehaviour
 
         lynx_transform.position = new Vector3(lynx_position.Evaluate(my_time) + lynx_offset.x, 0f + lynx_offset.y, 0f + lynx_offset.z);
 
-        if (my_time > 19.5f)
+        if (my_time > 23f)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
