@@ -47,7 +47,9 @@ public class MainMenuButtons : MonoBehaviour
         if (save_sys.player_location == 2) { new_scene = 5; }
         if (save_sys.player_location == 3) { new_scene = 6; }
         if (save_sys.player_location == 4) { new_scene = 7; }
-        if (save_sys.player_location == 5) { new_scene = 2; darkness_setting = 1.1f; }
+        // if (save_sys.player_location == 5) { new_scene = 2; darkness_setting = 1.1f; }
+        if (save_sys.player_location == 5) { new_scene = 8; }
+        if (save_sys.player_location == 6) { new_scene = 8; }
 
         DisableTheMenu();
     }
@@ -92,6 +94,7 @@ public class MainMenuButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (save_sys.player_location == 5)
         {
             continue_button.texture = challenge_texture;
@@ -99,6 +102,7 @@ public class MainMenuButtons : MonoBehaviour
         {
             continue_button.texture = continue_texture;
         }
+        */
 
         if (!going_to_scene && save_sys.player_location == 0)
         {

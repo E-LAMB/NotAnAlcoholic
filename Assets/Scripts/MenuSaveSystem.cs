@@ -42,6 +42,8 @@ public class MenuSaveSystem : MonoBehaviour
         // "DangerouslyFurry" - Completed Day 4
         // "WAYDYSF" - Completed Day 5
 
+        // "OWOWHATSTHIS" - Complete Day 6 (Overtime)
+
         player_location = 0;
 
         if (content == "NotFurry")
@@ -63,6 +65,10 @@ public class MenuSaveSystem : MonoBehaviour
         if (content == "WAYDYSF")
         {
             player_location = 5;
+        }
+        if (content == "OWOWHATSTHIS")
+        {
+            player_location = 6;
         }
     }
 
